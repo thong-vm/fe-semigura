@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Chart from "./components/chart/chart";
 
 function App() {
+  const [dataLineChart, setDataLineChart] = useState({
+    day: [1, 2, 3, 5, 8, 10, 12, 15, 16],
+    line: [
+      {
+        label: "Room Temperature",
+        value: [2, 5.5, 8, 8.5, 1.5, 5, 5.5, 2, 8.5],
+      },
+      {
+        label: "Product Temperature",
+        value: [3, 5.5, 3, 8.5, 13.5, 5, 3, 5.5, 2],
+      },
+      {
+        label: "Room Temperature",
+        value: [9, 5.5, 2, 8.5, 5.5, 9, 3, 5.5, 2],
+      },
+      {
+        label: "Room Temperature",
+        value: [9, 5.5, 2, 0.5, 3.5, 2, 3, 5.5, 2],
+      },
+    ],
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Chart dataLineChart={dataLineChart} />
     </div>
   );
 }
