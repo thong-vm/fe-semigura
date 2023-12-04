@@ -6,8 +6,8 @@ import DataTable from "../components/data-table/data-table";
 function Moromi() {
   const [data, setData] = useState(moromiMock);
 
-  const [dataLineChart, setDataLineChart] = useState({
-    day: [],
+  const [chartData, setDataLineChart] = useState({
+    xAxisData: [],
     line: parseToLineArray(data),
   });
   const changeData = () => {
@@ -16,10 +16,10 @@ function Moromi() {
         id: 1,
         day: 1,
         time: "2022-12-01 05:00:00",
-        roomTemperature: null,
+        roomTemperature: -2,
         productTemperature: 7,
-        baume: null,
-        japanSakeLevel: null,
+        baume: 9,
+        japanSakeLevel: 1,
         alcoholContent: null,
       },
       {
@@ -35,19 +35,19 @@ function Moromi() {
     ]);
   };
   useEffect(() => {
-    const numbersArray = Array.from(
+    const xAxisData = Array.from(
       { length: data.length },
       (_, index) => index + 1
     );
     setDataLineChart({
-      day: numbersArray,
+      xAxisData: xAxisData,
       line: parseToLineArray(data),
     });
   }, [data]);
   return (
     <div>
       <button onClick={changeData}>change</button>
-      {dataLineChart.day.length && <Chart dataLineChart={dataLineChart} />}
+      {chartData.xAxisData.length && <Chart dataLineChart={chartData} />}
       <DataTable data={data} />
     </div>
   );

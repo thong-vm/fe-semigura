@@ -4,7 +4,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 function Chart({ dataLineChart }) {
   return (
     <LineChart
-      xAxis={[{ data: dataLineChart.day }]}
+      xAxis={[{ data: dataLineChart.xAxisData }]}
       series={dataLineChart.line.map((x) => {
         return {
           data: x.value,

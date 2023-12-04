@@ -4,7 +4,7 @@ export const moromiMock = [
     day: 1,
     time: "2022-12-01 05:00:00",
     roomTemperature: null,
-    productTemperature: 7,
+    productTemperature: null,
     baume: null,
     japanSakeLevel: null,
     alcoholContent: null,
