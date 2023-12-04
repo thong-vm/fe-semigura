@@ -1,4 +1,5 @@
 import PageTable from "../../../components/page-table/page-table";
+import { selectAllBmd, updateBmd } from "../../../store/moromi/bmdSlide";
 import {
   selectAllMoromis,
   updateMoromi,
@@ -9,7 +10,10 @@ function MoromiGeneral() {
     <div>
       MoromiGeneral
       <PageTable selectAllData={selectAllMoromis} updateData={updateMoromi} />
-      <PageTable selectAllData={selectAllMoromis} updateData={updateMoromi} />
+      <PageTable
+            selectAllData={selectAllBmd}
+            updateData={updateBmd}
+          />
     </div>
   );
 }
