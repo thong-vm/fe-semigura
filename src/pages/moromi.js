@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 import Chart from "../components/chart/chart";
-import { moromiMock } from "../mock/moromi";
 import { parseToLineArray } from "../help/parseToLineArray";
 import DataTable from "../components/data-table/data-table";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllMoromis, updateList } from "../store/moromi/moromiSlice";
 function Moromi() {
-  const [data, setData] = useState(moromiMock);
+  const dispatch = useDispatch();
+  const data = useSelector(selectAllMoromis);
   const [chartData, setDataLineChart] = useState({
     xAxisData: [],
     line: parseToLineArray(data),
   });
   const handleEditRow = (rowIndex, id, name, value) => {
-    const newData = [...data];
-    newData[rowIndex] = {
-      ...newData[rowIndex],
+    const updatedData = [...data];
+    updatedData[rowIndex] = {
+      ...updatedData[rowIndex],
       [name]: value && !isNaN(value) ? parseFloat(value) : value,
     };
-    setData(newData);
+    dispatch(updateList({ id: id, moromi: updatedData[rowIndex] }));
   };
   useEffect(() => {
     const xAxisData = Array.from(
@@ -26,7 +28,7 @@ function Moromi() {
       xAxisData: xAxisData,
       line: parseToLineArray(data),
     });
-  }, [data]);
+  }, [data, dispatch]);
   return (
     <div>
       {chartData.xAxisData.length && <Chart dataLineChart={chartData} />}
