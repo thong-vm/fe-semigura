@@ -2,20 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { moromiMock } from "../../mock/moromi";
-// import Moromi from "../../pages/moromi/Moromi";
 const BASE_URL = "http://localhost:8000/moromis";
 
 const initialState = {
   moromis: moromiMock,
 };
 
-// export const fetchMoromis = createAsyncThunk(
-//   "moromis/fetchMoromis",
-//   async () => {
-//     const { result, error } = await Moromi.getAll();
-//     return !error ? result : console.log("Moromi.getAll: ", error);
-//   }
-// );
+export const fetchMoromis = createAsyncThunk(
+  "moromis/fetchMoromis",
+  async () => {
+    return [];
+  }
+);
 
 export const deleteMoromi = createAsyncThunk(
   "moromi/deleteMoromi",
@@ -58,11 +56,10 @@ const moromisSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    // builder.addCase(fetchMoromis.fulfilled, (state, action) => {
-    //   state.status = "succeeded";
-    //   state.moromis = action.payload;
-    //   console.log("state.moromi :", state.moromi);
-    // });
+    builder.addCase(fetchMoromis.fulfilled, (state, action) => {
+      state.status = "succeeded";
+      state.moromis = action.payload;
+    });
   },
 });
 export const { setList, addToList, updateList, deleteItem } =
