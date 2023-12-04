@@ -14,7 +14,7 @@ function Chart({ dataLineChart }) {
         };
       })}
       height={200}
-      margin={{ top: 10, bottom: 20 }}
+      margin={{ top: 50, bottom: 20 }}
     />
   );
 }
