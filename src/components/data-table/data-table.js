@@ -14,6 +14,7 @@ const DataTable = ({ data }) => {
                   top: 0,
                   backgroundColor: "white",
                   zIndex: 1,
+                  minWidth: "10rem",
                 }}
               >
                 {parseVarriableToLabel(name)}
@@ -23,12 +24,21 @@ const DataTable = ({ data }) => {
         </tbody>
       </table>
       <div style={{ overflowX: "auto", maxWidth: "100%" }}>
-        <table>
+        <table border="0" cellspacing="0.5" cellpadding="0">
           <tbody>
             {Object.keys(data[0]).map((name, index) => (
               <tr key={index}>
                 {data.map((column) => (
-                  <td key={column.id}>{column[name]}</td>
+                  <td
+                    style={{ minWidth: "5rem", border: "0.5px solid" }}
+                    key={column.id}
+                  >
+                    <input
+                      type="text"
+                      style={{ border: "none", outline: "none" }}
+                      value={column[name]}
+                    />
+                  </td>
                 ))}
               </tr>
             ))}
