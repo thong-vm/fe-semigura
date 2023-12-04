@@ -3,7 +3,7 @@ import Chart from "../../components/chart/chart";
 import { parseToLineArray } from "../../help/parseToLineArray";
 import DataTable from "../../components/data-table/data-table";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllBmd, updateMoromi } from "../../store/moromi/bmdSlide";
+import { selectAllBmd, updateBmd } from "../../store/moromi/bmdSlide";
 
 function Bmd() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function Bmd() {
       [name]: value && !isNaN(value) ? parseFloat(value) : value,
     };
 
-    dispatch(updateMoromi({ id, changes }));
+    dispatch(updateBmd({ id, changes }));
   };
   useEffect(() => {
     const xAxisData = Array.from(

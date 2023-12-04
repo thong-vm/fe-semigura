@@ -56,7 +56,7 @@ const bmdSlice = createSlice({
     });
   },
 });
-export const { setList, addToList, updateMoromi, deleteItem } =
+export const { setList, addToList, updateBmd, deleteItem } =
   bmdSlice.actions;
 export default bmdSlice.reducer;
 export const selectAllBmd = (state) => state.bmd.bmd;

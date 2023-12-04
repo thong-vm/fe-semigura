@@ -5,8 +5,6 @@ function Dashboard() {
   return (
     <div>
       <Moromi />
-      <Bmd/>
-      {/* orther table  */}
     </div>
   );
 }
