@@ -1,34 +1,14 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Chart from "./components/chart/chart";
+import Main from "./layout/main";
 
 function App() {
-  const [dataLineChart, setDataLineChart] = useState({
-    day: [1, 2, 3, 5, 8, 10, 12, 15, 16],
-    line: [
-      {
-        label: "Room Temperature",
-        value: [2, 5.5, 8, 8.5, 1.5, 5, 5.5, 2, 8.5],
-      },
-      {
-        label: "Product Temperature",
-        value: [3, 5.5, 3, 8.5, 13.5, 5, 3, 5.5, 2],
-      },
-      {
-        label: "Room Temperature",
-        value: [9, 5.5, 2, 8.5, 5.5, 9, 3, 5.5, 2],
-      },
-      {
-        label: "Room Temperature",
-        value: [9, 5.5, 2, 0.5, 3.5, 2, 3, 5.5, 2],
-      },
-    ],
-  });
-
   return (
-    <div className="App">
-      <Chart dataLineChart={dataLineChart} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/*" element={<Main />} />
+      </Routes>
+    </Router>
   );
 }
 
