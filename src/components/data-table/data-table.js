@@ -1,4 +1,5 @@
 import React from "react";
+import { parseVarriableToLabel } from "../../help/parseVarriableToLabel";
 
 const DataTable = ({ data }) => {
   return (
@@ -15,7 +16,7 @@ const DataTable = ({ data }) => {
                   zIndex: 1,
                 }}
               >
-                {name}
+                {parseVarriableToLabel(name)}
               </td>
             </tr>
           ))}

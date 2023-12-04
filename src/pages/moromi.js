@@ -5,7 +5,6 @@ import { parseToLineArray } from "../help/parseToLineArray";
 import DataTable from "../components/data-table/data-table";
 function Moromi() {
   const [data, setData] = useState(moromiMock);
-
   const [chartData, setDataLineChart] = useState({
     xAxisData: [],
     line: parseToLineArray(data),
