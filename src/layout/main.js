@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Moromi from "../pages/moromi";
+import Moromi from "../pages/moromi/moromi";
 function Main() {
   return (
     <Routes>

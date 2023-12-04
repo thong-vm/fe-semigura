@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Chart from "../components/chart/chart";
-import { parseToLineArray } from "../help/parseToLineArray";
-import DataTable from "../components/data-table/data-table";
+import Chart from "../../components/chart/chart";
+import { parseToLineArray } from "../../help/parseToLineArray";
+import DataTable from "../../components/data-table/data-table";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllMoromis, updateMoromi } from "../store/moromi/moromiSlice";
+import { selectAllMoromis, updateMoromi } from "../../store/moromi/moromiSlice";
 function Moromi() {
   const dispatch = useDispatch();
   const data = useSelector(selectAllMoromis);
