@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sensor from "../pages/sensor";
+import Moromi from "../pages/moromi";
 function Main() {
   return (
     <Routes>
-      <Route path="/" element={<Sensor />} />
-      <Route path="/sensor" element={<Sensor />} />
+      <Route path="/" element={<Moromi />} />
+      <Route path="/moromi" element={<Moromi />} />
     </Routes>
   );
 }

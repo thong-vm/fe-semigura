@@ -1,14 +1,5 @@
 export const moromiMock = [
   {
-    day: null,
-    time: null,
-    roomTemperature: null,
-    productTemperature: null,
-    baume: null,
-    japanSakeLevel: null,
-    alcoholContent: null,
-  },
-  {
     day: 1,
     time: 5,
     roomTemperature: null,
