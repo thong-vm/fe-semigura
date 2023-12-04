@@ -10,7 +10,7 @@ function Moromi() {
       <Route path="/*" element={<NotFound />} />
       <Route path="/" element={<MoromiGeneral />} />
       <Route
-        path="/table1"
+        path="/general"
         element={
           <PageTable
             selectAllData={selectAllMoromis}
@@ -21,10 +21,7 @@ function Moromi() {
       <Route
         path="/bmd"
         element={
-          <PageTable
-            selectAllData={selectAllBmd}
-            updateData={updateBmd}
-          />
+          <PageTable selectAllData={selectAllBmd} updateData={updateBmd} />
         }
       />
     </Routes>

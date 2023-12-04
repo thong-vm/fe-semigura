@@ -1,4 +1,3 @@
-import Bmd from "../bmd/bmd";
 import Moromi from "../moromi/moromi";
 
 function Dashboard() {
