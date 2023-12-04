@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { parseVarriableToLabel } from "../../help/parseVarriableToLabel";
 
-const DataTable = ({ data }) => {
+const DataTable = ({ data, handleEditRow }) => {
+  const [editableData, setEditableData] = useState(data);
+  const handleInputChange = (newValue, rowIndex, columnName) => {
+    const newData = [...editableData];
+    newData[rowIndex] = {
+      ...newData[rowIndex],
+      [columnName]: newValue,
+    };
+    setEditableData(newData);
+  };
   return (
     <div style={{ display: "flex" }}>
       <table>
@@ -24,11 +33,11 @@ const DataTable = ({ data }) => {
         </tbody>
       </table>
       <div style={{ overflowX: "auto", maxWidth: "100%" }}>
-        <table border="0" cellspacing="0.5" cellpadding="0">
+        <table border="0" cellSpacing="0.5" cellPadding="0">
           <tbody>
             {Object.keys(data[0]).map((name, index) => (
               <tr key={index}>
-                {data.map((column) => (
+                {editableData.map((column, rowIndex) => (
                   <td
                     style={{ minWidth: "5rem", border: "0.5px solid" }}
                     key={column.id}
@@ -36,7 +45,16 @@ const DataTable = ({ data }) => {
                     <input
                       type="text"
                       style={{ border: "none", outline: "none" }}
-                      value={column[name]}
+                      value={column[name] ?? ""}
+                      onChange={(e) => {
+                        handleInputChange(e.target.value, rowIndex, name);
+                        handleEditRow(
+                          rowIndex,
+                          column.id,
+                          name,
+                          e.target.value
+                        );
+                      }}
                     />
                   </td>
                 ))}

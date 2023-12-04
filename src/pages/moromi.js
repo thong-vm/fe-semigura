@@ -9,29 +9,13 @@ function Moromi() {
     xAxisData: [],
     line: parseToLineArray(data),
   });
-  const changeData = () => {
-    setData([
-      {
-        id: 1,
-        day: 1,
-        time: "2022-12-01 05:00:00",
-        roomTemperature: -2,
-        productTemperature: 7,
-        baume: 9,
-        japanSakeLevel: 1,
-        alcoholContent: null,
-      },
-      {
-        id: 2,
-        day: 2,
-        time: "2022-12-01 05:00:00",
-        roomTemperature: 5,
-        productTemperature: 7.5,
-        baume: 6.7,
-        japanSakeLevel: null,
-        alcoholContent: 2.8,
-      },
-    ]);
+  const handleEditRow = (rowIndex, id, name, value) => {
+    const newData = [...data];
+    newData[rowIndex] = {
+      ...newData[rowIndex],
+      [name]: value && !isNaN(value) ? parseFloat(value) : value,
+    };
+    setData(newData);
   };
   useEffect(() => {
     const xAxisData = Array.from(
@@ -45,9 +29,8 @@ function Moromi() {
   }, [data]);
   return (
     <div>
-      <button onClick={changeData}>change</button>
       {chartData.xAxisData.length && <Chart dataLineChart={chartData} />}
-      <DataTable data={data} />
+      <DataTable data={data} handleEditRow={handleEditRow} />
     </div>
   );
 }
