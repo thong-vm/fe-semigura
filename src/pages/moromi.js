@@ -3,7 +3,7 @@ import Chart from "../components/chart/chart";
 import { parseToLineArray } from "../help/parseToLineArray";
 import DataTable from "../components/data-table/data-table";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllMoromis, updateList } from "../store/moromi/moromiSlice";
+import { selectAllMoromis, updateMoromi } from "../store/moromi/moromiSlice";
 function Moromi() {
   const dispatch = useDispatch();
   const data = useSelector(selectAllMoromis);
@@ -11,13 +11,12 @@ function Moromi() {
     xAxisData: [],
     line: parseToLineArray(data),
   });
-  const handleEditRow = (rowIndex, id, name, value) => {
-    const updatedData = [...data];
-    updatedData[rowIndex] = {
-      ...updatedData[rowIndex],
+  const handleEditRow = (id, name, value) => {
+    var changes = {
       [name]: value && !isNaN(value) ? parseFloat(value) : value,
     };
-    dispatch(updateList({ id: id, moromi: updatedData[rowIndex] }));
+
+    dispatch(updateMoromi({ id, changes }));
   };
   useEffect(() => {
     const xAxisData = Array.from(

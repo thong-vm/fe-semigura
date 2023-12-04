@@ -40,15 +40,10 @@ const moromisSlice = createSlice({
       var { moromi } = action.payload;
       state.moromis = [moromi, ...state.moromis];
     },
-    updateList: (state, action) => {
-      var { id, moromi } = action.payload;
-      state.moromis = state.moromis.map((element) => {
-        if (element.id === id) {
-          return moromi;
-        } else {
-          return element;
-        }
-      });
+    updateMoromi: (state, action) => {
+      var { id, changes } = action.payload;
+      var moromi = state.moromis.find((m) => m.id === id);
+      Object.keys(changes).forEach((key) => (moromi[key] = changes[key]));
     },
     deleteItem: (state, action) => {
       var { id } = action.payload;
@@ -62,7 +57,7 @@ const moromisSlice = createSlice({
     });
   },
 });
-export const { setList, addToList, updateList, deleteItem } =
+export const { setList, addToList, updateMoromi, deleteItem } =
   moromisSlice.actions;
 export const selectAllMoromis = (state) => state.moromis.moromis;
 export default moromisSlice.reducer;

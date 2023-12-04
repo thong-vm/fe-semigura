@@ -48,12 +48,7 @@ const DataTable = ({ data, handleEditRow }) => {
                       value={column[name] ?? ""}
                       onChange={(e) => {
                         handleInputChange(e.target.value, rowIndex, name);
-                        handleEditRow(
-                          rowIndex,
-                          column.id,
-                          name,
-                          e.target.value
-                        );
+                        handleEditRow(column.id, name, e.target.value);
                       }}
                     />
                   </td>
