@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { arukoruExpectLineMock, arukoruMock } from "../../mock/arukoru";
+import { arukoruMock } from "../../mock/arukoru";
 const BASE_URL = "http://localhost:8000/bmds";
 // const logUp = 30;
 // const logDown = 20;
 const initialState = {
   arukorus: arukoruMock,
-  expectLine: arukoruExpectLineMock
 };
 
 export const fetchArukoru = createAsyncThunk(
@@ -42,16 +41,14 @@ const arukoruSlice = createSlice({
       var { arukoru } = action.payload;
       state.arukorus = [...state.arukorus, arukoru];
     },
-    updateEkisu: (state, action) => {
+    updateArukoru: (state, action) => {
       var { id, changes } = action.payload;
       var arukoru = state.arukorus.find((element) => element.id === id);
       Object.keys(changes).forEach((key) => (arukoru[key] = changes[key]));
     },
     deleteItem: (state, action) => {
       var { id } = action.payload;
-      state.arukorus = state.arukorus.filter(
-        (element) => element.id !== id
-      );
+      state.arukorus = state.arukorus.filter((element) => element.id !== id);
     },
   },
   extraReducers(builder) {
@@ -61,8 +58,8 @@ const arukoruSlice = createSlice({
     });
   },
 });
-export const { setList, addToList, updateArukoru, deleteItem } = arukoruSlice.actions;
+export const { setList, addToList, updateArukoru, deleteItem } =
+  arukoruSlice.actions;
 
 export const selectAllArukoru = (state) => state.arukoru.arukorus;
-export const selectAllExpectLines = (state) => state.arukoru.expectLine;
 export default arukoruSlice.reducer;
