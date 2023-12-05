@@ -11,7 +11,13 @@ function MoromiGeneral() {
   const updateData = ({ id, changes }) => {
     dispatch(updateMoromi({ id, changes }));
   };
-  return <PageTable data={data} updateData={updateData} />;
+  return (
+    <PageTable
+      data={data}
+      updateData={updateData}
+      axis={{ x: "Day", y: "t°" }}
+    />
+  );
 }
 
 export default MoromiGeneral;

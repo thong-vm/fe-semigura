@@ -8,7 +8,13 @@ function Ekisu() {
   const updateData = ({ id, changes }) => {
     dispatch(updateEkisu({ id, changes }));
   };
-  return <PageTable data={data} updateData={updateData} />;
+  return (
+    <PageTable
+      data={data}
+      updateData={updateData}
+      axis={{ x: "Day", y: "t°" }}
+    />
+  );
 }
 
 export default Ekisu;

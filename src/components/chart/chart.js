@@ -1,11 +1,15 @@
 import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
-import { ChartsReferenceLine } from "@mui/x-charts";
+import { ChartsReferenceLine, ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 
-function Chart({ dataLineChart, standardLines }) {
+function Chart({ dataLineChart, standardLines, axis }) {
   return (
     <LineChart
-      xAxis={[{ data: dataLineChart.xAxisData }]}
+      xAxis={[
+        {
+          data: dataLineChart.xAxisData,
+        },
+      ]}
       series={dataLineChart.line.map((x) => {
         return {
           data: x.value,
@@ -15,7 +19,7 @@ function Chart({ dataLineChart, standardLines }) {
         };
       })}
       height={200}
-      margin={{ top: 50, bottom: 20 }}
+      margin={{ top: 50, bottom: 50 }}
       sx={{
         ".MuiMarkElement-root": {
           scale: "0.5",
@@ -24,6 +28,8 @@ function Chart({ dataLineChart, standardLines }) {
         },
       }}
     >
+      <ChartsXAxis label={axis?.x} />
+      <ChartsYAxis label={axis?.y} />
       {standardLines &&
         standardLines.map((standardLine) => (
           <ChartsReferenceLine

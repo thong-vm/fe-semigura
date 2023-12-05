@@ -19,6 +19,7 @@ function Bmd() {
       data={data}
       standardLines={standardLines}
       updateData={updateData}
+      axis={{ x: "Day", y: "t°" }}
     />
   );
 }
