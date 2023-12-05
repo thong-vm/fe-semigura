@@ -3,10 +3,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { prepareMoromiMock } from "../../mock/prepareMoromi";
 const BASE_URL = "http://localhost:8000/bmds";
-// const logUp = 30;
-// const logDown = 20;
+
 const initialState = {
-  prepareMoromis: prepareMoromiMock
+  prepareMoromis: prepareMoromiMock,
 };
 
 export const fetchPrepareMoromi = createAsyncThunk(
@@ -41,10 +40,14 @@ const prepareMoromiSlice = createSlice({
       var { prepareMoromi } = action.payload;
       state.prepareMoromis = [...state.prepareMoromis, prepareMoromi];
     },
-    updateEkisu: (state, action) => {
+    updatePrepareMoromi: (state, action) => {
       var { id, changes } = action.payload;
-      var prepareMoromi = state.prepareMoromis.find((element) => element.id === id);
-      Object.keys(changes).forEach((key) => (prepareMoromi[key] = changes[key]));
+      var prepareMoromi = state.prepareMoromis.find(
+        (element) => element.id === id
+      );
+      Object.keys(changes).forEach(
+        (key) => (prepareMoromi[key] = changes[key])
+      );
     },
     deleteItem: (state, action) => {
       var { id } = action.payload;
@@ -63,4 +66,5 @@ const prepareMoromiSlice = createSlice({
 export const { setList, addToList, updatePrepareMoromi, deleteItem } =
   prepareMoromiSlice.actions;
 export default prepareMoromiSlice.reducer;
-export const selectAllPrepareMoromi = (state) => state.prepareMoromi.prepareMoromis;
+export const selectAllPrepareMoromi = (state) =>
+  state.prepareMoromi.prepareMoromis;

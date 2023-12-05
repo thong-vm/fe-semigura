@@ -3,12 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ekisuMock } from "../../mock/ekisu";
 const BASE_URL = "http://localhost:8000/bmds";
-const logUp = 30;
-const logDown = 20;
 const initialState = {
-  ekisus: ekisuMock.map((element) => {
-    return { ...element, logUp: logUp, logDown: logDown };
-  }),
+  ekisus: ekisuMock,
 };
 
 export const fetchEkisu = createAsyncThunk("ekisu/fetchEkisu", async () => {

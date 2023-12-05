@@ -2,11 +2,10 @@ import { parseToLineArray } from "../../help/parseToLineArray";
 import Chart from "../chart/chart";
 import DataTable from "../data-table/data-table";
 
-function PageTable({ data, standardLines, axis, updateData }) {
-  const xAxisData = Array.from(
-    { length: data.length },
-    (_, index) => index + 1
-  );
+function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
+  const xAxisData = Array.from({ length: data.length }, (_, index) => {
+    return yAxisName ? data[index][yAxisName] : index + 1;
+  });
   const chartData = {
     xAxisData: xAxisData,
     line: parseToLineArray(data),

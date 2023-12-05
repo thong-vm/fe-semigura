@@ -11,7 +11,14 @@ function PrepareMoromi() {
   const updateData = ({ id, changes }) => {
     dispatch(updatePrepareMoromi({ id, changes }));
   };
-  return <PageTable data={data} updateData={updateData}   axis={{ x: "Time", y: "t°" }} />;
+  return (
+    <PageTable
+      data={data}
+      updateData={updateData}
+      axis={{ x: "Time", y: "t°" }}
+      yAxisName={"time"}
+    />
+  );
 }
 
 export default PrepareMoromi;
