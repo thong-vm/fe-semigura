@@ -1,4 +1,5 @@
 import Bmd from "./bmd/bmd";
+import Ekisu from "./ekisu/ekisu";
 import MoromiGeneral from "./moromi-general/moromi-general";
 
 function Moromi() {
@@ -8,6 +9,8 @@ function Moromi() {
       <MoromiGeneral />
       <h1> BMD</h1>
       <Bmd />
+      <h1>Ekisu</h1>
+      <Ekisu />
     </div>
   );
 }
