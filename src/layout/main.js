@@ -4,7 +4,7 @@ import Moromi from "../pages/moromi/moromi";
 import Dashboard from "../pages/dashboard/dashboard";
 import Bmd from "../pages/moromi/bmd/bmd";
 import Ekisu from "../pages/moromi/ekisu/ekisu";
-import Arukoru from "../pages/arukoru/arukoru";
+import Arukoru from "../pages/moromi/arukoru/arukoru.js";
 import PrepareMoromi from "../pages/moromi/prepareMoromi/prepareMoromi.js";
 import MoromiGeneral from "../pages/moromi/moromiGeneral/moromiGeneral.js";
 

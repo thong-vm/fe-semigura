@@ -1,4 +1,4 @@
-import Arukoru from "../arukoru/arukoru";
+import Arukoru from "./arukoru/arukoru";
 import Bmd from "./bmd/bmd";
 import Ekisu from "./ekisu/ekisu";
 import MoromiGeneral from "./moromiGeneral/moromiGeneral";
