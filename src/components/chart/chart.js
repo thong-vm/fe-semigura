@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LineChart, LinePlot } from "@mui/x-charts/LineChart";
+import { LineChart } from "@mui/x-charts/LineChart";
 import { ChartsReferenceLine, ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 
 function Chart({ dataLineChart, standardLines, axis }) {
