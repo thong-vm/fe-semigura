@@ -1,9 +1,9 @@
-import MoromiGeneral from "../moromi/moromi-general/moromi-general";
+import Moromi from "../moromi/moromi";
 
 function Dashboard() {
   return (
     <div>
-      <MoromiGeneral />
+      <Moromi />
     </div>
   );
 }

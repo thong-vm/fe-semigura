@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import moromisReducer from "./moromi/moromiSlice";
-import bmdReducer from "./moromi/bmdSlide";
+import bmdReducer from "./moromi/bmdSlice";
 
 export const store = configureStore({
   reducer: {
-    moromis: moromisReducer,
-    bmd: bmdReducer
+    moromi: moromisReducer,
+    bmd: bmdReducer,
   },
 });
 
