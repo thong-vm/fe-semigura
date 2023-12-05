@@ -4,7 +4,6 @@ import {
   selectAllMoromis,
   updateMoromi,
 } from "../../../store/moromi/moromiSlice";
-import { memo } from "react";
 
 function MoromiGeneral() {
   const dispatch = useDispatch();
@@ -12,8 +11,7 @@ function MoromiGeneral() {
   const updateData = ({ id, changes }) => {
     dispatch(updateMoromi({ id, changes }));
   };
-  const MemoizedPageTable = memo(PageTable);
-  return <MemoizedPageTable data={data} updateData={updateData} />;
+  return <PageTable data={data} updateData={updateData} />;
 }
 
 export default MoromiGeneral;
