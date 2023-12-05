@@ -3,13 +3,7 @@ import "./App.css";
 import Main from "./layout/main";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/*" element={<Main />} />
-      </Routes>
-    </Router>
-  );
+  return <Main />;
 }
 
 export default App;

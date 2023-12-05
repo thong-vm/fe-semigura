@@ -10,10 +10,8 @@ function MoromiGeneral() {
     <div>
       MoromiGeneral
       <PageTable selectAllData={selectAllMoromis} updateData={updateMoromi} />
-      <PageTable
-            selectAllData={selectAllBmd}
-            updateData={updateBmd}
-          />
+      BMD
+      <PageTable selectAllData={selectAllBmd} updateData={updateBmd} />
     </div>
   );
 }
