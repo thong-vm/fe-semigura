@@ -1,10 +1,13 @@
 import Bmd from "./bmd/bmd";
 import Ekisu from "./ekisu/ekisu";
 import MoromiGeneral from "./moromi-general/moromi-general";
+import PrepareMoromi from "./prepareMoromi/prepareMoromi";
 
 function Moromi() {
   return (
     <div>
+      <h1>Prepare Moromi</h1>
+      <PrepareMoromi />
       <h1>Moromi General</h1>
       <MoromiGeneral />
       <h1> BMD</h1>
