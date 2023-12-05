@@ -31,8 +31,9 @@ function Chart({ dataLineChart, standardLines, axis }) {
       <ChartsXAxis label={axis?.x} />
       <ChartsYAxis label={axis?.y} />
       {standardLines &&
-        standardLines.map((standardLine) => (
+        standardLines.map((standardLine, index) => (
           <ChartsReferenceLine
+            key={index}
             y={standardLine.value}
             label={standardLine.label}
             lineStyle={{ stroke: standardLine.color }}

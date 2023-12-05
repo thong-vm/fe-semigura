@@ -8,7 +8,7 @@ export const prepareMoromiMock = [
     baume: null,
   },
   {
-    id: 1,
+    id: 2,
     day: 1,
     time: "2022-12-20 12:40:00",
     roomTemperature: null,
@@ -16,7 +16,7 @@ export const prepareMoromiMock = [
     baume: null,
   },
   {
-    id: 1,
+    id: 3,
     day: 1,
     time: "2022-12-20 14:10:00",
     roomTemperature: null,
@@ -24,92 +24,91 @@ export const prepareMoromiMock = [
     baume: null,
   },
   {
-    id: 1,
+    id: 4,
     day: 1,
     time: "2022-12-20 22:00:00",
     roomTemperature: null,
     productTemperature: null,
-    baume: null
+    baume: null,
   },
   {
-    id: 2,
+    id: 5,
     day: 2,
     time: "2022-12-21 05:00:00",
     roomTemperature: 12,
     productTemperature: 7.5,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 6,
     day: 3,
     time: "2022-12-22 08:00:00",
     roomTemperature: 12,
     productTemperature: 8,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 7,
     day: 3,
     time: "2022-12-22 08:10:00",
     roomTemperature: 10,
     productTemperature: 9,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 8,
     day: 3,
     time: "2022-12-22 08:20:00",
     roomTemperature: 10,
     productTemperature: 10,
-    baume: 6.9
+    baume: 6.9,
   },
   {
-    id: 3,
+    id: 9,
     day: 3,
     time: "2022-12-22 09:45:00",
     roomTemperature: 9,
     productTemperature: 9,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 10,
     day: 3,
     time: "2022-12-23 08:00:00",
     roomTemperature: 9,
     productTemperature: 8,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 11,
     day: 3,
     time: "2022-12-23 08:00:00",
     roomTemperature: 12,
     productTemperature: 12.6,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 12,
     day: 3,
     time: "2022-12-23 08:10:00",
     roomTemperature: 12,
     productTemperature: 11.5,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 13,
     day: 3,
     time: "2022-12-23 08:20:00",
     roomTemperature: 9,
     productTemperature: 8.96,
-    baume: null
+    baume: null,
   },
   {
-    id: 3,
+    id: 14,
     day: 3,
     time: "2022-12-23 09:45:00",
     roomTemperature: 9,
     productTemperature: 12.3,
-    baume: null
+    baume: null,
   },
-  
 ];
