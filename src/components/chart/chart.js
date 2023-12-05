@@ -30,6 +30,7 @@ function Chart({ dataLineChart, standardLines }) {
             y={standardLine.value}
             label={standardLine.label}
             lineStyle={{ stroke: standardLine.color }}
+            showMark={true}
           />
         ))}
     </LineChart>
