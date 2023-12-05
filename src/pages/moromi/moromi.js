@@ -1,6 +1,6 @@
 import Bmd from "./bmd/bmd";
 import Ekisu from "./ekisu/ekisu";
-import MoromiGeneral from "./moromi-general/moromi-general";
+import MoromiGeneral from "./moromiGeneral/moromiGeneral";
 import PrepareMoromi from "./prepareMoromi/prepareMoromi";
 
 function Moromi() {
