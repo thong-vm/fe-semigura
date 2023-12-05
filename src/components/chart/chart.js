@@ -30,7 +30,6 @@ function Chart({ dataLineChart, standardLines, axis }) {
         },
       }}
     >
-      <LinePlot />
       <ChartsXAxis label={axis?.x} />
       <ChartsYAxis label={axis?.y} />
       {standardLines &&
