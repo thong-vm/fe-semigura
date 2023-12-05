@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LineChart } from "@mui/x-charts/LineChart";
+import { LineChart, LinePlot } from "@mui/x-charts/LineChart";
 import { ChartsReferenceLine, ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 
 function Chart({ dataLineChart, standardLines, axis }) {
@@ -16,18 +16,21 @@ function Chart({ dataLineChart, standardLines, axis }) {
           valueFormatter: (value) => (value == null ? "NaN" : value.toString()),
           label: x.label,
           showMark: true,
+          connectNulls: true,
+          disableHighlight: true,
         };
       })}
       height={200}
       margin={{ top: 50, bottom: 50 }}
       sx={{
         ".MuiMarkElement-root": {
-          scale: "0.5",
+          scale: "0",
           fill: "#fff",
           strokeWidth: 2,
         },
       }}
     >
+      <LinePlot />
       <ChartsXAxis label={axis?.x} />
       <ChartsYAxis label={axis?.y} />
       {standardLines &&
