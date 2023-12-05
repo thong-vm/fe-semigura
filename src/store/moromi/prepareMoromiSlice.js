@@ -3,8 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { prepareMoromiMock } from "../../mock/prepareMoromi";
 const BASE_URL = "http://localhost:8000/bmds";
-// const logUp = 30;
-// const logDown = 20;
+
 const initialState = {
   prepareMoromis: prepareMoromiMock,
 };

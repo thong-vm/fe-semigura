@@ -5,11 +5,7 @@ import { ChartsReferenceLine, ChartsXAxis, ChartsYAxis } from "@mui/x-charts";
 function Chart({ dataLineChart, standardLines, axis }) {
   return (
     <LineChart
-      xAxis={[
-        {
-          data: dataLineChart.xAxisData,
-        },
-      ]}
+      xAxis={[{ scaleType: "point", data: dataLineChart.xAxisData }]}
       series={dataLineChart.line.map((x) => {
         return {
           data: x.value,
