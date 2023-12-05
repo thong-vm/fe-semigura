@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { bmdMock } from "../../mock/bmd";
+import { bmdMock, bmdStandardLineMock } from "../../mock/bmd";
 const BASE_URL = "http://localhost:8000/bmds";
-const standard = 50;
+
 const initialState = {
-  bmds: bmdMock.map((element) => {
-    return { ...element, standard: standard };
-  }),
+  bmds: bmdMock,
+  standardLines: bmdStandardLineMock,
 };
 
 export const fetchBmd = createAsyncThunk("bmds/fetchBmd", async () => {
@@ -58,4 +57,5 @@ const bmdSlice = createSlice({
 });
 export const { setList, addToList, updateBmd, deleteItem } = bmdSlice.actions;
 export const selectAllBmd = (state) => state.bmd.bmds;
+export const selectAllStandardLines = (state) => state.bmd.standardLines;
 export default bmdSlice.reducer;
