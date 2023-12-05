@@ -1,19 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import PageTable from "../../../components/page-table/page-table";
-import {
-  selectAllMoromis,
-  updateMoromi,
-} from "../../../store/moromi/moromiSlice";
 import { memo } from "react";
+import { selectAllBmd, updateBmd } from "../../../store/moromi/bmdSlice";
 
-function MoromiGeneral() {
+function Bmd() {
   const dispatch = useDispatch();
-  const data = useSelector(selectAllMoromis);
+  const data = useSelector(selectAllBmd);
   const updateData = ({ id, changes }) => {
-    dispatch(updateMoromi({ id, changes }));
+    dispatch(updateBmd({ id, changes }));
   };
   const MemoizedPageTable = memo(PageTable);
   return <MemoizedPageTable data={data} updateData={updateData} />;
 }
 
-export default MoromiGeneral;
+export default Bmd;

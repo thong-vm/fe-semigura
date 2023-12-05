@@ -28,8 +28,8 @@ export const deleteMoromi = createAsyncThunk(
     }
   }
 );
-const moromisSlice = createSlice({
-  name: "moromis",
+const moromiSlice = createSlice({
+  name: "moromi",
   initialState,
   reducers: {
     setList: (state, action) => {
@@ -42,7 +42,7 @@ const moromisSlice = createSlice({
     },
     updateMoromi: (state, action) => {
       var { id, changes } = action.payload;
-      var moromi = state.moromis.find((m) => m.id === id);
+      var moromi = state.moromis.find((element) => element.id === id);
       Object.keys(changes).forEach((key) => (moromi[key] = changes[key]));
     },
     deleteItem: (state, action) => {
@@ -58,6 +58,6 @@ const moromisSlice = createSlice({
   },
 });
 export const { setList, addToList, updateMoromi, deleteItem } =
-  moromisSlice.actions;
-export const selectAllMoromis = (state) => state.moromis.moromis;
-export default moromisSlice.reducer;
+  moromiSlice.actions;
+export const selectAllMoromis = (state) => state.moromi.moromis;
+export default moromiSlice.reducer;
