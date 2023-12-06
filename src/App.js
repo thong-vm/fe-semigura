@@ -1,9 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Main from "./layout/main";
+import Layout from "./layout/Layout";
 
 function App() {
-  return <Main />;
+  return <Layout />;
 }
 
 export default App;

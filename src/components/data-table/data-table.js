@@ -12,7 +12,7 @@ const DataTable = ({ data, handleEditRow }) => {
     setEditableData(newData);
   };
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex",maxWidth:'170vh'}}>
       <table>
         <tbody>
           {Object.keys(data[0]).map(

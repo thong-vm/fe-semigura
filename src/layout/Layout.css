@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+}
+.layout-sidebar {
+  width: fit-content;
+  margin-right: 0.5rem;
+}
+.layout-main {
+  display: flex;
+  flex-direction: column;
+  min-width: min-content;
+  width: 95%;
+  height: 100%;
+  position: relative;
+}
