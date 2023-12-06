@@ -22,7 +22,6 @@ const DataTable = ({ data, handleEditRow }) => {
                   <td
                     style={{
                       position: "sticky",
-                      top: 0,
                       backgroundColor: "white",
                       zIndex: 1,
                       minWidth: "10rem",
