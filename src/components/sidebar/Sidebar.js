@@ -42,7 +42,9 @@ const theme = createTheme({
   components: {
     MuiDrawer: {
       styleOverrides: {
-        paper: {},
+        paper: {
+          border: "none",
+        },
       },
     },
   },
@@ -168,8 +170,11 @@ function Sidebar() {
         minWidth: variant === C.temporary ? 50 : 250,
       }}
     >
-      <Button onClick={toggleDrawer(true, "menu")}>
-        <MenuIcon />
+      <Button
+        sx={{ position: "fixed", top: 0 }}
+        onClick={toggleDrawer(true, "menu")}
+      >
+        <MenuIcon sx={{ color: COLORS.textAccent }} />
       </Button>
       <ThemeProvider theme={theme}>
         <Drawer

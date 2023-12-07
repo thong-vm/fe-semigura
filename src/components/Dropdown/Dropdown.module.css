@@ -1,0 +1,10 @@
+.dropdownContainer {
+  padding: 0px 5px 0px 5px;
+  cursor: pointer;
+  height: 50px;
+  align-items: center;
+  display: flex;
+}
+.dropdownContainer:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
