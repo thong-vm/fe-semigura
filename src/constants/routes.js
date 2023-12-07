@@ -34,7 +34,7 @@ export const moromi = {
 export const prepareMoromi = {
   id: "prepareMoromi",
   title: "Prepare Moromi",
-  path: "/moromi/prepare-moromi",
+  path: "/moromi/prepareMoromi",
   icon: <QuestionMark />,
   element: <PrepareMoromi />,
 };
