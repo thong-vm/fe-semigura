@@ -12,7 +12,7 @@ const DataTable = ({ data, handleEditRow }) => {
     setEditableData(newData);
   };
   return (
-    <div style={{ display: "flex",maxWidth:'170vh'}}>
+    <div style={{ display: "flex", minWidth:"100%", width:"600px"}}>
       <table>
         <tbody>
           {Object.keys(data[0]).map(
@@ -34,7 +34,7 @@ const DataTable = ({ data, handleEditRow }) => {
           )}
         </tbody>
       </table>
-      <div style={{ overflowX: "auto", maxWidth: "100%" }}>
+      <div style={{ overflowX: "auto" }}    >
         <table border="0" cellSpacing="0.5" cellPadding="0">
           <tbody>
             {Object.keys(data[0]).map(

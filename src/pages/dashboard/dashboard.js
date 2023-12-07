@@ -1,11 +1,7 @@
 import Moromi from "../moromi/moromi";
 
 function Dashboard() {
-  return (
-    <div>
-      <Moromi />
-    </div>
-  );
+  return <Moromi />;
 }
 
 export default Dashboard;

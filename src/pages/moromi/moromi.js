@@ -6,7 +6,7 @@ import PrepareMoromi from "./prepareMoromi/prepareMoromi";
 
 function Moromi() {
   return (
-    <div>
+    <>
       <h1>Prepare Moromi</h1>
       <PrepareMoromi />
       <h1>Moromi General</h1>
@@ -17,7 +17,7 @@ function Moromi() {
       <Arukoru />
       <h1>Ekisu</h1>
       <Ekisu />
-    </div>
+    </>
   );
 }
 
