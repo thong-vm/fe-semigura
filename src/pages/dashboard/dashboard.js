@@ -1,4 +1,4 @@
-import Moromi from "../moromi/moromi";
+import Moromi from "../Moromi/Moromi";
 
 function Dashboard() {
   return <Moromi />;

@@ -1,8 +1,8 @@
-import Arukoru from "./arukoru/arukoru";
-import Bmd from "./bmd/bmd";
-import Ekisu from "./ekisu/ekisu";
-import MoromiGeneral from "./moromiGeneral/moromiGeneral";
-import PrepareMoromi from "./prepareMoromi/prepareMoromi";
+import Arukoru from "./Arukoru/Arukoru";
+import Bmd from "./Bmd/Bmd";
+import Ekisu from "./Ekisu/Ekisu";
+import MoromiGeneral from "./MoromiGeneral/MoromiGeneral";
+import PrepareMoromi from "./PrepareMoromi/PrepareMoromi";
 
 function Moromi() {
   return (

@@ -1,11 +1,11 @@
 import { QuestionMark } from "@mui/icons-material";
-import Dashboard from "../pages/dashboard/dashboard";
-import Moromi from "../pages/moromi/moromi";
-import PrepareMoromi from "../pages/moromi/prepareMoromi/prepareMoromi";
-import MoromiGeneral from "../pages/moromi/moromiGeneral/moromiGeneral";
-import Bmd from "../pages/moromi/bmd/bmd";
-import Arukoru from "../pages/moromi/arukoru/arukoru";
-import Ekisu from "../pages/moromi/ekisu/ekisu";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import Moromi from "../pages/Moromi/Moromi";
+import PrepareMoromi from "../pages/Moromi/PrepareMoromi/PrepareMoromi";
+import MoromiGeneral from "../pages/Moromi/MoromiGeneral/MoromiGeneral";
+import Bmd from "../pages/Moromi/Bmd/Bmd";
+import Arukoru from "../pages/Moromi/Arukoru/Arukoru";
+import Ekisu from "../pages/Moromi/Ekisu/Ekisu";
 import NotFound from "../pages/notFound/notFound";
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -47,7 +47,7 @@ export const moromiGeneral = {
 };
 export const bmd = {
   id: "bmd",
-  title: "Bmd",
+  title: "BMD",
   path: "/moromi/bmd",
   icon: <QuestionMark />,
   element: <Bmd />,
