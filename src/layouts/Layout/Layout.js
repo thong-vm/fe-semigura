@@ -15,11 +15,11 @@ function Layout() {
           <Sidebar />
         </div>
         <div className={classes.main}>
-          <div className={classes.header}></div>
+          <div className={classes.header}>header</div>
           <div className={classes.content}>
             <Routes>{routeComponents}</Routes>
           </div>
-          <div className={classes.footer}></div>
+          <div className={classes.footer}>footer</div>
         </div>
       </div>
     </Router>

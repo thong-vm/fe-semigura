@@ -22,6 +22,7 @@ import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
 import { sidebars } from "../../constants/sidebars";
 import { useNavigate } from "react-router-dom";
 import * as ROUTES from "../../constants/routes.js";
+import * as COLORS from "../../constants/colors";
 
 const C = {
   temporary: "temporary",
@@ -32,10 +33,10 @@ const C = {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#1976d2",
+      main: COLORS.sidebarPrimary,
     },
     secondary: {
-      main: "#C5E898",
+      main: COLORS.sidebarSecondary,
     },
   },
   components: {
