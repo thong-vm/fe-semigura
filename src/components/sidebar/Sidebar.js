@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Sidebar.css";
+import classes from "./Sidebar.module.css";
 import {
   Box,
   Button,
@@ -21,6 +21,7 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
 import { sidebars } from "../../constants/sidebars";
 import { useNavigate } from "react-router-dom";
+import * as ROUTES from "../../constants/routes.js";
 
 const C = {
   temporary: "temporary",
@@ -34,7 +35,7 @@ const theme = createTheme({
       main: "#1976d2",
     },
     secondary: {
-      main: "#59c04f",
+      main: "#C5E898",
     },
   },
   components: {
@@ -70,13 +71,14 @@ function Sidebar() {
     newState[title] = !expandState[title];
     setExpandState(newState);
   };
-  const logout = () => {
+  const logOut = () => {
+    console.log("Log out !");
   };
   const onNavigate = (path, title) => {
     setDrawerOpen(false);
-    // if (title === ROUTES.LOGOUT.TITLE) {
-    //   logout();
-    // }
+    if (title === ROUTES.logOut.title) {
+      logOut();
+    }
     navigate(path);
   };
   const isOpen = (title) => {

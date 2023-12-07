@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import PageTable from "../../../components/page-table/page-table";
+import PageTable from "../../../components/PageTable/PageTable";
 import {
   selectAllBmd,
   selectAllStandardLines,

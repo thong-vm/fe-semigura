@@ -1,58 +1,49 @@
-import React from "react";
-import HomeIcon from "@mui/icons-material/Home";
-import { QuestionMark } from "@mui/icons-material";
-import LogoutIcon from "@mui/icons-material/Logout";
-
+import * as ROUTES from "./routes";
 export const sidebars = [
   {
-    title: "Main sidebar",
-    icon: <QuestionMark />,
-    children: [],
+    title: ROUTES.dashBoard.title,
+    icon: ROUTES.dashBoard.icon,
+    path: ROUTES.dashBoard.path,
   },
   {
-    title: "Moromi",
-    icon: <QuestionMark />,
+    title: ROUTES.moromi.title,
+    icon: ROUTES.moromi.icon,
     children: [
       {
-        title: "Moromi",
-        icon: <QuestionMark />,
-        path: "/moromi",
+        title: ROUTES.moromi.title,
+        icon: ROUTES.moromi.icon,
+        path: ROUTES.moromi.path,
       },
       {
-        title: "Prepare Moromi",
-        icon: <QuestionMark />,
-        path: "/moromi/prepare-moromi",
+        title: ROUTES.prepareMoromi.title,
+        icon: ROUTES.prepareMoromi.icon,
+        path: ROUTES.prepareMoromi.path,
       },
       {
-        title: "Moromi General",
-        icon: <QuestionMark />,
-        path: "/moromi/general",
+        title: ROUTES.moromiGeneral.title,
+        icon: ROUTES.moromiGeneral.icon,
+        path: ROUTES.moromiGeneral.path,
       },
       {
-        title: "BMD",
-        icon: <QuestionMark />,
-        path: "/moromi/bmd",
+        title: ROUTES.bmd.title,
+        icon: ROUTES.bmd.icon,
+        path: ROUTES.bmd.path,
       },
       {
-        title: "Arukoru",
-        icon: <QuestionMark />,
-        path: "/moromi/arukoru",
+        title: ROUTES.arukoru.title,
+        icon: ROUTES.arukoru.icon,
+        path: ROUTES.arukoru.path,
       },
       {
-        title: "Ekisu",
-        icon: <QuestionMark />,
-        path: "/moromi/ekisu",
+        title: ROUTES.ekisu.title,
+        icon: ROUTES.ekisu.icon,
+        path: ROUTES.ekisu.path,
       },
     ],
   },
   {
-    title: "Dashboard",
-    icon: <HomeIcon />,
-    path: "/dashboard",
-  },
-  {
-    title: "Log out",
-    icon: <LogoutIcon />,
-    path: "/",
+    title: ROUTES.logOut.title,
+    icon: ROUTES.logOut.icon,
+    path: ROUTES.logOut.path,
   },
 ];

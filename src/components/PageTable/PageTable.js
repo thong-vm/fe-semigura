@@ -1,6 +1,6 @@
 import { parseToLineArray } from "../../help/parseToLineArray";
-import Chart from "../chart/chart";
-import DataTable from "../data-table/data-table";
+import Chart from "../Chart/Chart";
+import DataTable from "../DataTable/DataTable";
 
 function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
   const xAxisData = Array.from({ length: data.length }, (_, index) => {
@@ -18,7 +18,7 @@ function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
   };
 
   return (
-    <div>
+    <>
       {xAxisData.length && (
         <Chart
           dataLineChart={chartData}
@@ -27,7 +27,7 @@ function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
         />
       )}
       <DataTable data={data} handleEditRow={handleEditRow} />
-    </div>
+    </>
   );
 }
 
