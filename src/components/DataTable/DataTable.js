@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { parseVarriableToLabel } from "../../help/parseVarriableToLabel";
+import { convertDateTime, convertTime } from "../../help/convertDateTime";
 
 const DataTable = ({ data, handleEditRow }) => {
-  const [editableData, setEditableData] = useState(data);
+  const transformData = data.map((items) => {
+    const dataTrans = {
+      Day: convertDateTime(items.time),
+      Time: convertTime(items.time),
+      ...items,
+    };
+    return dataTrans;
+  });
+
+  const [editableData, setEditableData] = useState(transformData);
   const handleInputChange = (newValue, rowIndex, columnName) => {
     const newData = [...editableData];
     newData[rowIndex] = {
@@ -15,9 +25,9 @@ const DataTable = ({ data, handleEditRow }) => {
     <div style={{ display: "flex", minWidth:"100%", width:"600px"}}>
       <table>
         <tbody>
-          {Object.keys(data[0]).map(
+          {Object.keys(transformData[0]).map(
             (name, index) =>
-              name !== "id" && (
+              name !== "id" && name !== "day" && name !== "time" &&(
                 <tr key={index}>
                   <td
                     style={{
@@ -37,9 +47,9 @@ const DataTable = ({ data, handleEditRow }) => {
       <div style={{ overflowX: "auto" }}    >
         <table border="0" cellSpacing="0.5" cellPadding="0">
           <tbody>
-            {Object.keys(data[0]).map(
+            {Object.keys(transformData[0]).map(
               (name, index) =>
-                name !== "id" && (
+                name !== "id" && name !== "day" && name !== "time" && (
                   <tr key={index}>
                     {editableData.map((column, rowIndex) => (
                       <td
