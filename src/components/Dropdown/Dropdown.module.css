@@ -6,9 +6,9 @@
   display: flex;
 }
 
-.dropdownContainer:hover {
+/* .dropdownContainer:hover {
   background-color: rgba(0, 0, 0, 0.04);
-}
+} */
 
 .menuItem {
   display: flex;

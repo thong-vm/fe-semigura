@@ -22,7 +22,6 @@ const Clock = () => {
       style={{
         margin: "0px 5px 0px 5px",
         padding: "0px 2px 0px 2px",
-        border: "0.5px solid",
         width: "70px",
         textAlign: "center",
         color: COLORS.textAccent,

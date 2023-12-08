@@ -8,6 +8,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import * as ICONS from "../../constants/svgIcons";
 import * as ROUTES from "../../constants/routes.js";
 import { useNavigate } from "react-router-dom";
+import AvatarChip from "../AvartarChip/AvatarChip.js";
 function Header() {
   const languagueDropdown = {
     element: "",
@@ -38,21 +39,7 @@ function Header() {
     ],
   };
   const avatarDropdown = {
-    element: (
-      <div
-        style={{ color: COLORS.textAccent }}
-        className={classes.userInfoDetail}
-      >
-        <span className={classes.userFullName}>ボー ミン トン</span>
-        <div className={classes.avatarContainer}>
-          <img
-            className={classes.avatar}
-            src="https://via.placeholder.com/200x200.png?text=avatar"
-            alt=""
-          />
-        </div>
-      </div>
-    ),
+    element: <AvatarChip role={"admin"} />,
     options: [
       {
         id: 1,
@@ -87,10 +74,18 @@ function Header() {
           content={notificationDropdown}
           handleOutputItem={handleNotificationDropdown}
         />
-        <Dropdown
-          content={avatarDropdown}
-          handleOutputItem={handleAvatarDropdown}
-        />
+        <div
+          style={{ color: COLORS.textAccent }}
+          className={classes.userInfoDetail}
+        >
+          <span className={classes.userFullName}>ボー ミン トン</span>
+          <div className={classes.avatarContainer}>
+            <Dropdown
+              content={avatarDropdown}
+              handleOutputItem={handleAvatarDropdown}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
