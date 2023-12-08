@@ -1,31 +1,61 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import classes from "./Layout.module.css";
 import Sidebar from "../../components/Sidebar/Sidebar.js";
 import * as ROUTES from "../../constants/routes.js";
 import * as COLORS from "../../constants/colors";
 import Header from "../../components/Header/Header.js";
+import { useEffect } from "react";
+import LocalStorage from "../../services/localStorage/localStorage.js";
+import { useState } from "react";
 function Layout() {
+  const navigate = useNavigate();
+  const [isTokenValid, setTokenValid] = useState(false);
+  const token = LocalStorage.get("token");
+  const isTokenExpired = (token) => {
+    return !token || token === "";
+  };
   const routeComponents = Object.values(ROUTES).map((route) => (
     <Route key={route.id} path={route.path} element={route.element} />
   ));
+  useEffect(() => {
+    const checkToken = async () => {
+      if (isTokenExpired(await token)) {
+        navigate(ROUTES.logOut.path);
+      } else {
+        setTokenValid(true);
+      }
+    };
+
+    checkToken();
+  }, [navigate, token]);
+
   return (
-    <div className={classes.root}>
-      <div
-        style={{ backgroundColor: COLORS.sidebarPrimary }}
-        className={classes.menu}
-      >
-        <Sidebar />
-      </div>
-      <div className={classes.main}>
-        <div className={classes.header}>
-          <Header />
+    <>
+      {isTokenValid && (
+        <div className={classes.root}>
+          <div
+            style={{ backgroundColor: COLORS.sidebarPrimary }}
+            className={classes.menu}
+          >
+            <Sidebar />
+          </div>
+          <div className={classes.main}>
+            <div className={classes.header}>
+              <Header />
+            </div>
+            <div className={classes.content}>
+              <Routes>{routeComponents} </Routes>
+            </div>
+            <div className={classes.footer}>footer</div>
+          </div>
         </div>
-        <div className={classes.content}>
-          <Routes>{routeComponents} </Routes>
-        </div>
-        <div className={classes.footer}>footer</div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

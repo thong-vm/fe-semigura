@@ -8,14 +8,26 @@ import "./Login.css";
 import GeneralForm from "../../components/GeneralForm/GeneralForm";
 
 import * as COLORS from "../../constants/colors";
+import { useDispatch, useSelector } from "react-redux";
+import {  getAuthStatus, loginAsync } from "../../store/auth/authSlice";
+import { LOADING, SUCCEEDED } from "../../constants/store";
 function Login() {
   const ref = useRef(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const status = useSelector(getAuthStatus);
   const [login, setLogin] = useState(false);
 
   const handleLogin = (data) => {
     setLogin(true);
+    dispatch(loginAsync(data));
   };
+  useEffect(() => {
+    if (status === SUCCEEDED && login) {
+      setLogin(false);
+      navigate(ROUTES.dashBoard.path);
+    }
+  }, [status, navigate, login]);
   const fields = [
     {
       register: "username",
@@ -34,18 +46,18 @@ function Login() {
     },
   ];
   useEffect(() => {
-    if (login) {
+    if (status === SUCCEEDED && login) {
       setLogin(false);
       navigate(ROUTES.dashBoard.path);
     }
-  }, [navigate, login]);
+  }, [status, navigate, login]);
   return (
     <>
-      {/* {status === LOADING && (
+      {status === LOADING && (
         <>
           <LoadingBar background="blue" ref={ref} />
         </>
-      )} */}
+      )}
       <div className="container-wrap">
         <div style={{ width: "40%" }}>
           <div className="container-title">
