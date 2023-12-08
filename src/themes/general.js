@@ -1,10 +1,10 @@
 import { createTheme } from "@mui/material/styles";
-import { main, secondaryMain } from "../constants/colors";
+import { primaryMain, secondaryMain } from "../constants/colors";
 
 const general = createTheme({
   palette: {
     primary: {
-      main: main,
+      main: primaryMain,
     },
     secondary: {
       main: secondaryMain,

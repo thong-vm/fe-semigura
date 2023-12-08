@@ -49,7 +49,7 @@ function Login() {
       <div className="container-wrap">
         <div style={{ width: "40%" }}>
           <div className="container-title">
-            <span style={{ color: COLORS.main }} className="title">
+            <span style={{ color: COLORS.primaryMain }} className="title">
               {STRINGS.login.title}
             </span>
           </div>
