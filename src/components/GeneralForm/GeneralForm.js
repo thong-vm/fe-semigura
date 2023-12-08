@@ -1,7 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { Button, Checkbox, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import "./GeneralForm.css";
+import classes from "./GeneralForm.module.css";
 
 function GeneralForm({ fields, handleProcess, submitBtn }) {
   const {
@@ -14,8 +14,8 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
     switch (field.type) {
       case "password":
         result = (
-          <div key={key} className="general-form-form-container">
-            <div className="general-form-form-input">
+          <div key={key} className={classes.formContainer}>
+            <div className={classes.formInput}>
               <TextField
                 {...register(field.register, {
                   required: `${field.label} is required.`,
@@ -26,7 +26,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
                 type="password"
               />
             </div>
-            <div className="general-form-input-error">
+            <div className={classes.inputError}>
               <ErrorMessage errors={errors} name={field.register} />
             </div>
           </div>
@@ -34,8 +34,8 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
         break;
       case "text":
         result = (
-          <div key={key} className="general-form-form-container">
-            <div className="general-form-form-input">
+          <div key={key} className={classes.formContainer}>
+            <div className={classes.formInput}>
               <TextField
                 {...register(field.register, {
                   required: `${field.label} is required.`,
@@ -45,7 +45,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
                 sx={{ width: "100%" }}
               />
             </div>
-            <div className="general-form-input-error">
+            <div className={classes.inputError}>
               <ErrorMessage errors={errors} name={field.register} />
             </div>
           </div>
@@ -53,7 +53,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
         break;
       case "checkbox":
         result = (
-          <div key={key} className="general-form-container-checkbox">
+          <div key={key} className={classes.containerCheckbox}>
             <Checkbox
               sx={{ padding: 0 }}
               id={field.register}
@@ -66,8 +66,8 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
 
       default:
         result = (
-          <div key={key} className="general-form-form-container">
-            <div className="general-form-form-input">
+          <div key={key} className={classes.formContainer}>
+            <div className={classes.formInput}>
               <TextField
                 {...register(field.register, {
                   required: `${field.label} is required.`,
@@ -77,7 +77,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
                 sx={field.sx && { width: "100%" }}
               />
             </div>
-            <div className="general-form-input-error">
+            <div className={classes.inputError}>
               <ErrorMessage errors={errors} name={field.register} />
             </div>
           </div>
@@ -86,13 +86,13 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
     return result;
   };
   return (
-    <div className="general-form-container-main">
+    <div className={classes.containerMain}>
       <form
-        className="general-form-container-form"
+        className={classes.containerForm}
         onSubmit={handleSubmit((data) => handleProcess(data))}
       >
         {fields.map((field, index) => fieldRender(field, index))}
-        <div className="general-form-submit-btn">
+        <div className={classes.submitBtn}>
           <Button sx={{ width: "100%" }} type="submit" variant="contained">
             {submitBtn}
           </Button>
