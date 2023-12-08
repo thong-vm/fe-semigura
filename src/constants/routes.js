@@ -69,8 +69,8 @@ export const ekisu = {
 export const logOut = {
   id: "logOut",
   title: "Log out",
-  path: "/",
-  icon:<LogoutIcon/>,
+  path: "/login",
+  icon: <LogoutIcon />,
   element: <Dashboard />,
 };
 export const notFound = {

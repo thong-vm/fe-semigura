@@ -69,21 +69,25 @@ function Sidebar() {
       setDrawerOpen(open);
     };
   };
+
   const onExpandSw = (title) => {
     var newState = { ...expandState };
     newState[title] = !expandState[title];
     setExpandState(newState);
   };
-  const logOut = () => {
-    console.log("Log out !");
+
+  const logOut = (path) => {
+    navigate(path);
   };
+
   const onNavigate = (path, title) => {
     setDrawerOpen(false);
     if (title === ROUTES.logOut.title) {
-      logOut();
+      logOut(path);
     }
     navigate(path);
   };
+
   const isOpen = (title) => {
     return !expandState[title];
   };

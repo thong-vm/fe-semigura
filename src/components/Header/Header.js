@@ -6,6 +6,8 @@ import Dropdown from "../Dropdown/Dropdown";
 import Clock from "../Clock/Clock";
 import LogoutIcon from "@mui/icons-material/Logout";
 import * as ICONS from "../../constants/svgIcons";
+import * as ROUTES from "../../constants/routes.js";
+import { useNavigate } from "react-router-dom";
 function Header() {
   const languagueDropdown = {
     element: "",
@@ -54,10 +56,19 @@ function Header() {
     options: [
       {
         id: 1,
-        name: "Log out",
+        name: ROUTES.logOut.title,
+        path: ROUTES.logOut.path,
         startIcon: <LogoutIcon />,
       },
     ],
+  };
+  const navigate = useNavigate();
+  const handleLanguagueDropdown = (data) => {};
+  const handleNotificationDropdown = (data) => {};
+  const handleAvatarDropdown = (data) => {
+    if (data.path) {
+      navigate(data.path);
+    }
   };
 
   return (
@@ -68,9 +79,18 @@ function Header() {
       <ZoomOutMapIcon className={classes.zoomButton} />
       <div className={classes.userInfoContainer}>
         <Clock />
-        <Dropdown content={languagueDropdown} />
-        <Dropdown content={notificationDropdown} />
-        <Dropdown content={avatarDropdown} />
+        <Dropdown
+          content={languagueDropdown}
+          handleOutputItem={handleLanguagueDropdown}
+        />
+        <Dropdown
+          content={notificationDropdown}
+          handleOutputItem={handleNotificationDropdown}
+        />
+        <Dropdown
+          content={avatarDropdown}
+          handleOutputItem={handleAvatarDropdown}
+        />
       </div>
     </div>
   );

@@ -50,7 +50,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function Dropdown({ content }) {
+export default function Dropdown({ content, handleOutputItem }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -58,7 +58,10 @@ export default function Dropdown({ content }) {
   };
   const handleClose = (option) => {
     setAnchorEl(null);
-    setLabel(option.name ? option.name : label);
+    if (option.name) {
+      setLabel(option.name);
+      handleOutputItem(option);
+    }
   };
 
   const [label, setLabel] = useState(
@@ -86,12 +89,8 @@ export default function Dropdown({ content }) {
             disableRipple
           >
             <div className={classes.menuItem}>
-              <div className={classes.startIcon}>
-              {option.startIcon}
-              </div>
-             <div className={classes.name}>
-             {option.name}
-             </div>
+              <div className={classes.startIcon}>{option.startIcon}</div>
+              <div className={classes.name}>{option.name}</div>
             </div>
           </MenuItem>
         ))}
