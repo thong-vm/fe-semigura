@@ -4,18 +4,30 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import * as STRINGS from "../../constants/string";
 import * as ROUTES from "../../constants/routes";
-import "./Login.css";
+import classes from "./Login.module.css";
 import GeneralForm from "../../components/GeneralForm/GeneralForm";
 
 import * as COLORS from "../../constants/colors";
+import { useDispatch, useSelector } from "react-redux";
+import { getAuthStatus, loginAsync } from "../../store/auth/authSlice";
+import { LOADING, SUCCEEDED } from "../../constants/store";
 function Login() {
   const ref = useRef(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const status = useSelector(getAuthStatus);
   const [login, setLogin] = useState(false);
 
   const handleLogin = (data) => {
     setLogin(true);
+    dispatch(loginAsync(data));
   };
+  useEffect(() => {
+    if (status === SUCCEEDED && login) {
+      setLogin(false);
+      navigate(ROUTES.dashBoard.path);
+    }
+  }, [status, navigate, login]);
   const fields = [
     {
       register: "username",
@@ -34,22 +46,25 @@ function Login() {
     },
   ];
   useEffect(() => {
-    if (login) {
+    if (status === SUCCEEDED && login) {
       setLogin(false);
       navigate(ROUTES.dashBoard.path);
     }
-  }, [navigate, login]);
+  }, [status, navigate, login]);
   return (
     <>
-      {/* {status === LOADING && (
+      {status === LOADING && (
         <>
-          <LoadingBar background="blue" ref={ref} />
+          <LoadingBar background={COLORS.primaryMain} ref={ref} />
         </>
-      )} */}
-      <div className="container-wrap">
+      )}
+      <div className={classes.containerWrap}>
         <div style={{ width: "40%" }}>
-          <div className="container-title">
-            <span style={{ color: COLORS.primaryMain }} className="title">
+          <div className={classes.containerTitle}>
+            <span
+              style={{ color: COLORS.primaryMain }}
+              className={classes.title}
+            >
               {STRINGS.login.title}
             </span>
           </div>
@@ -58,11 +73,13 @@ function Login() {
             handleProcess={handleLogin}
             submitBtn={STRINGS.login.loginBtn}
           />
-          <div className="forgot-signup">
-            <Link className="forgot-singup-link">
+          <div className={classes.forgotSignup}>
+            <Link className={classes.forgotSingupLink}>
               {STRINGS.login.forgotPassword}
             </Link>
-            <Link className="forgot-singup-link">{STRINGS.login.signUp}</Link>
+            <Link className={classes.forgotSingupLink}>
+              {STRINGS.login.signUp}
+            </Link>
           </div>
         </div>
       </div>
