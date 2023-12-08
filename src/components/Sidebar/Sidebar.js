@@ -23,6 +23,7 @@ import { sidebars } from "../../constants/sidebars";
 import { useNavigate } from "react-router-dom";
 import * as ROUTES from "../../constants/routes.js";
 import * as COLORS from "../../constants/colors";
+import LocalStorage from "../../services/localStorage/localStorage.js";
 
 const C = {
   temporary: "temporary",
@@ -77,6 +78,7 @@ function Sidebar() {
   };
 
   const logOut = (path) => {
+    LocalStorage.clear();
     navigate(path);
   };
 

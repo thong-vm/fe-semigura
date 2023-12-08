@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { FAILED, IDLE, LOADING, SUCCEEDED } from "../../constants/store";
 import LocalStorage from "../../services/localStorage/localStorage";
 import { AuthLogin } from "../../services/api/auth/authApi";
-
 const parseJwt = (token) => {
   try {
     return JSON.parse(Buffer.from(token.split(".")[1], "base64"));
@@ -57,7 +56,7 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.token = "";
       state.user = {};
-      LocalStorage.remove("token");
+      LocalStorage.clear();
     },
   },
   extraReducers: (builder) => {
