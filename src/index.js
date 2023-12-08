@@ -5,12 +5,15 @@ import App from "./App";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
-
+import { ThemeProvider } from "@mui/material/styles";
+import general from "./themes/general";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeProvider theme={general}>
+        <App />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );

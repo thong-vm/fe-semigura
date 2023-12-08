@@ -1,4 +1,3 @@
-
 import { Link } from "@mui/material";
 import LoadingBar from "react-top-loading-bar";
 import { useEffect, useRef, useState } from "react";
@@ -7,6 +6,8 @@ import * as STRINGS from "../../constants/string";
 import * as ROUTES from "../../constants/routes";
 import "./Login.css";
 import GeneralForm from "../../components/GeneralForm/GeneralForm";
+
+import * as COLORS from "../../constants/colors";
 function Login() {
   const ref = useRef(null);
   const navigate = useNavigate();
@@ -48,7 +49,9 @@ function Login() {
       <div className="container-wrap">
         <div style={{ width: "40%" }}>
           <div className="container-title">
-            <span className="title">{STRINGS.login.title}</span>
+            <span style={{ color: COLORS.main }} className="title">
+              {STRINGS.login.title}
+            </span>
           </div>
           <GeneralForm
             fields={fields}
