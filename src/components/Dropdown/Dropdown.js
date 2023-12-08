@@ -85,9 +85,13 @@ export default function Dropdown({ content }) {
             onClick={() => handleClose(option)}
             disableRipple
           >
-            <div>
+            <div className={classes.menuItem}>
+              <div className={classes.startIcon}>
               {option.startIcon}
-              {option.name}
+              </div>
+             <div className={classes.name}>
+             {option.name}
+             </div>
             </div>
           </MenuItem>
         ))}

@@ -5,6 +5,7 @@ import * as COLORS from "../../constants/colors";
 import Dropdown from "../Dropdown/Dropdown";
 import Clock from "../Clock/Clock";
 import LogoutIcon from "@mui/icons-material/Logout";
+import * as ICONS from "../../constants/svgIcons";
 function Header() {
   const languagueDropdown = {
     element: "",
@@ -12,10 +13,12 @@ function Header() {
       {
         id: 1,
         name: "English",
+        startIcon: ICONS.english,
       },
       {
         id: 2,
         name: "日本語",
+        startIcon: ICONS.japanese,
       },
     ],
   };
@@ -34,11 +37,19 @@ function Header() {
   };
   const avatarDropdown = {
     element: (
-      <img
-        className={classes.avatar}
-        src="https://via.placeholder.com/200x200.png?text=avatar"
-        alt=""
-      />
+      <div
+        style={{ color: COLORS.textAccent }}
+        className={classes.userInfoDetail}
+      >
+        <span className={classes.userFullName}>ボー ミン トン</span>
+        <div className={classes.avatarContainer}>
+          <img
+            className={classes.avatar}
+            src="https://via.placeholder.com/200x200.png?text=avatar"
+            alt=""
+          />
+        </div>
+      </div>
     ),
     options: [
       {
@@ -59,20 +70,7 @@ function Header() {
         <Clock />
         <Dropdown content={languagueDropdown} />
         <Dropdown content={notificationDropdown} />
-        <div
-          style={{ color: COLORS.textAccent }}
-          className={classes.userInfoDetail}
-        >
-          <span className={classes.userFullName}>ボー ミン トン</span>
-          <div className={classes.avatarContainer}>
-            {/* <img
-              className={classes.avatar}
-              src="https://via.placeholder.com/200x200.png?text=avatar"
-              alt=""
-            /> */}
-            <Dropdown content={avatarDropdown} />
-          </div>
-        </div>
+        <Dropdown content={avatarDropdown} />
       </div>
     </div>
   );

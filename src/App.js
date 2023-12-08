@@ -3,11 +3,12 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Layout from "./layouts/Layout/Layout";
 
 function App() {
-  return <div>
-    <Layout />
-  <ScrollToTop />
-  </div>
-  ;
+  return (
+    <>
+      <Layout />
+      <ScrollToTop />
+    </>
+  );
 }
 
 export default App;

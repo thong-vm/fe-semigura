@@ -1,16 +1,15 @@
-:root {
-  --spacing: 20px;
-}
 .root {
   width: 100%;
   height: 100%;
   display: flex;
 }
+
 .menu {
   display: flex;
   flex-direction: column;
   width: fit-content;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -25,9 +24,12 @@
   width: 100%;
   z-index: 2;
 }
+
 .content {
   flex-grow: 8;
+  margin-left: 5px;
 }
+
 .footer {
   height: 20px;
 }
