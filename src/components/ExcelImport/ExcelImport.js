@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import { IconButton, Typography } from "@mui/material";
+import React, { useRef, useState } from "react";
 import readXlsxFile from "read-excel-file";
+import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
+import classes from "./ExcelImport.module.css";
 
 const ExcelImport = () => {
   const [excelData, setExcelData] = useState(null);
 
-  const handleFileChange = async (event) => {
-    const file = event.target.files[0];
-
+  const handleFileChange = async (file) => {
     try {
       const data = await readXlsxFile(file);
       setExcelData(data);
@@ -15,10 +16,42 @@ const ExcelImport = () => {
     }
   };
 
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    handleFileChange(file);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+  const inputRef = useRef(null);
+  const filePicker = () => {
+    inputRef.current.click();
+  };
+
   return (
-    <div style={{ height: "350px", minHeight: "100%", overflowY: "auto" }}>
+    <div
+      className={classes.container}
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
+    >
       {!excelData ? (
-        <input type="file" onChange={handleFileChange} />
+        <div className={classes.dragContainer}>
+          <div className={classes.dragIcon}>
+            <IconButton onClick={filePicker} color="primary">
+              <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
+            </IconButton>
+            <Typography>{"DRAG FILE HERE OR BROWSE"}</Typography>
+          </div>
+          <input
+            type="file"
+            accept=".xls, .xlsx"
+            ref={inputRef}
+            onChange={(e) => handleFileChange(e.target.files[0])}
+            hidden
+          />
+        </div>
       ) : (
         <table>
           <thead>
