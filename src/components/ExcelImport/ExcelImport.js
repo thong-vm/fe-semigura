@@ -31,13 +31,13 @@ const ExcelImport = () => {
   };
 
   return (
-    <div
-      className={classes.container}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-    >
+    <div className={classes.container}>
       {!excelData ? (
-        <div className={classes.dragContainer}>
+        <div
+          className={classes.dragContainer}
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
           <div className={classes.dragIcon}>
             <IconButton onClick={filePicker} color="primary">
               <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>

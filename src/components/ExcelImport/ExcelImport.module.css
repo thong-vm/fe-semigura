@@ -2,6 +2,8 @@
   height: 350px;
   min-height: 100%;
   overflow-y: auto;
+  width: 600px;
+  min-width: 100%;
 }
 
 .dragContainer {
@@ -19,4 +21,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
 }
