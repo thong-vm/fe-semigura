@@ -2,6 +2,7 @@ export const arukoruMock = [
   {
     id: 1,
     day: 1,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -9,6 +10,7 @@ export const arukoruMock = [
   {
     id: 2,
     day: 2,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -16,6 +18,7 @@ export const arukoruMock = [
   {
     id: 3,
     day: 3,
+    time: "2022-12-24 05:00:00",
     arukoru: 5.8,
     upperLimit: null,
     lowerLimit: null,
@@ -23,6 +26,7 @@ export const arukoruMock = [
   {
     id: 4,
     day: 4,
+    time: "2022-12-24 05:00:00",
     arukoru: 4,
     upperLimit: 7.5,
     lowerLimit: 6,
@@ -30,6 +34,7 @@ export const arukoruMock = [
   {
     id: 5,
     day: 5,
+    time: "2022-12-24 05:00:00",
     arukoru: 7,
     upperLimit: null,
     lowerLimit: null,
@@ -37,6 +42,7 @@ export const arukoruMock = [
   {
     id: 6,
     day: 6,
+    time: "2022-12-24 05:00:00",
     arukoru: 8.2,
     upperLimit: null,
     lowerLimit: null,
@@ -44,6 +50,7 @@ export const arukoruMock = [
   {
     id: 7,
     day: 7,
+    time: "2022-12-24 05:00:00",
     arukoru: 8.6,
     upperLimit: null,
     lowerLimit: null,
@@ -51,6 +58,7 @@ export const arukoruMock = [
   {
     id: 8,
     day: 8,
+    time: "2022-12-24 05:00:00",
     arukoru: 9.5,
     upperLimit: null,
     lowerLimit: null,
@@ -58,6 +66,7 @@ export const arukoruMock = [
   {
     id: 9,
     day: 9,
+    time: "2022-12-24 05:00:00",
     arukoru: 9.0,
     upperLimit: null,
     lowerLimit: null,
@@ -65,6 +74,7 @@ export const arukoruMock = [
   {
     id: 10,
     day: 10,
+    time: "2022-12-24 05:00:00",
     arukoru: 8,
     upperLimit: null,
     lowerLimit: null,
@@ -72,6 +82,7 @@ export const arukoruMock = [
   {
     id: 11,
     day: 11,
+    time: "2022-12-24 05:00:00",
     arukoru: 7,
     upperLimit: null,
     lowerLimit: null,
@@ -79,6 +90,7 @@ export const arukoruMock = [
   {
     id: 12,
     day: 12,
+    time: "2022-12-24 05:00:00",
     arukoru: 6,
     upperLimit: null,
     lowerLimit: null,
@@ -86,6 +98,7 @@ export const arukoruMock = [
   {
     id: 13,
     day: 13,
+    time: "2022-12-24 05:00:00",
     arukoru: 8.6,
     upperLimit: null,
     lowerLimit: null,
@@ -93,6 +106,7 @@ export const arukoruMock = [
   {
     id: 14,
     day: 14,
+    time: "2022-12-24 05:00:00",
     arukoru: 7,
     upperLimit: null,
     lowerLimit: null,
@@ -100,6 +114,7 @@ export const arukoruMock = [
   {
     id: 15,
     day: 15,
+    time: "2022-12-24 05:00:00",
     arukoru: 8,
     upperLimit: null,
     lowerLimit: null,
@@ -107,6 +122,7 @@ export const arukoruMock = [
   {
     id: 16,
     day: 16,
+    time: "2022-12-24 05:00:00",
     arukoru: 7.6,
     upperLimit: 0.4,
     lowerLimit: 0.3,
@@ -114,6 +130,7 @@ export const arukoruMock = [
   {
     id: 17,
     day: 17,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -121,6 +138,7 @@ export const arukoruMock = [
   {
     id: 18,
     day: 18,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -128,6 +146,7 @@ export const arukoruMock = [
   {
     id: 19,
     day: 19,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -135,6 +154,7 @@ export const arukoruMock = [
   {
     id: 20,
     day: 20,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -142,6 +162,7 @@ export const arukoruMock = [
   {
     id: 21,
     day: 21,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -149,6 +170,7 @@ export const arukoruMock = [
   {
     id: 22,
     day: 22,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -156,6 +178,7 @@ export const arukoruMock = [
   {
     id: 23,
     day: 23,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -163,6 +186,7 @@ export const arukoruMock = [
   {
     id: 24,
     day: 24,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -170,6 +194,7 @@ export const arukoruMock = [
   {
     id: 25,
     day: 25,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -177,6 +202,7 @@ export const arukoruMock = [
   {
     id: 26,
     day: 26,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -184,6 +210,7 @@ export const arukoruMock = [
   {
     id: 27,
     day: 27,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -191,6 +218,7 @@ export const arukoruMock = [
   {
     id: 28,
     day: 28,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -198,6 +226,7 @@ export const arukoruMock = [
   {
     id: 29,
     day: 29,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -205,6 +234,7 @@ export const arukoruMock = [
   {
     id: 30,
     day: 30,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -212,6 +242,7 @@ export const arukoruMock = [
   {
     id: 31,
     day: 31,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -219,6 +250,7 @@ export const arukoruMock = [
   {
     id: 32,
     day: 32,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -226,6 +258,7 @@ export const arukoruMock = [
   {
     id: 33,
     day: 33,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -233,6 +266,7 @@ export const arukoruMock = [
   {
     id: 34,
     day: 34,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -240,6 +274,7 @@ export const arukoruMock = [
   {
     id: 35,
     day: 35,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -247,6 +282,7 @@ export const arukoruMock = [
   {
     id: 36,
     day: 36,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -254,6 +290,7 @@ export const arukoruMock = [
   {
     id: 37,
     day: 37,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -261,6 +298,7 @@ export const arukoruMock = [
   {
     id: 38,
     day: 38,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -268,6 +306,7 @@ export const arukoruMock = [
   {
     id: 39,
     day: 39,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
@@ -275,6 +314,7 @@ export const arukoruMock = [
   {
     id: 40,
     day: 40,
+    time: "2022-12-24 05:00:00",
     arukoru: null,
     upperLimit: null,
     lowerLimit: null,
