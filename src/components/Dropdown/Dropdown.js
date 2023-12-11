@@ -69,7 +69,7 @@ export default function Dropdown({ content, handleOutputItem }) {
 
   return (
     <div className={classes.dropdownContainer}>
-      <div style={{ color: COLORS.textAccent }} onClick={handleClick}>
+      <div onClick={handleClick}>
         {content.element ? content.element : label}
       </div>
       <StyledMenu

@@ -4,11 +4,8 @@
   height: 50px;
   align-items: center;
   display: flex;
+  color: white;
 }
-
-/* .dropdownContainer:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-} */
 
 .menuItem {
   display: flex;

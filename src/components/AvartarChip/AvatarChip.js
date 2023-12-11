@@ -1,7 +1,7 @@
 import * as React from "react";
 import Chip from "@mui/material/Chip";
 import { Avatar } from "@mui/material";
-import * as COLORS from "../../constants/colors";
+import classes from "./AvatarChip.module.css";
 
 function AvatarChip({ role }) {
   const getAvatar = (text) => {
@@ -10,7 +10,7 @@ function AvatarChip({ role }) {
   return (
     <Chip
       avatar={<Avatar>{getAvatar(role)}</Avatar>}
-      label={<span style={{ color: COLORS.textAccent }}>{role}</span>}
+      label={<span className={classes.chipLabel}>{role}</span>}
     />
   );
 }

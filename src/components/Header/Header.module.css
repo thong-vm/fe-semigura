@@ -34,13 +34,12 @@
 }
 
 .avatarContainer {
-  /* width: 50px;
-  height: 50px; */
   display: flex;
   align-items: center;
 }
 
 .userFullName {
+  color: white;
   margin: 0px 10px 0px 10px;
 }
 

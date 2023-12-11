@@ -26,7 +26,7 @@ function Header() {
     ],
   };
   const notificationDropdown = {
-    element: <NotificationsIcon sx={{ color: COLORS.textAccent }} />,
+    element: <NotificationsIcon />,
     options: [
       {
         id: 1,
@@ -75,7 +75,6 @@ function Header() {
           handleOutputItem={handleNotificationDropdown}
         />
         <div
-          style={{ color: COLORS.textAccent }}
           className={classes.userInfoDetail}
         >
           <span className={classes.userFullName}>ボー ミン トン</span>

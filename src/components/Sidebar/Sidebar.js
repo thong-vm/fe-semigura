@@ -180,7 +180,7 @@ function Sidebar() {
         sx={{ position: "fixed", top: 0 }}
         onClick={toggleDrawer(true, "menu")}
       >
-        <MenuIcon sx={{ color: COLORS.textAccent }} />
+        <MenuIcon sx={{ color: "white" }} />
       </Button>
       <ThemeProvider theme={theme}>
         <Drawer
