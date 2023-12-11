@@ -5,6 +5,7 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import ExcelImport from "../ExcelImport/ExcelImport";
 
 function Steper({ steps }) {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -88,6 +89,7 @@ function Steper({ steps }) {
       ) : (
         <div
           style={{
+            marginTop:"1rem",
             height: "100%",
             display: "flex",
             flexDirection: "column",
@@ -97,13 +99,14 @@ function Steper({ steps }) {
           <Typography
             sx={{
               margin: "5px 0px 0px 5px",
+              padding:"2px",
               height: "100%",
               width: "100%",
               border: "0.5px solid grey",
               borderRadius: "0.5rem",
             }}
           >
-            <div style={{ padding: "5px" }}>Step {activeStep + 1}</div>
+            {activeStep === 0 ? <ExcelImport /> : "Step " + (activeStep + 1)}
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
