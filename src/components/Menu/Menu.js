@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classes from "./Sidebar.module.css";
 import {
   Box,
   Button,
@@ -19,10 +18,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
-import { sidebars } from "../../constants/sidebars";
+import { sidebars } from "../../constants/sidebars.js";
 import { useNavigate } from "react-router-dom";
 import * as ROUTES from "../../constants/routes.js";
-import * as COLORS from "../../constants/colors";
+import * as COLORS from "../../constants/colors.js";
 import LocalStorage from "../../services/localStorage/localStorage.js";
 
 const C = {
