@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import PushPinOutlinedIcon from "@mui/icons-material/PushPinOutlined";
-import { sidebars } from "../../constants/sidebars.js";
+import { menus } from "../../constants/menus.js";
 import { useNavigate } from "react-router-dom";
 import * as ROUTES from "../../constants/routes.js";
 import * as COLORS from "../../constants/colors.js";
@@ -222,7 +222,7 @@ function Sidebar() {
                   )}
                 </Fab>
               </ListItem>
-              {renderItems(sidebars)}
+              {renderItems(menus)}
             </List>
           </Box>
         </Drawer>

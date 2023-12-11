@@ -1,4 +1,4 @@
-import { QuestionMark } from "@mui/icons-material";
+import { QuestionMark, Upload } from "@mui/icons-material";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Moromi from "../pages/Moromi/Moromi";
 import PrepareMoromi from "../pages/Moromi/PrepareMoromi/PrepareMoromi";
@@ -9,6 +9,7 @@ import Ekisu from "../pages/Moromi/Ekisu/Ekisu";
 import NotFound from "../pages/notFound/notFound";
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
+import MoromiImport from "../pages/Moromi/MoromiImport/MoromiImport";
 
 export const layout = {
   id: "dashBoard",
@@ -30,6 +31,13 @@ export const moromi = {
   path: "/moromi",
   icon: <QuestionMark />,
   element: <Moromi />,
+};
+export const moromiImport = {
+  id: "moromiImport",
+  title: "Moromi Import",
+  path: "/moromi/import",
+  icon: <Upload />,
+  element: <MoromiImport />,
 };
 export const prepareMoromi = {
   id: "prepareMoromi",

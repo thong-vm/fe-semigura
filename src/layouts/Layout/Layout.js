@@ -53,7 +53,7 @@ function Layout() {
               <Routes>{routeComponents} </Routes>
             </div>
             <div className={classes.footer}>
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </div>
         </div>

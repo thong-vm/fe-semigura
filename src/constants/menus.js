@@ -1,5 +1,5 @@
 import * as ROUTES from "./routes";
-export const sidebars = [
+export const menus = [
   {
     title: ROUTES.dashBoard.title,
     icon: ROUTES.dashBoard.icon,
@@ -13,6 +13,11 @@ export const sidebars = [
         title: ROUTES.moromi.title,
         icon: ROUTES.moromi.icon,
         path: ROUTES.moromi.path,
+      },
+      {
+        title: ROUTES.moromiImport.title,
+        icon: ROUTES.moromiImport.icon,
+        path: ROUTES.moromiImport.path,
       },
       {
         title: ROUTES.prepareMoromi.title,
