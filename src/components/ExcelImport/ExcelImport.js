@@ -1,10 +1,11 @@
-import { IconButton, Typography } from "@mui/material";
-import React, { useRef, useState } from "react";
+import { CircularProgress, IconButton } from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
 import readXlsxFile from "read-excel-file";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import classes from "./ExcelImport.module.css";
+import GeneralTable from "../GeneralTable/GeneralTable";
 
-const ExcelImport = () => {
+function ExcelImport() {
   const [excelData, setExcelData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,20 +34,31 @@ const ExcelImport = () => {
     inputRef.current.click();
   };
 
+  useEffect(() => {
+    console.log("isLoading :", isLoading);
+    if (excelData) {
+      setIsLoading(false);
+    }
+  }, [isLoading, excelData]);
+
   return (
     <>
       {!excelData ? (
         <span
           className={classes.dragContainer}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
+          onDrop={!isLoading && handleDrop}
+          onDragOver={!isLoading && handleDragOver}
         >
-          <span className={classes.dragIcon}>
-            <IconButton onClick={filePicker} color="primary">
-              <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
-            </IconButton>
-            <span>{"DRAG FILE HERE OR BROWSE"}</span>
-          </span>
+          {isLoading ? (
+            <CircularProgress color="primary" />
+          ) : (
+            <span className={classes.dragIcon}>
+              <IconButton onClick={filePicker} color="primary">
+                <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
+              </IconButton>
+              <span>{"DRAG FILE HERE OR BROWSE"}</span>
+            </span>
+          )}
           <input
             type="file"
             accept=".xls, .xlsx"
@@ -56,29 +68,10 @@ const ExcelImport = () => {
           />
         </span>
       ) : (
-        <div className={classes.container}>
-          <table>
-            <thead>
-              <tr>
-                {excelData[0].map((header, index) => (
-                  <th key={index}>{header}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {excelData.slice(1).map((row, rowIndex) => (
-                <tr key={rowIndex}>
-                  {row.map((cell, cellIndex) => (
-                    <td key={cellIndex}>{cell}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <GeneralTable data={excelData} />
       )}
     </>
   );
-};
+}
 
 export default ExcelImport;

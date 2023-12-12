@@ -1,11 +1,3 @@
-.container {
-  height: 350px;
-  min-height: 100%;
-  overflow-y: auto;
-  width: 600px;
-  min-width: 100%;
-}
-
 .dragContainer {
   width: 100%;
   height: 100%;
@@ -23,9 +15,3 @@
   justify-content: center;
 }
 
-thead {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  z-index: 2;
-}
