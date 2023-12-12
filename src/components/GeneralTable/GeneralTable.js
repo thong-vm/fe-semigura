@@ -47,7 +47,10 @@ function GeneralTable({ data, editAble, handleEditData }) {
           {currentData.map((row, index) => (
             <tr key={index}>
               {headers.map((name, cellIndex) => (
-                <td key={cellIndex} style={{ minWidth: "5rem", border: "0.1px solid gray" }}>
+                <td
+                  key={cellIndex}
+                  style={{ minWidth: "5rem", border: "0.1px solid gray" }}
+                >
                   <input
                     readOnly={!editAble}
                     type="text"

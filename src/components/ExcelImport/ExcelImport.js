@@ -41,31 +41,28 @@ function ExcelImport({ handleImportedData }) {
   useEffect(() => {}, [isLoading]);
 
   return (
-    <>
-      <span
-        className={classes.dragContainer}
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-      >
-        {isLoading ? (
-          <CircularProgress />
-        ) : (
-          <span className={classes.dragIcon}>
+    <div className={classes.dragContainer}>
+      {isLoading ? (
+        <CircularProgress sx={{ position: "absolute" }} />
+      ) : (
+        <div onDrop={handleDrop} onDragOver={handleDragOver}>
+          <div className={classes.dragIcon}>
             <IconButton onClick={filePicker} color="primary">
               <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
             </IconButton>
             <span>{"DRAG FILE HERE OR BROWSE"}</span>
-          </span>
-        )}
-        <input
-          type="file"
-          accept=".xls, .xlsx"
-          ref={inputRef}
-          onChange={(e) => handleFileChange(e.target.files)}
-          hidden
-        />
-      </span>
-    </>
+          </div>
+
+          <input
+            type="file"
+            accept=".xls, .xlsx"
+            ref={inputRef}
+            onChange={(e) => handleFileChange(e.target.files)}
+            hidden
+          />
+        </div>
+      )}
+    </div>
   );
 }
 

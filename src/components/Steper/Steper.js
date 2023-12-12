@@ -100,7 +100,7 @@ function Steper({ steps }) {
         </div>
       ) : (
         <div className={classes.stepContainer}>
-          <Typography className={classes.stepTypography}>
+          <div className={classes.stepTypography}>
             {activeStep === 0 ? (
               <ExcelImport handleImportedData={handleImportedData} />
             ) : activeStep === 1 ? (
@@ -116,7 +116,7 @@ function Steper({ steps }) {
                 handleEditData={handleEditData}
               />
             )}
-          </Typography>
+          </div>
           <Box className={classes.steperButtons}>
             <Button
               className={classes.steperBackButton}
