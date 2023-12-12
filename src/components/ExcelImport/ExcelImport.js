@@ -1,19 +1,22 @@
 import { CircularProgress, IconButton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import readXlsxFile from "read-excel-file";
+import * as XLSX from "xlsx";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import classes from "./ExcelImport.module.css";
-import GeneralTable from "../GeneralTable/GeneralTable";
 
-function ExcelImport() {
-  const [excelData, setExcelData] = useState(null);
+function ExcelImport({ handleImportedData }) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFileChange = async (file) => {
+  const handleFileChange = async (files) => {
     try {
       setIsLoading(true);
-      const data = await readXlsxFile(file);
-      setExcelData(data);
+      const file = files[0];
+      const data = await file.arrayBuffer();
+      const workbook = XLSX.read(data, { type: "binary" });
+      const firstSheet = workbook.SheetNames[0];
+      const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[firstSheet]);
+      handleImportedData(sheetData);
+      setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       console.error("Error reading Excel file:", error);
@@ -29,47 +32,39 @@ function ExcelImport() {
   const handleDragOver = (event) => {
     event.preventDefault();
   };
+
   const inputRef = useRef(null);
   const filePicker = () => {
     inputRef.current.click();
   };
 
-  useEffect(() => {
-    console.log("isLoading :", isLoading);
-    if (excelData) {
-      setIsLoading(false);
-    }
-  }, [isLoading, excelData]);
+  useEffect(() => {}, [isLoading]);
 
   return (
     <>
-      {!excelData ? (
-        <span
-          className={classes.dragContainer}
-          onDrop={!isLoading && handleDrop}
-          onDragOver={!isLoading && handleDragOver}
-        >
-          {isLoading ? (
-            <CircularProgress color="primary" />
-          ) : (
-            <span className={classes.dragIcon}>
-              <IconButton onClick={filePicker} color="primary">
-                <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
-              </IconButton>
-              <span>{"DRAG FILE HERE OR BROWSE"}</span>
-            </span>
-          )}
-          <input
-            type="file"
-            accept=".xls, .xlsx"
-            ref={inputRef}
-            onChange={(e) => handleFileChange(e.target.files[0])}
-            hidden
-          />
-        </span>
-      ) : (
-        <GeneralTable data={excelData} />
-      )}
+      <span
+        className={classes.dragContainer}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+      >
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <span className={classes.dragIcon}>
+            <IconButton onClick={filePicker} color="primary">
+              <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
+            </IconButton>
+            <span>{"DRAG FILE HERE OR BROWSE"}</span>
+          </span>
+        )}
+        <input
+          type="file"
+          accept=".xls, .xlsx"
+          ref={inputRef}
+          onChange={(e) => handleFileChange(e.target.files)}
+          hidden
+        />
+      </span>
     </>
   );
 }

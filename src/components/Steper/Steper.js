@@ -7,10 +7,17 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ExcelImport from "../ExcelImport/ExcelImport";
 import classes from "./Steper.module.css";
+import GeneralTable from "../GeneralTable/GeneralTable";
 
 function Steper({ steps }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  
+  const [editTableData, setEditTableData] = React.useState();
+  const handleImportedData = (data) => {
+    setEditTableData(data);
+    handleComplete();
+  };
 
   const totalSteps = () => {
     return steps.length;
@@ -79,7 +86,13 @@ function Steper({ steps }) {
       ) : (
         <div className={classes.stepContainer}>
           <Typography className={classes.stepTypography}>
-            {activeStep === 0 ? <ExcelImport /> : "Step " + (activeStep + 1)}
+            {activeStep === 0 ? (
+              <ExcelImport handleImportedData={handleImportedData} />
+            ) : activeStep === 1 ? (
+              <GeneralTable data={editTableData} />
+            ) : (
+              "Step " + (activeStep + 1)
+            )}
           </Typography>
           <Box className={classes.steperButtons}>
             <Button
