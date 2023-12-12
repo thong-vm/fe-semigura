@@ -94,7 +94,9 @@ function Steper({ steps, handleData }) {
             All steps completed - you&apos;re finished
           </Typography>
           <Box className={classes.stepCompletedContainerBox}>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>
+              {STRINGS.moromiImport.resetBtn}
+            </Button>
           </Box>
         </div>
       ) : (

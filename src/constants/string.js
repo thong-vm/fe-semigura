@@ -8,5 +8,6 @@ export const moromiImport = {
   backBtn: "Back",
   nextBtn: "Next",
   completeStepBtn: "Complete Step",
-  finishBtn: "Finish"
+  finishBtn: "Finish",
+  resetBtn: "Reset",
 };
