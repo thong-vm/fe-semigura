@@ -65,16 +65,19 @@ function Steper({ steps }) {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
-    if (editTableData && activeStep === 1) {
-      console.log("activeStep :", activeStep);
-      console.log("editTableData", editTableData);
-    }
     handleNext();
+    if (completedSteps() === totalSteps()) {
+      handlePostData();
+    }
   };
 
   const handleReset = () => {
     setActiveStep(0);
     setCompleted({});
+  };
+
+  const handlePostData = () => {
+    console.log("send data: ", editTableData);
   };
 
   return (

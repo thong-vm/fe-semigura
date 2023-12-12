@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import classes from "./GeneralTable.module.css";
+import { Pagination } from "@mui/material";
 
 function GeneralTable({ data, editAble, handleEditData }) {
-  const [tableData, setEditableData] = useState(data);
+  const itemsPerPage = 50;
+  const [page, setPage] = useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
+  const pageCount = Math.ceil(data.length / itemsPerPage);
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentData = data.slice(startIndex, endIndex);
+  const [tableData, setEditableData] = useState(currentData);
   const handleInputChange = (newValue, rowIndex, columnName) => {
     const newData = [...tableData];
     newData[rowIndex] = {
@@ -17,7 +28,14 @@ function GeneralTable({ data, editAble, handleEditData }) {
   const headers = Object.keys(data[0]);
   return (
     <div className={classes.container}>
-      <table>
+      <Pagination
+        className={classes.pagination}
+        count={pageCount}
+        color="primary"
+        page={page}
+        onChange={handleChange}
+      />
+      <table border="0" cellSpacing="0.5" cellPadding="0">
         <thead>
           <tr>
             {headers.map((header, index) => (
@@ -26,10 +44,10 @@ function GeneralTable({ data, editAble, handleEditData }) {
           </tr>
         </thead>
         <tbody>
-          {tableData.map((row, index) => (
+          {currentData.map((row, index) => (
             <tr key={index}>
               {headers.map((name, cellIndex) => (
-                <td key={cellIndex}>
+                <td key={cellIndex} style={{ minWidth: "5rem", border: "0.1px solid gray" }}>
                   <input
                     readOnly={!editAble}
                     type="text"
