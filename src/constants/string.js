@@ -1,6 +1,12 @@
 export const login = {
   title: "Login",
   forgotPassword: "Forgot password",
-  signUp:"Don't have an account? Sign Up",
-  loginBtn:"Login"
+  signUp: "Don't have an account? Sign Up",
+  loginBtn: "Login",
+};
+export const moromiImport = {
+  backBtn: "Back",
+  nextBtn: "Next",
+  completeStepBtn: "Complete Step",
+  finishBtn: "Finish"
 };

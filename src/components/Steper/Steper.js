@@ -8,8 +8,9 @@ import Typography from "@mui/material/Typography";
 import ExcelImport from "../ExcelImport/ExcelImport";
 import classes from "./Steper.module.css";
 import GeneralTable from "../GeneralTable/GeneralTable";
+import * as STRINGS from "../../constants/string";
 
-function Steper({ steps }) {
+function Steper({ steps, handleData }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
 
@@ -46,9 +47,7 @@ function Steper({ steps }) {
   const handleNext = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
+        ? steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
     setActiveStep(newActiveStep);
   };
@@ -77,7 +76,7 @@ function Steper({ steps }) {
   };
 
   const handlePostData = () => {
-    console.log("send data: ", editTableData);
+    handleData(editTableData);
   };
 
   return (
@@ -123,11 +122,11 @@ function Steper({ steps }) {
               disabled={activeStep === 0}
               onClick={handleBack}
             >
-              Back
+              {STRINGS.moromiImport.backBtn}
             </Button>
             <div>
               <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
+                {STRINGS.moromiImport.nextBtn}
               </Button>
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
@@ -140,8 +139,8 @@ function Steper({ steps }) {
                 ) : (
                   <Button onClick={handleComplete}>
                     {completedSteps() === totalSteps() - 1
-                      ? "Finish"
-                      : "Complete Step"}
+                      ? STRINGS.moromiImport.finishBtn
+                      : STRINGS.moromiImport.completeStepBtn}
                   </Button>
                 ))}
             </div>
