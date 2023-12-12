@@ -6,12 +6,15 @@ import classes from "./ExcelImport.module.css";
 
 const ExcelImport = () => {
   const [excelData, setExcelData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFileChange = async (file) => {
     try {
+      setIsLoading(true);
       const data = await readXlsxFile(file);
       setExcelData(data);
     } catch (error) {
+      setIsLoading(false);
       console.error("Error reading Excel file:", error);
     }
   };
@@ -33,17 +36,17 @@ const ExcelImport = () => {
   return (
     <>
       {!excelData ? (
-        <div
+        <span
           className={classes.dragContainer}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
         >
-          <div className={classes.dragIcon}>
+          <span className={classes.dragIcon}>
             <IconButton onClick={filePicker} color="primary">
               <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
             </IconButton>
-            <Typography>{"DRAG FILE HERE OR BROWSE"}</Typography>
-          </div>
+            <span>{"DRAG FILE HERE OR BROWSE"}</span>
+          </span>
           <input
             type="file"
             accept=".xls, .xlsx"
@@ -51,7 +54,7 @@ const ExcelImport = () => {
             onChange={(e) => handleFileChange(e.target.files[0])}
             hidden
           />
-        </div>
+        </span>
       ) : (
         <div className={classes.container}>
           <table>
