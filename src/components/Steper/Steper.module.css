@@ -1,0 +1,48 @@
+.stepContainerBox {
+  height: 100%;
+  width: 99%;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+.stepReset {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.stepCompletedContainerBox {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2;
+  justify-content: end;
+}
+.stepContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.stepTypography {
+  height: 100%;
+  width: 100%;
+  border: 0.5px solid grey;
+  border-radius: 0.5rem;
+}
+.steperBackButton {
+  color: inherit;
+  margin-right: 1;
+}
+.steperButtons {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2;
+  justify-content: space-between;
+}
+.alreadyCompleted {
+  display: inline-block;
+}

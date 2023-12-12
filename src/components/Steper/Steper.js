@@ -6,6 +6,7 @@ import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ExcelImport from "../ExcelImport/ExcelImport";
+import classes from "./Steper.module.css";
 
 function Steper({ steps }) {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -58,81 +59,56 @@ function Steper({ steps }) {
   };
 
   return (
-    <Box
-      sx={{
-        height: "100%",
-        width: "99%",
-        display: "flex",
-        flexDirection: "column",
-        paddingTop: "1rem",
-      }}
-    >
+    <Box className={classes.stepContainerBox}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
-              {label}
-            </StepButton>
+            <StepButton onClick={handleStep(index)}>{label}</StepButton>
           </Step>
         ))}
       </Stepper>
       {allStepsCompleted() ? (
-        <React.Fragment>
+        <div className={classes.stepReset}>
           <Typography sx={{ mt: 2, mb: 1 }}>
             All steps completed - you&apos;re finished
           </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-            <Box sx={{ flex: "1 1 auto" }} />
+          <Box className={classes.stepCompletedContainerBox}>
             <Button onClick={handleReset}>Reset</Button>
           </Box>
-        </React.Fragment>
+        </div>
       ) : (
-        <div
-          style={{
-            marginTop:"1rem",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
-          <Typography
-            sx={{
-              margin: "5px 0px 0px 5px",
-              padding:"2px",
-              height: "100%",
-              width: "100%",
-              border: "0.5px solid grey",
-              borderRadius: "0.5rem",
-            }}
-          >
+        <div className={classes.stepContainer}>
+          <Typography className={classes.stepTypography}>
             {activeStep === 0 ? <ExcelImport /> : "Step " + (activeStep + 1)}
           </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+          <Box className={classes.steperButtons}>
             <Button
-              color="inherit"
+              className={classes.steperBackButton}
               disabled={activeStep === 0}
               onClick={handleBack}
-              sx={{ mr: 1 }}
             >
               Back
             </Button>
-            <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleNext} sx={{ mr: 1 }}>
-              Next
-            </Button>
-            {activeStep !== steps.length &&
-              (completed[activeStep] ? (
-                <Typography variant="caption" sx={{ display: "inline-block" }}>
-                  Step {activeStep + 1} already completed
-                </Typography>
-              ) : (
-                <Button onClick={handleComplete}>
-                  {completedSteps() === totalSteps() - 1
-                    ? "Finish"
-                    : "Complete Step"}
-                </Button>
-              ))}
+            <div>
+              <Button onClick={handleNext} sx={{ mr: 1 }}>
+                Next
+              </Button>
+              {activeStep !== steps.length &&
+                (completed[activeStep] ? (
+                  <Typography
+                    variant="caption"
+                    className={classes.alreadyCompleted}
+                  >
+                    Step {activeStep + 1} already completed
+                  </Typography>
+                ) : (
+                  <Button onClick={handleComplete}>
+                    {completedSteps() === totalSteps() - 1
+                      ? "Finish"
+                      : "Complete Step"}
+                  </Button>
+                ))}
+            </div>
           </Box>
         </div>
       )}
