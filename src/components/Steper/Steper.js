@@ -12,11 +12,19 @@ import GeneralTable from "../GeneralTable/GeneralTable";
 function Steper({ steps }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-  
-  const [editTableData, setEditTableData] = React.useState();
+
+  const [editTableData, setEditTableData] = React.useState([]);
   const handleImportedData = (data) => {
     setEditTableData(data);
     handleComplete();
+  };
+  const handleEditData = (rowIndex, name, value) => {
+    const newData = [...editTableData];
+    newData[rowIndex] = {
+      ...newData[rowIndex],
+      [name]: value,
+    };
+    setEditTableData(newData);
   };
 
   const totalSteps = () => {
@@ -57,6 +65,10 @@ function Steper({ steps }) {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
+    if (editTableData && activeStep === 1) {
+      console.log("activeStep :", activeStep);
+      console.log("editTableData", editTableData);
+    }
     handleNext();
   };
 
@@ -89,9 +101,17 @@ function Steper({ steps }) {
             {activeStep === 0 ? (
               <ExcelImport handleImportedData={handleImportedData} />
             ) : activeStep === 1 ? (
-              <GeneralTable data={editTableData} />
+              <GeneralTable
+                data={editTableData}
+                editAble={true}
+                handleEditData={handleEditData}
+              />
             ) : (
-              "Step " + (activeStep + 1)
+              <GeneralTable
+                data={editTableData}
+                editAble={false}
+                handleEditData={handleEditData}
+              />
             )}
           </Typography>
           <Box className={classes.steperButtons}>
