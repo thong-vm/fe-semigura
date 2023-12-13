@@ -11,3 +11,6 @@ export const moromiImport = {
   finishBtn: "Finish",
   resetBtn: "Reset",
 };
+export const excelImport = {
+  dragFileBtn: "DRAG FILE HERE OR BROWSE",
+};

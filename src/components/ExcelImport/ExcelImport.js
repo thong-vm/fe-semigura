@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import classes from "./ExcelImport.module.css";
+import * as STRINGS from "../../constants/string";
 
 function ExcelImport({ handleImportedData }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,7 +51,7 @@ function ExcelImport({ handleImportedData }) {
             <IconButton onClick={filePicker} color="primary">
               <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
             </IconButton>
-            <span>{"DRAG FILE HERE OR BROWSE"}</span>
+            <span>{STRINGS.excelImport.dragFileBtn}</span>
           </div>
 
           <input
