@@ -38,7 +38,7 @@ function GeneralTable({ data, editAble, handleEditData }) {
       <div className={classes.tableContainer}>
         <table border="0" cellSpacing="1" cellPadding="0">
           <thead
-            className={classes.header}
+            className={classes.tableHeader}
             style={{ backgroundColor: COLORS.primaryMain }}
           >
             <tr>

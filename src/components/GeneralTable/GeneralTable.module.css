@@ -26,9 +26,9 @@
   min-width: 5rem;
   border: 0.1px solid gray;
 }
-.header {
+.tableHeader {
   position: sticky;
-  top: 0rem;
+  top: 0;
   background-color: white;
   z-index: 2;
   color: white;
