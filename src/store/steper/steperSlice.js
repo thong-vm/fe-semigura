@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   steper: {
     activeStep: 0,
-    completed: {},
     tableDatas: [],
   },
 };
@@ -16,10 +15,7 @@ const steperlice = createSlice({
       var { activeStep } = action.payload;
       state.steper.activeStep = activeStep;
     },
-    setCompleted: (state, action) => {
-      var { completed } = action.payload;
-      state.steper.completed = completed;
-    },
+
     setTableData: (state, action) => {
       var { tableDatas } = action.payload;
       state.steper.tableDatas = tableDatas;
@@ -36,9 +32,8 @@ const steperlice = createSlice({
   },
   extraReducers(builder) {},
 });
-export const { setActiveStep, setCompleted, setTableData, updateTableData } =
+export const { setActiveStep, setTableData, updateTableData } =
   steperlice.actions;
 export const selectTableDatas = (state) => state.steper.steper.tableDatas;
 export const selectActiveStep = (state) => state.steper.steper.activeStep;
-export const selectCompleted = (state) => state.steper.steper.completed;
 export default steperlice.reducer;

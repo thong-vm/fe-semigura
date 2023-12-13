@@ -17,10 +17,11 @@ import {
   setTableData,
   updateTableData,
 } from "../../store/steper/steperSlice";
+import { useState } from "react";
 
 function Steper({ steps, handleData }) {
   const activeStep = useSelector(selectActiveStep);
-  const [completed, setCompleted] = React.useState({});
+  const [completed, setCompleted] = useState({});
 
   const tableDatas = useSelector(selectTableDatas);
   const dispatch = useDispatch();
