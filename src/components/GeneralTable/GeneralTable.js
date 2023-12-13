@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import classes from "./GeneralTable.module.css";
 import { Pagination } from "@mui/material";
-import * as STRINGS from "../../constants/string";
 import * as COLORS from "../../constants/colors";
+import { useTranslation } from "react-i18next";
 
 function GeneralTable({ data, editAble, handleEditData }) {
+  const { t } = useTranslation();
   const itemsPerPage = 50;
   const [page, setPage] = useState(1);
   const handleChange = (event, value) => {
@@ -28,13 +29,11 @@ function GeneralTable({ data, editAble, handleEditData }) {
     handleEditData(rowIndex, name, value);
   };
   if (!data || data.length === 0) {
-    return <span>{STRINGS.generalTable.noData}</span>;
+    return <span>{t("NO_DATA")}</span>;
   }
   const headers = Object.keys(data[0]);
   return (
-    <div
-    className={classes.container}
-    >
+    <div className={classes.container}>
       <div className={classes.tableContainer}>
         <table border="0" cellSpacing="1" cellPadding="0">
           <thead

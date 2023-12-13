@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import ExcelImport from "../ExcelImport/ExcelImport";
 import classes from "./Steper.module.css";
 import GeneralTable from "../GeneralTable/GeneralTable";
-import * as STRINGS from "../../constants/string";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectActiveStep,
@@ -18,8 +17,10 @@ import {
   updateTableData,
 } from "../../store/steper/steperSlice";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 function Steper({ steps, handleData }) {
+  const { t } = useTranslation();
   const activeStep = useSelector(selectActiveStep);
   const [completed, setCompleted] = useState({});
 
@@ -124,9 +125,7 @@ function Steper({ steps, handleData }) {
             All steps completed - you&apos;re finished
           </Typography>
           <Box className={classes.stepCompletedContainerBox}>
-            <Button onClick={handleReset}>
-              {STRINGS.moromiImport.resetBtn}
-            </Button>
+            <Button onClick={handleReset}>{t("RESET_BTN")}</Button>
           </Box>
         </div>
       ) : (
@@ -138,11 +137,11 @@ function Steper({ steps, handleData }) {
               disabled={activeStep === 0}
               onClick={handleBack}
             >
-              {STRINGS.moromiImport.backBtn}
+              {t("BACK_BTN")}
             </Button>
             <div>
               <Button onClick={handleNext} sx={{ mr: 1 }}>
-                {STRINGS.moromiImport.nextBtn}
+                {t("NEXT_BTN")}
               </Button>
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
@@ -155,8 +154,8 @@ function Steper({ steps, handleData }) {
                 ) : (
                   <Button onClick={handleComplete}>
                     {completedSteps() === totalSteps() - 1
-                      ? STRINGS.moromiImport.finishBtn
-                      : STRINGS.moromiImport.completeStepBtn}
+                      ? t("FINISH_BTN")
+                      : t("COMPLETE_STEP_BTN")}
                   </Button>
                 ))}
             </div>

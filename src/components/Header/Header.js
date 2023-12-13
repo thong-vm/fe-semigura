@@ -64,7 +64,7 @@ function Header() {
       navigate(data.path);
     }
   };
-  const { t } = useTranslation();
+ 
   return (
     <div
       style={{ backgroundColor: COLORS.header }}
@@ -80,7 +80,6 @@ function Header() {
           content={notificationDropdown}
           handleOutputItem={handleNotificationDropdown}
         />
-        <p>{t('HELLO_WORLD')}</p>
         <div className={classes.userInfoDetail}>
           <span className={classes.userFullName}>ボー ミン トン</span>
           <div className={classes.avatarContainer}>

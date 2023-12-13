@@ -1,3 +1,14 @@
 {
-    "HELLO_WORLD":"こんにちは !"
+  "HELLO_WORLD": "こんにちは !",
+  "LOGIN": "ログイン",
+  "FORGOT_PASSWORD": "パスワードをお忘れですか",
+  "SIGN_UP": "アカウントをお持ちでない場合は、 サインアップ",
+  "LOGIN_BTN": "ログイン",
+  "BACK_BTN": "戻る",
+  "NEXT_BTN": "次へ",
+  "COMPLETE_STEP_BTN": "ステップを完了",
+  "FINISH_BTN": "終了",
+  "RESET_BTN": "リセット",
+  "DRAG_FILE_BTN": "ファイルをここにドラッグするか、参照してください",
+  "NO_DATA": "有効なデータがありません"
 }
