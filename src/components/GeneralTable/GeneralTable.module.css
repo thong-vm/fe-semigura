@@ -12,9 +12,15 @@
   background-color: white;
   z-index: 2;
 }
+
+td {
+  min-width: 5rem;
+  border: 0.1px solid gray;
+}
 thead {
   position: sticky;
   top: 2rem;
   background-color: white;
   z-index: 2;
+  color: white;
 }

@@ -14,3 +14,6 @@ export const moromiImport = {
 export const excelImport = {
   dragFileBtn: "DRAG FILE HERE OR BROWSE",
 };
+export const generalTable = {
+  noData: "No valid data available",
+};

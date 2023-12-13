@@ -79,6 +79,33 @@ function Steper({ steps, handleData }) {
     handleData(editTableData);
   };
 
+  const renderStep = (activeStep) => {
+    let component;
+    switch (activeStep) {
+      case 0:
+        component = <ExcelImport handleImportedData={handleImportedData} />;
+        break;
+      case 1:
+        component = (
+          <GeneralTable
+            data={editTableData}
+            editAble={true}
+            handleEditData={handleEditData}
+          />
+        );
+        break;
+      default:
+        component = (
+          <GeneralTable
+            data={editTableData}
+            editAble={false}
+            handleEditData={handleEditData}
+          />
+        );
+    }
+    return component;
+  };
+
   return (
     <Box className={classes.stepContainerBox}>
       <Stepper nonLinear activeStep={activeStep}>
@@ -101,23 +128,7 @@ function Steper({ steps, handleData }) {
         </div>
       ) : (
         <div className={classes.stepContainer}>
-          <div className={classes.stepTypography}>
-            {activeStep === 0 ? (
-              <ExcelImport handleImportedData={handleImportedData} />
-            ) : activeStep === 1 ? (
-              <GeneralTable
-                data={editTableData}
-                editAble={true}
-                handleEditData={handleEditData}
-              />
-            ) : (
-              <GeneralTable
-                data={editTableData}
-                editAble={false}
-                handleEditData={handleEditData}
-              />
-            )}
-          </div>
+          <div className={classes.stepTypography}>{renderStep(activeStep)}</div>
           <Box className={classes.steperButtons}>
             <Button
               className={classes.steperBackButton}

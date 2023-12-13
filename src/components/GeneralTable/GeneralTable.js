@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import classes from "./GeneralTable.module.css";
 import { Pagination } from "@mui/material";
+import * as STRINGS from "../../constants/string";
+import * as COLORS from "../../constants/colors";
 
 function GeneralTable({ data, editAble, handleEditData }) {
   const itemsPerPage = 50;
@@ -25,6 +27,9 @@ function GeneralTable({ data, editAble, handleEditData }) {
   const handleEditRow = (rowIndex, name, value) => {
     handleEditData(rowIndex, name, value);
   };
+  if (!data || data.length === 0) {
+    return <span>{STRINGS.generalTable.noData}</span>;
+  }
   const headers = Object.keys(data[0]);
   return (
     <div className={classes.container}>
@@ -35,8 +40,8 @@ function GeneralTable({ data, editAble, handleEditData }) {
         page={page}
         onChange={handleChange}
       />
-      <table border="0" cellSpacing="0.5" cellPadding="0">
-        <thead>
+      <table border="0" cellSpacing="1" cellPadding="0">
+        <thead style={{ backgroundColor: COLORS.primaryMain }}>
           <tr>
             {headers.map((header, index) => (
               <th key={index}>{header}</th>
@@ -49,7 +54,7 @@ function GeneralTable({ data, editAble, handleEditData }) {
               {headers.map((name, cellIndex) => (
                 <td
                   key={cellIndex}
-                  style={{ minWidth: "5rem", border: "0.1px solid gray" }}
+                  // style={{ minWidth: "5rem", border: "0.1px solid gray" }}
                 >
                   <input
                     readOnly={!editAble}
