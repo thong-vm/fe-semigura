@@ -2,36 +2,43 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   steper: {
-    data:[]
+    activeStep: 0,
+    completed: {},
+    tableDatas: [],
   },
 };
 
-const bmdSlice = createSlice({
-  name: "bmd",
+const steperlice = createSlice({
+  name: "steper",
   initialState,
   reducers: {
-    setList: (state, action) => {
-      var { bmds } = action.payload;
-      state.bmds = bmds;
+    setActiveStep: (state, action) => {
+      var { activeStep } = action.payload;
+      state.steper.activeStep = activeStep;
     },
-    addToList: (state, action) => {
-      var { bmd } = action.payload;
-      state.bmds = [bmd, ...state.bmds];
+    setCompleted: (state, action) => {
+      var { completed } = action.payload;
+      state.steper.completed = completed;
     },
-    updateBmd: (state, action) => {
-      var { id, changes } = action.payload;
-      var bmd = state.bmds.find((element) => element.id === id);
-      Object.keys(changes).forEach((key) => (bmd[key] = changes[key]));
+    setTableData: (state, action) => {
+      var { tableDatas } = action.payload;
+      state.steper.tableDatas = tableDatas;
     },
-    deleteItem: (state, action) => {
-      var { id } = action.payload;
-      state.bmds = state.bmds.filter((element) => element.id !== id);
+    updateTableData: (state, action) => {
+      var { rowIndex, name, value } = action.payload;
+      const newData = [...state.steper.tableDatas];
+      newData[rowIndex] = {
+        ...newData[rowIndex],
+        [name]: value,
+      };
+      state.steper.tableDatas = newData;
     },
   },
-  extraReducers(builder) {
-  },
+  extraReducers(builder) {},
 });
-export const { setList, addToList, updateBmd, deleteItem } = bmdSlice.actions;
-export const selectAllBmd = (state) => state.bmd.bmds;
-export const selectAllStandardLines = (state) => state.bmd.standardLines;
-export default bmdSlice.reducer;
+export const { setActiveStep, setCompleted, setTableData, updateTableData } =
+  steperlice.actions;
+export const selectTableDatas = (state) => state.steper.steper.tableDatas;
+export const selectActiveStep = (state) => state.steper.steper.activeStep;
+export const selectCompleted = (state) => state.steper.steper.completed;
+export default steperlice.reducer;

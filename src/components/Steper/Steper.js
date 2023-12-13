@@ -9,23 +9,29 @@ import ExcelImport from "../ExcelImport/ExcelImport";
 import classes from "./Steper.module.css";
 import GeneralTable from "../GeneralTable/GeneralTable";
 import * as STRINGS from "../../constants/string";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectActiveStep,
+  selectTableDatas,
+  setActiveStep,
+  setTableData,
+  updateTableData,
+} from "../../store/steper/steperSlice";
 
 function Steper({ steps, handleData }) {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const activeStep = useSelector(selectActiveStep);
   const [completed, setCompleted] = React.useState({});
 
-  const [editTableData, setEditTableData] = React.useState([]);
+  const tableDatas = useSelector(selectTableDatas);
+  const dispatch = useDispatch();
+
   const handleImportedData = (data) => {
-    setEditTableData(data);
+    dispatch(setTableData({ tableDatas: data }));
     handleComplete();
   };
+
   const handleEditData = (rowIndex, name, value) => {
-    const newData = [...editTableData];
-    newData[rowIndex] = {
-      ...newData[rowIndex],
-      [name]: value,
-    };
-    setEditTableData(newData);
+    dispatch(updateTableData({ rowIndex, name, value }));
   };
 
   const totalSteps = () => {
@@ -49,15 +55,17 @@ function Steper({ steps, handleData }) {
       isLastStep() && !allStepsCompleted()
         ? steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
-    setActiveStep(newActiveStep);
+    dispatch(setActiveStep({ activeStep: newActiveStep }));
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    dispatch(
+      setActiveStep({ activeStep: (prevActiveStep) => prevActiveStep - 1 })
+    );
   };
 
   const handleStep = (step) => () => {
-    setActiveStep(step);
+    dispatch(setActiveStep({ activeStep: step }));
   };
 
   const handleComplete = () => {
@@ -71,12 +79,12 @@ function Steper({ steps, handleData }) {
   };
 
   const handleReset = () => {
-    setActiveStep(0);
+    dispatch(setActiveStep({ activeStep: 0 }));
     setCompleted({});
   };
 
   const handlePostData = () => {
-    handleData(editTableData);
+    handleData(tableDatas);
   };
 
   const renderStep = (activeStep) => {
@@ -88,20 +96,14 @@ function Steper({ steps, handleData }) {
       case 1:
         component = (
           <GeneralTable
-            data={editTableData}
+            data={tableDatas}
             editAble={true}
             handleEditData={handleEditData}
           />
         );
         break;
       default:
-        component = (
-          <GeneralTable
-            data={editTableData}
-            editAble={false}
-            handleEditData={handleEditData}
-          />
-        );
+        component = <GeneralTable data={tableDatas} editAble={false} />;
     }
     return component;
   };
