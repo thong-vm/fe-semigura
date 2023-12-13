@@ -40,7 +40,6 @@ function Layout() {
       {isTokenValid && (
         <div className={classes.root}>
           <div
-            style={{ backgroundColor: COLORS.sidebarPrimary }}
             className={classes.menu}
           >
             <Menu />

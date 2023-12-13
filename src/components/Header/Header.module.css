@@ -1,18 +1,11 @@
 .container {
   width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   flex-direction: row;
   padding: 1px 0px 1px 0px;
   align-items: center;
-}
-
-.zoomButton {
-  color: white;
-  cursor: pointer;
-  padding: 1px;
-  border: 0.5px solid white;
+  position: fixed;
 }
 
 .zoomButton:hover {

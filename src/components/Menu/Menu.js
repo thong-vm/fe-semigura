@@ -172,11 +172,18 @@ function Sidebar() {
   return (
     <Box
       sx={{
-        minWidth: variant === C.temporary ? 50 : 250,
+        minWidth: variant === C.temporary ? 0 : 250,
       }}
     >
       <Button
-        sx={{ position: "fixed", top: 0 }}
+        sx={{
+          position: "fixed",
+          zIndex: 4,
+          top: 0,
+          display: "flex",
+          alignItems: "center",
+          height: "50px",
+        }}
         onClick={toggleDrawer(true, "menu")}
       >
         <MenuIcon sx={{ color: "white" }} />

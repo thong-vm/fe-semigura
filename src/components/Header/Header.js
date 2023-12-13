@@ -1,5 +1,4 @@
 import classes from "./Header.module.css";
-import ZoomOutMapIcon from "@mui/icons-material/ZoomOutMap";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import * as COLORS from "../../constants/colors";
 import Dropdown from "../Dropdown/Dropdown";
@@ -63,7 +62,6 @@ function Header() {
       style={{ backgroundColor: COLORS.header }}
       className={classes.container}
     >
-      <ZoomOutMapIcon className={classes.zoomButton} />
       <div className={classes.userInfoContainer}>
         <Clock />
         <Dropdown
