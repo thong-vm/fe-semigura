@@ -32,46 +32,51 @@ function GeneralTable({ data, editAble, handleEditData }) {
   }
   const headers = Object.keys(data[0]);
   return (
-    <div className={classes.container}>
-      <Pagination
-        className={classes.pagination}
-        count={pageCount}
-        color="primary"
-        page={page}
-        onChange={handleChange}
-      />
-      <table border="0" cellSpacing="1" cellPadding="0">
-        <thead
-          className={classes.header}
-          style={{ backgroundColor: COLORS.primaryMain }}
-        >
-          <tr>
-            {headers.map((header, index) => (
-              <th key={index}>{header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {currentData.map((row, index) => (
-            <tr key={index}>
-              {headers.map((name, cellIndex) => (
-                <td className={classes.row} key={cellIndex}>
-                  <input
-                    readOnly={!editAble}
-                    type="text"
-                    style={{ border: "none", outline: "none" }}
-                    value={row[name] ?? ""}
-                    onChange={(e) => {
-                      handleInputChange(e.target.value, index, name);
-                      handleEditRow(index, name, e.target.value);
-                    }}
-                  />
-                </td>
+    <div
+    className={classes.container}
+    >
+      <div className={classes.tableContainer}>
+        <table border="0" cellSpacing="1" cellPadding="0">
+          <thead
+            className={classes.header}
+            style={{ backgroundColor: COLORS.primaryMain }}
+          >
+            <tr>
+              {headers.map((header, index) => (
+                <th key={index}>{header}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {currentData.map((row, index) => (
+              <tr key={index}>
+                {headers.map((name, cellIndex) => (
+                  <td className={classes.row} key={cellIndex}>
+                    <input
+                      readOnly={!editAble}
+                      type="text"
+                      style={{ border: "none", outline: "none" }}
+                      value={row[name] ?? ""}
+                      onChange={(e) => {
+                        handleInputChange(e.target.value, index, name);
+                        handleEditRow(index, name, e.target.value);
+                      }}
+                    />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className={classes.pagination}>
+        <Pagination
+          count={pageCount}
+          color="primary"
+          page={page}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 }

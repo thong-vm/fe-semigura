@@ -1,16 +1,25 @@
 .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tableContainer {
   height: 350px;
-  min-height: 100%;
+  min-height: 92%;
   overflow-y: auto;
   width: 600px;
   min-width: 100%;
 }
 .pagination {
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  bottom: 0;
   left: 0;
   background-color: white;
-  z-index: 2;
+  z-index: 2; */
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .row {
@@ -19,7 +28,7 @@
 }
 .header {
   position: sticky;
-  top: 2rem;
+  top: 0rem;
   background-color: white;
   z-index: 2;
   color: white;
