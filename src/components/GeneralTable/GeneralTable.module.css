@@ -13,11 +13,11 @@
   z-index: 2;
 }
 
-td {
+.row {
   min-width: 5rem;
   border: 0.1px solid gray;
 }
-thead {
+.header {
   position: sticky;
   top: 2rem;
   background-color: white;

@@ -41,7 +41,10 @@ function GeneralTable({ data, editAble, handleEditData }) {
         onChange={handleChange}
       />
       <table border="0" cellSpacing="1" cellPadding="0">
-        <thead style={{ backgroundColor: COLORS.primaryMain }}>
+        <thead
+          className={classes.header}
+          style={{ backgroundColor: COLORS.primaryMain }}
+        >
           <tr>
             {headers.map((header, index) => (
               <th key={index}>{header}</th>
@@ -52,10 +55,7 @@ function GeneralTable({ data, editAble, handleEditData }) {
           {currentData.map((row, index) => (
             <tr key={index}>
               {headers.map((name, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  // style={{ minWidth: "5rem", border: "0.1px solid gray" }}
-                >
+                <td className={classes.row} key={cellIndex}>
                   <input
                     readOnly={!editAble}
                     type="text"
