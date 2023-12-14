@@ -1,9 +1,11 @@
 {
-  "LOGIN": "Login",
-  "FORGOT_PASSWORD": "Forgot password",
-  "SIGN_UP": "Don't have an account? Sign Up",
-  "LOGIN_BTN": "Login",
-  "BACK_BTN":"Back",
+  "LOGIN_PAGE": {
+    "LOGIN": "Login",
+    "FORGOT_PASSWORD": "Forgot password",
+    "SIGN_UP": "Don't have an account? Sign Up",
+    "LOGIN_BTN": "Login"
+  },
+  "BACK_BTN": "Back",
   "NEXT_BTN": "Next",
   "COMPLETE_STEP_BTN": "Complete Step",
   "FINISH_BTN": "Finish",

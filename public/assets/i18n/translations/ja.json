@@ -1,8 +1,10 @@
 {
-  "LOGIN": "ログイン",
-  "FORGOT_PASSWORD": "パスワードをお忘れですか",
-  "SIGN_UP": "アカウントをお持ちでない場合は、 サインアップ",
-  "LOGIN_BTN": "ログイン",
+  "LOGIN_PAGE":{
+    "LOGIN": "ログイン",
+    "FORGOT_PASSWORD": "パスワードをお忘れですか",
+    "SIGN_UP": "アカウントをお持ちでない場合は、 サインアップ",
+    "LOGIN_BTN": "ログイン"
+  },
   "BACK_BTN": "戻る",
   "NEXT_BTN": "次へ",
   "COMPLETE_STEP_BTN": "ステップを完了",

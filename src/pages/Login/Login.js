@@ -13,6 +13,7 @@ import { LOADING, SUCCEEDED } from "../../constants/store";
 import { useTranslation } from "react-i18next";
 function Login() {
   const { t } = useTranslation();
+  const LOGIN_PAGE = t("LOGIN_PAGE", { returnObjects: true });
   const ref = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -66,20 +67,20 @@ function Login() {
               style={{ color: COLORS.primaryMain }}
               className={classes.title}
             >
-              {t('LOGIN')}
+              {LOGIN_PAGE.LOGIN}
             </span>
           </div>
           <GeneralForm
             fields={fields}
             handleProcess={handleLogin}
-            submitBtn={t('LOGIN_BTN')}
+            submitBtn={LOGIN_PAGE.LOGIN_BTN}
           />
           <div className={classes.forgotSignup}>
             <Link className={classes.forgotSingupLink}>
-              {t('FORGOT_PASSWORD')}
+              {LOGIN_PAGE.FORGOT_PASSWORD}
             </Link>
             <Link className={classes.forgotSingupLink}>
-              {t('SIGN_UP')}
+              {LOGIN_PAGE.SIGN_UP}
             </Link>
           </div>
         </div>
