@@ -2,5 +2,8 @@
   "LOGIN": "ログイン",
   "FORGOT_PASSWORD": "パスワードをお忘れですか",
   "SIGN_UP": "アカウントをお持ちでない場合は、 サインアップ",
-  "LOGIN_BTN": "ログイン"
+  "LOGIN_BTN": "ログイン",
+  "USERNAME": "ユーザー名",
+  "PASSWORD": "パスワード",
+  "REMEMBER_ME": "暗記する"
 }

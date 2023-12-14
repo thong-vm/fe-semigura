@@ -33,17 +33,17 @@ function Login() {
   const fields = [
     {
       register: "username",
-      label: "Username",
+      label: t("USERNAME"),
       type: "text",
     },
     {
       register: "password",
-      label: "Password",
+      label: t("PASSWORD"),
       type: "password",
     },
     {
       register: "rememberMe",
-      label: "Remember me",
+      label: t("REMEMBER_ME"),
       type: "checkbox",
     },
   ];
