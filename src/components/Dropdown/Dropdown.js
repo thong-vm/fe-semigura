@@ -4,6 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import classes from "./Dropdown.module.css";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -68,8 +69,9 @@ export default function Dropdown({ content, handleOutputItem }) {
 
   return (
     <div className={classes.dropdownContainer}>
-      <div onClick={handleClick}>
+      <div className={classes.dropdownBtn} onClick={handleClick}>
         {content.element ? content.element : label}
+        {content.isShowArrowIcon && <KeyboardArrowDownIcon />}
       </div>
       <StyledMenu
         id="demo-customized-menu"

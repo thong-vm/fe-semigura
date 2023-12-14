@@ -4,7 +4,6 @@
   height: 50px;
   align-items: center;
   display: flex;
-  color: white;
 }
 
 .menuItem {
@@ -20,6 +19,12 @@
 
 .name {
   margin: 0px 4px 0px 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dropdownBtn {
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAuthStatus, loginAsync } from "../../store/auth/authSlice";
 import { LOADING, SUCCEEDED } from "../../constants/store";
 import { useTranslation } from "react-i18next";
+import Language from "../../components/Language/Language";
 function Login() {
   const { t } = useTranslation("login_page");
   const ref = useRef(null);
@@ -56,11 +57,14 @@ function Login() {
     <>
       {status === LOADING && (
         <>
-          <LoadingBar background={COLORS.primaryMain} ref={ref} />
+          <LoadingBar height={5} background={COLORS.primaryMain} ref={ref} />
         </>
       )}
       <div className={classes.containerWrap}>
-        <div style={{ width: "40%" }}>
+        <div style={{ color: COLORS.primaryMain }} className={classes.language}>
+          <Language />
+        </div>
+        <div className={classes.loginPanel}>
           <div className={classes.containerTitle}>
             <span
               style={{ color: COLORS.primaryMain }}
