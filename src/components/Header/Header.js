@@ -8,26 +8,35 @@ import * as ICONS from "../../constants/svgIcons";
 import * as ROUTES from "../../constants/routes.js";
 import { useNavigate } from "react-router-dom";
 import AvatarChip from "../AvartarChip/AvatarChip.js";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import LocalStorage from "../../services/localStorage/localStorage.js";
 
 function Header() {
   const { i18n } = useTranslation();
+  const languages = [
+    {
+      id: 1,
+      name: "English",
+      language: "en",
+      startIcon: ICONS.english,
+    },
+    {
+      id: 2,
+      name: "日本語",
+      language: "ja",
+      startIcon: ICONS.japanese,
+    },
+  ];
+  const defaultLanguageItem = languages.find(
+    (item) => item.language === LocalStorage.get("lang")
+  );
+
+  const defaultLanguage = defaultLanguageItem
+    ? defaultLanguageItem.name
+    : "English";
   const languagueDropdown = {
-    element: "",
-    options: [
-      {
-        id: 1,
-        name: "English",
-        language: "en",
-        startIcon: ICONS.english,
-      },
-      {
-        id: 2,
-        name: "日本語",
-        language: "ja",
-        startIcon: ICONS.japanese,
-      },
-    ],
+    element: <span>{defaultLanguage}</span>,
+    options: languages,
   };
   const notificationDropdown = {
     element: <NotificationsIcon />,
@@ -55,8 +64,8 @@ function Header() {
   };
   const navigate = useNavigate();
   const handleLanguagueDropdown = (data) => {
-    console.log('data.language :', data.language);
     i18n.changeLanguage(data.language);
+    LocalStorage.set("lang", data.language);
   };
   const handleNotificationDropdown = (data) => {};
   const handleAvatarDropdown = (data) => {
@@ -64,7 +73,7 @@ function Header() {
       navigate(data.path);
     }
   };
- 
+
   return (
     <div
       style={{ backgroundColor: COLORS.header }}

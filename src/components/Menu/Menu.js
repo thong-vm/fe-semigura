@@ -77,7 +77,7 @@ function Sidebar() {
   };
 
   const logOut = (path) => {
-    LocalStorage.clear();
+    LocalStorage.remove("token");
     navigate(path);
   };
 
