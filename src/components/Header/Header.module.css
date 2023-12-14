@@ -6,6 +6,7 @@
   padding: 1px 0px 1px 0px;
   align-items: center;
   position: fixed;
+  height: 3rem;
 }
 
 .zoomButton:hover {

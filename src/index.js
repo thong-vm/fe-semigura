@@ -7,6 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import { ThemeProvider } from "@mui/material/styles";
 import general from "./themes/general";
+import './i18n';
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

@@ -1,0 +1,13 @@
+{
+  "LOGIN": "Login",
+  "FORGOT_PASSWORD": "Forgot password",
+  "SIGN_UP": "Don't have an account? Sign Up",
+  "LOGIN_BTN": "Login",
+  "BACK_BTN":"Back",
+  "NEXT_BTN": "Next",
+  "COMPLETE_STEP_BTN": "Complete Step",
+  "FINISH_BTN": "Finish",
+  "RESET_BTN": "Reset",
+  "DRAG_FILE_BTN": "DRAG FILE HERE OR BROWSE",
+  "NO_DATA": "No valid data available"
+}

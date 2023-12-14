@@ -8,18 +8,23 @@ import * as ICONS from "../../constants/svgIcons";
 import * as ROUTES from "../../constants/routes.js";
 import { useNavigate } from "react-router-dom";
 import AvatarChip from "../AvartarChip/AvatarChip.js";
+import { useTranslation } from 'react-i18next';
+
 function Header() {
+  const { i18n } = useTranslation();
   const languagueDropdown = {
     element: "",
     options: [
       {
         id: 1,
         name: "English",
+        language: "en",
         startIcon: ICONS.english,
       },
       {
         id: 2,
         name: "日本語",
+        language: "ja",
         startIcon: ICONS.japanese,
       },
     ],
@@ -49,14 +54,17 @@ function Header() {
     ],
   };
   const navigate = useNavigate();
-  const handleLanguagueDropdown = (data) => {};
+  const handleLanguagueDropdown = (data) => {
+    console.log('data.language :', data.language);
+    i18n.changeLanguage(data.language);
+  };
   const handleNotificationDropdown = (data) => {};
   const handleAvatarDropdown = (data) => {
     if (data.path) {
       navigate(data.path);
     }
   };
-
+ 
   return (
     <div
       style={{ backgroundColor: COLORS.header }}
@@ -72,9 +80,7 @@ function Header() {
           content={notificationDropdown}
           handleOutputItem={handleNotificationDropdown}
         />
-        <div
-          className={classes.userInfoDetail}
-        >
+        <div className={classes.userInfoDetail}>
           <span className={classes.userFullName}>ボー ミン トン</span>
           <div className={classes.avatarContainer}>
             <Dropdown

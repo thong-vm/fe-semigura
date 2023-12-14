@@ -2,7 +2,6 @@ import { Link } from "@mui/material";
 import LoadingBar from "react-top-loading-bar";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import * as STRINGS from "../../constants/string";
 import * as ROUTES from "../../constants/routes";
 import classes from "./Login.module.css";
 import GeneralForm from "../../components/GeneralForm/GeneralForm";
@@ -11,7 +10,9 @@ import * as COLORS from "../../constants/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { getAuthStatus, loginAsync } from "../../store/auth/authSlice";
 import { LOADING, SUCCEEDED } from "../../constants/store";
+import { useTranslation } from "react-i18next";
 function Login() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -65,20 +66,20 @@ function Login() {
               style={{ color: COLORS.primaryMain }}
               className={classes.title}
             >
-              {STRINGS.login.title}
+              {t('LOGIN')}
             </span>
           </div>
           <GeneralForm
             fields={fields}
             handleProcess={handleLogin}
-            submitBtn={STRINGS.login.loginBtn}
+            submitBtn={t('LOGIN_BTN')}
           />
           <div className={classes.forgotSignup}>
             <Link className={classes.forgotSingupLink}>
-              {STRINGS.login.forgotPassword}
+              {t('FORGOT_PASSWORD')}
             </Link>
             <Link className={classes.forgotSingupLink}>
-              {STRINGS.login.signUp}
+              {t('SIGN_UP')}
             </Link>
           </div>
         </div>

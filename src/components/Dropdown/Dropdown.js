@@ -3,7 +3,6 @@ import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
-import * as COLORS from "../../constants/colors";
 import classes from "./Dropdown.module.css";
 
 const StyledMenu = styled((props) => (
