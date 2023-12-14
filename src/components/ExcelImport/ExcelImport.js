@@ -5,7 +5,7 @@ import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import classes from "./ExcelImport.module.css";
 import { useTranslation } from "react-i18next";
 function ExcelImport({ handleImportedData }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation("excel_import");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFileChange = async (files) => {

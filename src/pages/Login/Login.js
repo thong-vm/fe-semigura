@@ -12,8 +12,7 @@ import { getAuthStatus, loginAsync } from "../../store/auth/authSlice";
 import { LOADING, SUCCEEDED } from "../../constants/store";
 import { useTranslation } from "react-i18next";
 function Login() {
-  const { t } = useTranslation();
-  const LOGIN_PAGE = t("LOGIN_PAGE", { returnObjects: true });
+  const { t } = useTranslation("login_page");
   const ref = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -67,21 +66,19 @@ function Login() {
               style={{ color: COLORS.primaryMain }}
               className={classes.title}
             >
-              {LOGIN_PAGE.LOGIN}
+              {t("LOGIN")}
             </span>
           </div>
           <GeneralForm
             fields={fields}
             handleProcess={handleLogin}
-            submitBtn={LOGIN_PAGE.LOGIN_BTN}
+            submitBtn={t("LOGIN_BTN")}
           />
           <div className={classes.forgotSignup}>
             <Link className={classes.forgotSingupLink}>
-              {LOGIN_PAGE.FORGOT_PASSWORD}
+              {t("FORGOT_PASSWORD")}
             </Link>
-            <Link className={classes.forgotSingupLink}>
-              {LOGIN_PAGE.SIGN_UP}
-            </Link>
+            <Link className={classes.forgotSingupLink}>{t("SIGN_UP")}</Link>
           </div>
         </div>
       </div>

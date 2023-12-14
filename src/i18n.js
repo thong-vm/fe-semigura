@@ -1,8 +1,8 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
-import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import Backend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
 
 i18n
   // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
@@ -16,24 +16,24 @@ i18n
   // init i18next
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
-    lng: 'en',
+    lng: "en",
     backend: {
       /* translation file path */
-      loadPath: '/assets/i18n/{{ns}}/{{lng}}.json'
+      loadPath: "/assets/i18n/{{lng}}/{{ns}}.json",
     },
-    fallbackLng: 'en',
+    fallbackLng: "en",
     debug: true,
     /* can have multiple namespace, in case you want to divide a huge translation into smaller pieces and load them on demand */
-    ns: ['translations'],
-    defaultNS: 'translations',
+    ns: ["translations", "login_page", "excel_import", "steper"],
+    defaultNS: "translations",
     keySeparator: false,
     interpolation: {
       escapeValue: false,
-      formatSeparator: ','
+      formatSeparator: ",",
     },
     react: {
-      wait: true
-    }
+      wait: true,
+    },
   });
 
 export default i18n;

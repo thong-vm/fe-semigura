@@ -20,7 +20,7 @@ import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 
 function Steper({ steps, handleData }) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('steper');
   const activeStep = useSelector(selectActiveStep);
   const [completed, setCompleted] = useState({});
 
