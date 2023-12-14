@@ -31,7 +31,8 @@ i18n
       "steper",
       "general_table",
       "general_form",
-      "avatar"
+      "avatar",
+      "menu",
     ],
     defaultNS: "translations",
     keySeparator: false,

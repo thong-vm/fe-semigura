@@ -23,6 +23,7 @@ import { useNavigate } from "react-router-dom";
 import * as ROUTES from "../../constants/routes.js";
 import * as COLORS from "../../constants/colors.js";
 import LocalStorage from "../../services/localStorage/localStorage.js";
+import { useTranslation } from "react-i18next";
 
 const C = {
   temporary: "temporary",
@@ -51,6 +52,7 @@ const theme = createTheme({
 });
 
 function Sidebar() {
+  const { t } = useTranslation("menu");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [expandState, setExpandState] = useState({});
   const [variant, setVariant] = useState(C.permanent);
@@ -95,7 +97,7 @@ function Sidebar() {
 
   const renderItems = (list, lvl = 1) => {
     return list.map((item, index) => {
-      var { title, path, icon } = item;
+      var { title, path, icon, translateName } = item;
       if (item.children) {
         return (
           <div key={index}>
@@ -115,7 +117,7 @@ function Sidebar() {
                 {icon}
               </ListItemIcon>
               <ListItemText
-                primary={title}
+                primary={t(translateName)}
                 primaryTypographyProps={{
                   fontSize: 20 - lvl * 2,
                   fontWeight: lvl < 3 ? "Bold" : lvl === 2 ? "500%" : "medium",
@@ -154,7 +156,7 @@ function Sidebar() {
           <ListItem key={`${title}-${index}`} disablePadding>
             <ListItemButton onClick={() => onNavigate(path, title)}>
               <ListItemIcon sx={{ color: "inherit" }}>{icon}</ListItemIcon>
-              <ListItemText primary={title} />
+              <ListItemText primary={t(translateName)} />
             </ListItemButton>
           </ListItem>
         );

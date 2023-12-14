@@ -13,7 +13,7 @@ import MoromiImport from "../pages/Moromi/MoromiImport/MoromiImport";
 
 export const layout = {
   id: "dashBoard",
-  title: "Dash board",
+  title: "Dashboard",
   path: "/",
   icon: <HomeIcon />,
   element: <Dashboard />,
@@ -22,7 +22,7 @@ export const layout = {
 
 export const dashBoard = {
   id: "dashBoard",
-  title: "Dash board",
+  title: "Dashboard",
   path: "/dashboard",
   icon: <HomeIcon />,
   element: <Dashboard />,
