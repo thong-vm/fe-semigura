@@ -11,7 +11,7 @@
 .language {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1px;
   display: flex;
   align-items: center;
   height: fit-content;

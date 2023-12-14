@@ -71,7 +71,16 @@ export default function Dropdown({ content, handleOutputItem }) {
     <div className={classes.dropdownContainer}>
       <div className={classes.dropdownBtn} onClick={handleClick}>
         {content.element ? content.element : label}
-        {content.isShowArrowIcon && <KeyboardArrowDownIcon />}
+        {content.isShowArrowIcon && (
+          <div
+            style={{
+              transition: "0.2s",
+              transform: open ? "rotate(180deg)" : "rotate(0)",
+            }}
+          >
+            <KeyboardArrowDownIcon />
+          </div>
+        )}
       </div>
       <StyledMenu
         id="demo-customized-menu"
