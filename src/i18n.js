@@ -30,6 +30,7 @@ i18n
       "excel_import",
       "steper",
       "general_table",
+      "general_form",
     ],
     defaultNS: "translations",
     keySeparator: false,

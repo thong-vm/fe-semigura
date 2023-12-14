@@ -2,8 +2,10 @@ import { ErrorMessage } from "@hookform/error-message";
 import { Button, Checkbox, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import classes from "./GeneralForm.module.css";
+import { useTranslation } from "react-i18next";
 
 function GeneralForm({ fields, handleProcess, submitBtn }) {
+  const { t } = useTranslation("general_form");
   const {
     register,
     formState: { errors },
@@ -18,7 +20,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
             <div className={classes.formInput}>
               <TextField
                 {...register(field.register, {
-                  required: `${field.label} is required.`,
+                  required: `${field.label} ${t("IS_REQUIRED")}.`,
                 })}
                 label={field.label}
                 variant={`${field.variant || "outlined"}`}
@@ -38,7 +40,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
             <div className={classes.formInput}>
               <TextField
                 {...register(field.register, {
-                  required: `${field.label} is required.`,
+                  required: `${field.label} ${t("IS_REQUIRED")}.`,
                 })}
                 label={field.label}
                 variant={`${field.variant || "outlined"}`}
@@ -70,7 +72,7 @@ function GeneralForm({ fields, handleProcess, submitBtn }) {
             <div className={classes.formInput}>
               <TextField
                 {...register(field.register, {
-                  required: `${field.label} is required.`,
+                  required: `${field.label} ${t("IS_REQUIRED")}.`,
                 })}
                 label={field.label}
                 variant={`${field.variant || "outlined"}`}
