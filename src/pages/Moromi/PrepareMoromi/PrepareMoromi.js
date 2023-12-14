@@ -20,7 +20,6 @@ import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 function PrepareMoromi() {
   const dispatch = useDispatch();
   const data = useSelector(selectAllPrepareMoromi);
-  const [open, setOpen] = useState(false);
   const disable = true;
   const updateData = ({ id, changes }) => {
     dispatch(updatePrepareMoromi({ id, changes }));
