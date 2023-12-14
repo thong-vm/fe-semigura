@@ -5,6 +5,7 @@ import {
   selectAllStandardLines,
   updateBmd,
 } from "../../../store/moromi/bmdSlice";
+import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 
 function Bmd() {
   const dispatch = useDispatch();
@@ -15,12 +16,19 @@ function Bmd() {
   };
 
   return (
-    <PageTable
-      data={data}
-      standardLines={standardLines}
-      updateData={updateData}
-      axis={{ x: "Day", y: "t°" }}
-    />
+    <>
+      <CollapseTab
+        title="BMD"
+        content={
+          <PageTable
+            data={data}
+            standardLines={standardLines}
+            updateData={updateData}
+            axis={{ x: "Day", y: "t°" }}
+          />
+        }
+      ></CollapseTab>
+    </>
   );
 }
 

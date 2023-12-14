@@ -4,6 +4,7 @@ import {
   selectAllMoromis,
   updateMoromi,
 } from "../../../store/moromi/moromiSlice";
+import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 
 function MoromiGeneral() {
   const dispatch = useDispatch();
@@ -12,11 +13,19 @@ function MoromiGeneral() {
     dispatch(updateMoromi({ id, changes }));
   };
   return (
-    <PageTable
-      data={data}
-      updateData={updateData}
-      axis={{ x: "Day", y: "t°" }}
-    />
+    <>
+      <CollapseTab
+        title="General Moromi"
+        content={
+          <PageTable
+            data={data}
+            updateData={updateData}
+            axis={{ x: "Time", y: "t°" }}
+            yAxisName={"time"}
+          />
+        }
+      ></CollapseTab>
+    </>
   );
 }
 

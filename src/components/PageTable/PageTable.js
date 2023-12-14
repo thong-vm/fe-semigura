@@ -1,8 +1,16 @@
+import { Button } from "@mui/material";
 import { parseToLineArray } from "../../help/parseToLineArray";
 import Chart from "../Chart/Chart";
 import DataTable from "../DataTable/DataTable";
 
-function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
+function PageTable({
+  data,
+  yAxisName,
+  standardLines,
+  axis,
+  updateData,
+  disableSave,
+}) {
   const xAxisData = Array.from({ length: data.length }, (_, index) => {
     return yAxisName ? data[index][yAxisName] : index + 1;
   });
@@ -27,6 +35,25 @@ function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
         />
       )}
       <DataTable data={data} handleEditRow={handleEditRow} />
+      <div
+        style={{
+          width: "100%",
+          "margin-top": "1%",
+          display: "flex",
+          justifyContent: "end",
+        }}
+      >
+        <div style={{ "margin-right": "1%" }}>
+          <Button variant="contained" size="small">
+            Cancel
+          </Button>
+        </div>
+        <div style={{ "margin-right": "1%" }}>
+          <Button variant="contained" size="small" disabled={disableSave}>
+            Save
+          </Button>
+        </div>
+      </div>
     </>
   );
 }

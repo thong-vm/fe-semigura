@@ -4,6 +4,7 @@ import {
   selectAllArukoru,
   updateArukoru,
 } from "../../../store/moromi/arukoruSlice";
+import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 
 function Arukoru() {
   const dispatch = useDispatch();
@@ -12,7 +13,19 @@ function Arukoru() {
     dispatch(updateArukoru({ id, changes }));
   };
   return (
-    <PageTable data={data} updateData={updateData} axis={{ x: "Day", y: "" }} />
+    <>
+      <CollapseTab
+        title="Arukoru"
+        content={
+          <PageTable
+            data={data}
+            updateData={updateData}
+            axis={{ x: "Day", y: "t°" }}
+          />
+        }
+      ></CollapseTab>
+    </>
+    // <PageTable data={data} updateData={updateData} axis={{ x: "Day", y: "" }} />
   );
 }
 

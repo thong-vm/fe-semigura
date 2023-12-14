@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import PageTable from "../../../components/PageTable/PageTable";
 import { selectAllEkisus, updateEkisu } from "../../../store/moromi/ekisuSlice";
+import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 
 function Ekisu() {
   const dispatch = useDispatch();
@@ -9,11 +10,18 @@ function Ekisu() {
     dispatch(updateEkisu({ id, changes }));
   };
   return (
-    <PageTable
-      data={data}
-      updateData={updateData}
-      axis={{ x: "Day", y: "t°" }}
-    />
+    <>
+      <CollapseTab
+        title="Ekisu"
+        content={
+          <PageTable
+            data={data}
+            updateData={updateData}
+            axis={{ x: "Day", y: "t°" }}
+          />
+        }
+      ></CollapseTab>
+    </>
   );
 }
 
