@@ -3,7 +3,7 @@ import { parseVarriableToLabel } from "./parseVarriableToLabel";
 export const parseToLineArray = (array) => {
   const results = [];
   Object.keys(array[0]).forEach((key) => {
-    if (key !== "day" && key !== "time" && key !== "id" && key !== "dayChart" && key !== "timeChart") {
+    if (key !== "day" && key !== "time" && key !== "id") {
       var t = {
         label: parseVarriableToLabel(key),
         value: [],
