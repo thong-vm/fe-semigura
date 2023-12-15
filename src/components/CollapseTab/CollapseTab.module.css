@@ -1,0 +1,28 @@
+.cardContent {
+    padding: 0px 0px 2px 0px;
+    font-size: 15px;
+    border-radius: 0px !important;
+}
+
+.cardHeaderColl {
+    padding: 5px !important;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0px !important;
+    
+}
+.cardHeaderColl:hover{
+    background-color: rgb(86, 156, 236);
+}
+
+.keyboardArrowUpIcon {
+    color: white
+}
+
+.keyboardArrowDownIcon {
+    color: white
+}
+
+.collapseContainer {
+    background-color: rgba(248, 249, 249)
+}

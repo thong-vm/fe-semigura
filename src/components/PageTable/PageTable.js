@@ -38,7 +38,7 @@ function PageTable({
       <div
         style={{
           width: "100%",
-          "margin-top": "1%",
+          marginTop: "1%",
           display: "flex",
           justifyContent: "end",
         }}
