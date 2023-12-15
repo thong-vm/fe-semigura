@@ -26,7 +26,8 @@ class LocalStorage {
 
   static clear() {
     try {
-      localStorage.clear();
+      localStorage.removeItem('token');
+      localStorage.removeItem('rememberMe');
     } catch (error) {
       console.error("Error clearing data from localStorage:", error);
     }

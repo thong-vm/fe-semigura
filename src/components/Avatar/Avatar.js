@@ -4,6 +4,7 @@ import * as ROUTES from "../../constants/routes.js";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AvatarChip from "../AvatarChip/AvatarChip.js";
 import { useTranslation } from "react-i18next";
+import LocalStorage from "../../services/localStorage/localStorage.js";
 function Avatar() {
   const { t } = useTranslation("avatar");
   const avatarDropdown = {
@@ -21,6 +22,7 @@ function Avatar() {
 
   const handleAvatarDropdown = (data) => {
     if (data.path) {
+      LocalStorage.clear();
       navigate(data.path);
     }
   };

@@ -79,7 +79,7 @@ function Sidebar() {
   };
 
   const logOut = (path) => {
-    LocalStorage.remove("token");
+    LocalStorage.clear();
     navigate(path);
   };
 
