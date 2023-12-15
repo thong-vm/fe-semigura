@@ -20,18 +20,18 @@ function MoromiGeneral() {
   };
   const [msg, setMsg] = useState();
   useEffect(() => {
-    const loader = async () => {
-      const { result, error } = await Batch.getOne("107260938eac4000018b952c64dfd0cb");
-      if (error) {
-        setMsg(error);
-      } else {
+    // const loader = async () => {
+    //   const { result, error } = await Batch.getOne("107260938eac4000018b952c64dfd0cb");
+    //   if (error) {
+    //     setMsg(error);
+    //   } else {
 
-        dispatch(setList({ moromis: result.moromis }));
-      }
-    };
-    if (!data) {
-      loader();
-    }
+    //     dispatch(setList({ moromis: result.moromis }));
+    //   }
+    // };
+    // if (!data) {
+    //   loader();
+    // }
   }, [data, dispatch]);
 
   return (
