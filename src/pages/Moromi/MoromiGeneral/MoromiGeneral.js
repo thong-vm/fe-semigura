@@ -5,9 +5,11 @@ import {
   updateMoromi,
 } from "../../../store/moromi/moromiSlice";
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
+import ButtonGroupChart from "../../../components/Button/ButtonChartGroup";
 
 function MoromiGeneral() {
   const dispatch = useDispatch();
+  const disable = true;
   const data = useSelector(selectAllMoromis);
   const updateData = ({ id, changes }) => {
     dispatch(updateMoromi({ id, changes }));
@@ -17,12 +19,15 @@ function MoromiGeneral() {
       <CollapseTab
         title="General Moromi"
         content={
+          <>
           <PageTable
             data={data}
             updateData={updateData}
             axis={{ x: "Time", y: "t°" }}
             yAxisName={"time"}
           />
+          <ButtonGroupChart disableSave={disable} ></ButtonGroupChart>
+          </>
         }
       ></CollapseTab>
     </>

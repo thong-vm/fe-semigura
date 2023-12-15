@@ -10,7 +10,6 @@ function PageTable({
   standardLines,
   axis,
   updateData,
-  disableSave,
 }) {
   const xAxisData = Array.from({ length: data.length }, (_, index) => {
     return yAxisName ? data[index][yAxisName] : index + 1;
@@ -36,23 +35,7 @@ function PageTable({
         />
       )}
       <DataTable data={data} handleEditRow={handleEditRow} />
-      <div className={Clases.buttonTab}>
-        <Button
-          className={Clases.buttonAction}
-          variant="contained"
-          size="small"
-        >
-          Cancel
-        </Button>
-        <Button
-          className={Clases.buttonAction}
-          variant="contained"
-          size="small"
-          disabled={disableSave}
-        >
-          Save
-        </Button>
-      </div>
+      
     </>
   );
 }
