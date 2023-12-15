@@ -12,6 +12,8 @@ import { getAuthStatus, loginAsync } from "../../store/auth/authSlice";
 import { LOADING, SUCCEEDED } from "../../constants/store";
 import { useTranslation } from "react-i18next";
 import Language from "../../components/Language/Language";
+import LocalStorage from "../../services/localStorage/localStorage";
+import * as LOCAL_STORAGE from "../../constants/localStorage";
 function Login() {
   const { t } = useTranslation("login_page");
   const ref = useRef(null);
@@ -22,6 +24,10 @@ function Login() {
 
   const handleLogin = (data) => {
     setLogin(true);
+    LocalStorage.set(
+      LOCAL_STORAGE.REMEMBER_ME,
+      data[LOCAL_STORAGE.REMEMBER_ME]
+    );
     dispatch(loginAsync(data));
   };
   useEffect(() => {
@@ -42,7 +48,7 @@ function Login() {
       type: "password",
     },
     {
-      register: "rememberMe",
+      register: LOCAL_STORAGE.REMEMBER_ME,
       label: t("REMEMBER_ME"),
       type: "checkbox",
     },

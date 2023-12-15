@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import PageTable from "../../../components/PageTable/PageTable";
 import {
-  selectAllMoromis,
+    selectAllMoromis,
   updateMoromi,
 } from "../../../store/moromi/moromiSlice";
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
@@ -14,7 +14,7 @@ function MoromiGeneral() {
   const updateData = ({ id, changes }) => {
     dispatch(updateMoromi({ id, changes }));
   };
-  return (
+    return (
     <>
       <CollapseTab
         title="General Moromi"
@@ -24,7 +24,7 @@ function MoromiGeneral() {
             data={data}
             updateData={updateData}
             axis={{ x: "Time", y: "t°" }}
-            yAxisName={"time"}
+            yAxisName={"dailyOrder"}
           />
           <ButtonGroupChart disableSave={disable} ></ButtonGroupChart>
           </>

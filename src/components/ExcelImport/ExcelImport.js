@@ -1,6 +1,7 @@
-import { CircularProgress, IconButton } from "@mui/material";
+import { Button, CircularProgress, IconButton } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import * as XLSX from "xlsx";
+import * as COLORS from "../../constants/colors";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import classes from "./ExcelImport.module.css";
 import { useTranslation } from "react-i18next";
@@ -48,9 +49,11 @@ function ExcelImport({ handleImportedData }) {
       ) : (
         <div onDrop={handleDrop} onDragOver={handleDragOver}>
           <div className={classes.dragIcon}>
-            <IconButton onClick={filePicker} color="primary">
-              <CloudUploadOutlinedIcon></CloudUploadOutlinedIcon>
-            </IconButton>
+            <Button style={{ color: COLORS.primaryMain }} onClick={filePicker}>
+              <CloudUploadOutlinedIcon
+                color={COLORS.primaryMain}
+              ></CloudUploadOutlinedIcon>
+            </Button>
             <span>{t("DRAG_FILE_BTN")}</span>
           </div>
 

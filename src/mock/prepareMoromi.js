@@ -1,7 +1,7 @@
 export const prepareMoromiMock = [
   {
     id: 1,
-    day: 1,
+    dailyOrder: 1,
     time: "2022-12-20 12:35:00",
     roomTemperature: 11,
     productTemperature: 12,
@@ -9,7 +9,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 2,
-    day: 1,
+    dailyOrder: 1,
     time: "2022-12-20 12:40:00",
     roomTemperature: 11,
     productTemperature: 12.1,
@@ -17,7 +17,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 3,
-    day: 1,
+    dailyOrder: 1,
     time: "2022-12-20 14:10:00",
     roomTemperature: 11,
     productTemperature: 12.7,
@@ -25,7 +25,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 4,
-    day: 1,
+    dailyOrder: 1,
     time: "2022-12-20 22:00:00",
     roomTemperature: 11,
     productTemperature: 13.1,
@@ -33,7 +33,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 5,
-    day: 2,
+    dailyOrder: 2,
     time: "2022-12-21 05:00:00",
     roomTemperature: 11,
     productTemperature: 12.4,
@@ -41,7 +41,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 6,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-22 08:00:00",
     roomTemperature: 11,
     productTemperature: 9.1,
@@ -49,7 +49,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 7,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-22 08:10:00",
     roomTemperature: 11,
     productTemperature: 9.4,
@@ -57,7 +57,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 8,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-22 08:20:00",
     roomTemperature: 11,
     productTemperature: 9.3,
@@ -65,7 +65,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 9,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-22 09:45:00",
     roomTemperature: 11,
     productTemperature: 9.6,
@@ -73,7 +73,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 10,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-23 08:00:00",
     roomTemperature: 11,
     productTemperature: 10,
@@ -81,7 +81,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 11,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-23 08:05:00",
     roomTemperature: 11,
     productTemperature: 5.7,
@@ -89,7 +89,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 12,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-23 08:10:00",
     roomTemperature: 11,
     productTemperature: 5.8,
@@ -97,7 +97,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 13,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-23 08:20:00",
     roomTemperature: 11,
     productTemperature: 6.8,
@@ -105,7 +105,7 @@ export const prepareMoromiMock = [
   },
   {
     id: 14,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-23 09:45:00",
     roomTemperature: 11,
     productTemperature: 7.5,

@@ -17,10 +17,10 @@ import {
   updateTableData,
 } from "../../store/steper/steperSlice";
 import { useState } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 function Steper({ steps, handleData }) {
-  const { t } = useTranslation('steper');
+  const { t } = useTranslation("steper");
   const activeStep = useSelector(selectActiveStep);
   const [completed, setCompleted] = useState({});
 
@@ -82,6 +82,7 @@ function Steper({ steps, handleData }) {
 
   const handleReset = () => {
     dispatch(setActiveStep({ activeStep: 0 }));
+    dispatch(setTableData({ tableDatas: [] }));
     setCompleted({});
   };
 
