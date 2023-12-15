@@ -21,8 +21,8 @@ function Chart({ dataLineChart, standardLines, axis }) {
       sx={{
         ".MuiMarkElement-root": {
           scale: "0",
-          fill: "#fff",
-          strokeWidth: 2,
+          fill: "black",
+          strokeWidth: 0,
         },
       }}
     >
