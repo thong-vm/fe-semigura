@@ -6,6 +6,7 @@ import classes from "./DataTable.module.css";
 const DataTable = ({ data, handleEditRow }) => {
   const transformData = data.map((items) => {
     const dataTrans = {
+      DailyOrder: items.dailyOrder,
       Day: convertDateTime(items.time),
       Time: convertTime(items.time),
       ...items,
@@ -34,8 +35,8 @@ const DataTable = ({ data, handleEditRow }) => {
           {Object.keys(transformData[0]).map(
             (name, index) =>
               name !== "id" &&
-              name !== "day" &&
-              name !== "time" && (
+              name !== "time" &&
+              name !== "dailyOrder" && (
                 <tr key={index}>
                   <td className={classes.headerCell}>
                     {parseVarriableToLabel(name)}
@@ -51,8 +52,8 @@ const DataTable = ({ data, handleEditRow }) => {
             {Object.keys(transformData[0]).map(
               (name, index) =>
                 name !== "id" &&
-                name !== "day" &&
-                name !== "time" && (
+                name !== "time" &&
+                name !== "dailyOrder" && (
                   <tr key={index}>
                     {editableData.map((column, rowIndex) => (
                       <td className={classes.inputTdCell} key={column.id}>
