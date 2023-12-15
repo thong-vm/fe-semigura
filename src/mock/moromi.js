@@ -1,7 +1,7 @@
 export const moromiMock = [
   {
     id: 1,
-    day: 1,
+    dailyOrder: 1,
     time: "2022-12-24 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -11,7 +11,7 @@ export const moromiMock = [
   },
   {
     id: 2,
-    day: 2,
+    dailyOrder: 2,
     time: "2022-12-25 05:00:00",
     roomTemperature: 5,
     productTemperature: 7.5,
@@ -21,7 +21,7 @@ export const moromiMock = [
   },
   {
     id: 3,
-    day: 3,
+    dailyOrder: 3,
     time: "2022-12-26 05:00:00",
     roomTemperature: 4,
     productTemperature: 8,
@@ -31,7 +31,7 @@ export const moromiMock = [
   },
   {
     id: 4,
-    day: 4,
+    dailyOrder: 4,
     time: "2022-12-27 05:00:00",
     roomTemperature: 3,
     productTemperature: 8.5,
@@ -41,7 +41,7 @@ export const moromiMock = [
   },
   {
     id: 5,
-    day: 5,
+    dailyOrder: 5,
     time: "2022-12-28 05:00:00",
     roomTemperature: 2,
     productTemperature: 9,
@@ -51,7 +51,7 @@ export const moromiMock = [
   },
   {
     id: 6,
-    day: 6,
+    dailyOrder: 6,
     time: "2022-12-29 05:00:00",
     roomTemperature: 2.3,
     productTemperature: 9.5,
@@ -61,7 +61,7 @@ export const moromiMock = [
   },
   {
     id: 7,
-    day: 7,
+    dailyOrder: 7,
     time: "2022-12-30 05:00:00",
     roomTemperature: 2.5,
     productTemperature: 9.7,
@@ -71,7 +71,7 @@ export const moromiMock = [
   },
   {
     id: 8,
-    day: 8,
+    dailyOrder: 8,
     time: "2023-01-01 05:00:00",
     roomTemperature: 3,
     productTemperature: 10,
@@ -81,7 +81,7 @@ export const moromiMock = [
   },
   {
     id: 9,
-    day: 9,
+    dailyOrder: 9,
     time: "2023-01-02 05:00:00",
     roomTemperature: 2.4,
     productTemperature: 10.2,
@@ -91,7 +91,7 @@ export const moromiMock = [
   },
   {
     id: 10,
-    day: 10,
+    dailyOrder: 10,
     time: "2023-01-03 05:00:00",
     roomTemperature: 2.2,
     productTemperature: 10.5,
@@ -101,7 +101,7 @@ export const moromiMock = [
   },
   {
     id: 11,
-    day: 11,
+    dailyOrder: 11,
     time: "2023-01-04 05:00:00",
     roomTemperature: 2,
     productTemperature: 10.5,
@@ -111,7 +111,7 @@ export const moromiMock = [
   },
   {
     id: 12,
-    day: 12,
+    dailyOrder: 12,
     time: "2023-01-05 05:00:00",
     roomTemperature: 3,
     productTemperature: 10.5,
@@ -121,7 +121,7 @@ export const moromiMock = [
   },
   {
     id: 13,
-    day: 13,
+    dailyOrder: 13,
     time: "2023-01-06 05:00:00",
     roomTemperature: 3,
     productTemperature: 10,
@@ -131,7 +131,7 @@ export const moromiMock = [
   },
   {
     id: 14,
-    day: 14,
+    dailyOrder: 14,
     time: "2023-01-07 05:00:00",
     roomTemperature: 3,
     productTemperature: 9.3,
@@ -141,7 +141,7 @@ export const moromiMock = [
   },
   {
     id: 15,
-    day: 15,
+    dailyOrder: 15,
     time: "2023-01-08 05:00:00",
     roomTemperature: 3,
     productTemperature: 8.7,
@@ -151,7 +151,7 @@ export const moromiMock = [
   },
   {
     id: 16,
-    day: 16,
+    dailyOrder: 16,
     time: "2023-01-09 05:00:00",
     roomTemperature: 3,
     productTemperature: 8,
@@ -161,7 +161,7 @@ export const moromiMock = [
   },
   {
     id: 17,
-    day: 17,
+    dailyOrder: 17,
     time: "2023-01-10 05:00:00",
     roomTemperature: 2.3,
     productTemperature: 7.5,
@@ -171,7 +171,7 @@ export const moromiMock = [
   },
   {
     id: 18,
-    day: 18,
+    dailyOrder: 18,
     time: "2023-01-11 05:00:00",
     roomTemperature: 3,
     productTemperature: 7.3,
@@ -181,7 +181,7 @@ export const moromiMock = [
   },
   {
     id: 19,
-    day: 19,
+    dailyOrder: 19,
     time: "2023-01-12 05:00:00",
     roomTemperature: 2.2,
     productTemperature: 7,
@@ -191,7 +191,7 @@ export const moromiMock = [
   },
   {
     id: 20,
-    day: 20,
+    dailyOrder: 20,
     time: "2023-01-13 05:00:00",
     roomTemperature: 2.7,
     productTemperature: 6.9,
@@ -201,7 +201,7 @@ export const moromiMock = [
   },
   {
     id: 21,
-    day: 21,
+    dailyOrder: 21,
     time: "2023-01-14 05:00:00",
     roomTemperature: 3.2,
     productTemperature: 6.6,
@@ -211,7 +211,7 @@ export const moromiMock = [
   },
   {
     id: 22,
-    day: 22,
+    dailyOrder: 22,
     time: "2023-01-15 05:00:00",
     roomTemperature: 3,
     productTemperature: 6.4,
@@ -221,7 +221,7 @@ export const moromiMock = [
   },
   {
     id: 23,
-    day: 23,
+    dailyOrder: 23,
     time: "2023-01-16 05:00:00",
     roomTemperature: 3,
     productTemperature: 6.2,
@@ -231,7 +231,7 @@ export const moromiMock = [
   },
   {
     id: 24,
-    day: 24,
+    dailyOrder: 24,
     time: "2023-01-17 05:00:00",
     roomTemperature: 3,
     productTemperature: 6,
@@ -241,7 +241,7 @@ export const moromiMock = [
   },
   {
     id: 25,
-    day: 25,
+    dailyOrder: 25,
     time: "2023-01-18 05:00:00",
     roomTemperature: 3,
     productTemperature: 6,
@@ -251,7 +251,7 @@ export const moromiMock = [
   },
   {
     id: 26,
-    day: 26,
+    dailyOrder: 26,
     time: "2023-01-19 05:00:00",
     roomTemperature: 2.6,
     productTemperature: 6,
@@ -261,7 +261,7 @@ export const moromiMock = [
   },
   {
     id: 27,
-    day: 27,
+    dailyOrder: 27,
     time: "2023-01-20 05:00:00",
     roomTemperature: 2.6,
     productTemperature: 6,
@@ -271,7 +271,7 @@ export const moromiMock = [
   },
   {
     id: 28,
-    day: 28,
+    dailyOrder: 28,
     time: "2023-01-21 05:00:00",
     roomTemperature: 3,
     productTemperature: 6,
@@ -281,7 +281,7 @@ export const moromiMock = [
   },
   {
     id: 29,
-    day: 29,
+    dailyOrder: 29,
     time: "2023-01-21 05:00:00",
     roomTemperature: 3,
     productTemperature: 6,
@@ -291,7 +291,7 @@ export const moromiMock = [
   },
   {
     id: 30,
-    day: 30,
+    dailyOrder: 30,
     time: "2023-01-21 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -301,7 +301,7 @@ export const moromiMock = [
   },
   {
     id: 31,
-    day: 31,
+    dailyOrder: 31,
     time: "2023-01-21 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -311,7 +311,7 @@ export const moromiMock = [
   },
   {
     id: 32,
-    day: 32,
+    dailyOrder: 32,
     time: "2023-01-22 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -321,7 +321,7 @@ export const moromiMock = [
   },
   {
     id: 33,
-    day: 33,
+    dailyOrder: 33,
     time: "2023-01-23 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -331,7 +331,7 @@ export const moromiMock = [
   },
   {
     id: 34,
-    day: 34,
+    dailyOrder: 34,
     time: "2023-01-24 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -341,7 +341,7 @@ export const moromiMock = [
   },
   {
     id: 35,
-    day: 35,
+    dailyOrder: 35,
     time: "2023-01-25 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -351,7 +351,7 @@ export const moromiMock = [
   },
   {
     id: 36,
-    day: 36,
+    dailyOrder: 36,
     time: "2023-01-26 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -361,7 +361,7 @@ export const moromiMock = [
   },
   {
     id: 37,
-    day: 37,
+    dailyOrder: 37,
     time: "2023-01-27 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -371,7 +371,7 @@ export const moromiMock = [
   },
   {
     id: 38,
-    day: 38,
+    dailyOrder: 38,
     time: "2023-01-28 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -381,7 +381,7 @@ export const moromiMock = [
   },
   {
     id: 39,
-    day: 39,
+    dailyOrder: 39,
     time: "2023-01-29 05:00:00",
     roomTemperature: null,
     productTemperature: null,
@@ -391,7 +391,7 @@ export const moromiMock = [
   },
   {
     id: 40,
-    day: 40,
+    dailyOrder: 40,
     time: "2023-01-30 05:00:00",
     roomTemperature: null,
     productTemperature: null,
