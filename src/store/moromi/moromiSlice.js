@@ -6,7 +6,7 @@ import { Moromi } from "../../services/api/moromi/moromiApi";
 const BASE_URL = "http://localhost:8000/moromis";
 
 const initialState = {
-  moromis: moromiMock,
+  moromis: undefined,
 };
 
 export const fetchMoromis = createAsyncThunk(

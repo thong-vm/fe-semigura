@@ -1,16 +1,13 @@
-import { Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { parseToLineArray } from "../../help/parseToLineArray";
 import Chart from "../Chart/Chart";
 import DataTable from "../DataTable/DataTable";
-import Clases from "./PageTable.module.css";
 
-function PageTable({
-  data,
-  yAxisName,
-  standardLines,
-  axis,
-  updateData,
-}) {
+function PageTable({ data, yAxisName, standardLines, axis, updateData }) {
+  const { t } = useTranslation("page_table");
+  if (!data || !data.length) {
+    return <>{t('NO_DATA')}</>;
+  }
   const xAxisData = Array.from({ length: data.length }, (_, index) => {
     return yAxisName ? data[index][yAxisName] : index + 1;
   });
@@ -35,7 +32,6 @@ function PageTable({
         />
       )}
       <DataTable data={data} handleEditRow={handleEditRow} />
-      
     </>
   );
 }

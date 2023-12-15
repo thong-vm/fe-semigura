@@ -6,6 +6,7 @@ import prepareMoromiReducer from "./moromi/prepareMoromiSlice";
 import arukoruReducer from "./moromi/arukoruSlice";
 import authReducer from "./auth/authSlice";
 import steperReducer from "./steper/steperSlice";
+import batchReducer from "./batch/batchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     prepareMoromi: prepareMoromiReducer,
     arukoru: arukoruReducer,
     steper: steperReducer,
+    batch: batchReducer,
   },
 });
 

@@ -34,6 +34,7 @@ i18n
       "general_form",
       "avatar",
       "menu",
+      "page_table"
     ],
     defaultNS: "translations",
     keySeparator: false,
