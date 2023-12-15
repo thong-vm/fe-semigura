@@ -1,18 +1,18 @@
 import { Button } from "@mui/material";
-import Clases from "./ButtonChartGroup.module.css"
+import classes from "./ButtonChartGroup.module.css"
 
-function ButtonGroupChart(disableSave) {
+function ButtonGroupChart({disableSave}) {
     return ( 
-        <div className={Clases.buttonTab} hidden="true">
+        <div className={classes.buttonTab} hidden={true}>
         <Button
-          className={Clases.buttonAction}
+          className={classes.buttonAction}
           variant="contained"
           size="small"
         >
           Cancel
         </Button>
         <Button
-          className={Clases.buttonAction}
+          className={classes.buttonAction}
           variant="contained"
           size="small"
           disabled={disableSave}

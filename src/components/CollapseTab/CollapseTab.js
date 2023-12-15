@@ -10,7 +10,6 @@ import * as COLORS from "../../constants/colors";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import classes from "./CollapseTab.module.css";
-import { red } from "@mui/material/colors";
 
 function CollapseTab({ title, content }) {
   const [open, setOpen] = useState(true);
