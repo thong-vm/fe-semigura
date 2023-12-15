@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { parseToLineArray } from "../../help/parseToLineArray";
 import Chart from "../Chart/Chart";
 import DataTable from "../DataTable/DataTable";
+import Clases from "./PageTable.module.css";
 
 function PageTable({
   data,
@@ -35,24 +36,22 @@ function PageTable({
         />
       )}
       <DataTable data={data} handleEditRow={handleEditRow} />
-      <div
-        style={{
-          width: "100%",
-          marginTop: "1%",
-          display: "flex",
-          justifyContent: "end",
-        }}
-      >
-        <div style={{ "margin-right": "1%" }}>
-          <Button variant="contained" size="small">
-            Cancel
-          </Button>
-        </div>
-        <div style={{ "margin-right": "1%" }}>
-          <Button variant="contained" size="small" disabled={disableSave}>
-            Save
-          </Button>
-        </div>
+      <div className={Clases.buttonTab}>
+        <Button
+          className={Clases.buttonAction}
+          variant="contained"
+          size="small"
+        >
+          Cancel
+        </Button>
+        <Button
+          className={Clases.buttonAction}
+          variant="contained"
+          size="small"
+          disabled={disableSave}
+        >
+          Save
+        </Button>
       </div>
     </>
   );

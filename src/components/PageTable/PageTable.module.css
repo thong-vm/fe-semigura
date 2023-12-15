@@ -1,0 +1,16 @@
+.buttonTab {
+    width: 100%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: end;
+}
+.buttonAction{
+    margin-right: 1% !important;
+}
+.containerCover{
+    /* width: 800px;
+    overflow: "auto"; */
+    display: contents;
+    background-color: aquamarine;
+    max-width: 100px;
+} 
