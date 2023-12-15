@@ -15,5 +15,5 @@ const batchSlice = createSlice({
   extraReducers(builder) {},
 });
 export const { setList } = batchSlice.actions;
-export const selectAllMoromis = (state) => state.batch.batchs;
+export const selectAllBatchs = (state) => state.batch.batchs;
 export default batchSlice.reducer;
