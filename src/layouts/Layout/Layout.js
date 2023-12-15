@@ -7,16 +7,17 @@ import {
 import classes from "./Layout.module.css";
 import Menu from "../../components/Menu/Menu.js";
 import * as ROUTES from "../../constants/routes.js";
-import * as COLORS from "../../constants/colors";
 import Header from "../../components/Header/Header.js";
 import { useEffect } from "react";
 import LocalStorage from "../../services/localStorage/localStorage.js";
 import { useState } from "react";
 import Footer from "../../components/Footer/Footer.js";
+import * as LOCAL_STORAGE from "../../constants/localStorage";
+
 function Layout() {
   const navigate = useNavigate();
   const [isTokenValid, setTokenValid] = useState(false);
-  const token = LocalStorage.get("token");
+  const token = LocalStorage.get(LOCAL_STORAGE.TOKEN);
   const isTokenExpired = (token) => {
     return !token || token === "";
   };
@@ -39,9 +40,7 @@ function Layout() {
     <>
       {isTokenValid && (
         <div className={classes.root}>
-          <div
-            className={classes.menu}
-          >
+          <div className={classes.menu}>
             <Menu />
           </div>
           <div className={classes.main}>
@@ -51,9 +50,7 @@ function Layout() {
             <div className={classes.content}>
               <Routes>{routeComponents} </Routes>
             </div>
-            <div className={classes.footer}>
-              {/* <Footer /> */}
-            </div>
+            <div className={classes.footer}>{/* <Footer /> */}</div>
           </div>
         </div>
       )}

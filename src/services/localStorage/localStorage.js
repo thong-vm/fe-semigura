@@ -1,3 +1,4 @@
+import * as LOCAL_STORAGE from "../../constants/localStorage";
 class LocalStorage {
   static get(key) {
     try {
@@ -26,8 +27,8 @@ class LocalStorage {
 
   static clear() {
     try {
-      localStorage.removeItem('token');
-      localStorage.removeItem('rememberMe');
+      localStorage.removeItem(LOCAL_STORAGE.TOKEN);
+      localStorage.removeItem(LOCAL_STORAGE.REMEMBER_ME);
     } catch (error) {
       console.error("Error clearing data from localStorage:", error);
     }

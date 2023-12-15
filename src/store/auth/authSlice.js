@@ -3,6 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { FAILED, IDLE, LOADING, SUCCEEDED } from "../../constants/store";
 import LocalStorage from "../../services/localStorage/localStorage";
 import { AuthLogin } from "../../services/api/auth/authApi";
+import * as LOCAL_STORAGE from "../../constants/localStorage";
 const parseJwt = (token) => {
   try {
     return JSON.parse(Buffer.from(token.split(".")[1], "base64"));
@@ -11,7 +12,6 @@ const parseJwt = (token) => {
   }
 };
 const getRole = (token) => {
-  console.log("token :", token);
   return token ? parseJwt(token) : "";
 };
 const initialState = {
@@ -51,12 +51,12 @@ export const authSlice = createSlice({
       var { user, token } = action.payload;
       state.user.username = user.username;
       state.token = token;
-      LocalStorage.set("token", token);
+      LocalStorage.set(LOCAL_STORAGE.TOKEN, token);
     },
     logout: (state) => {
       state.token = "";
       state.user = {};
-      LocalStorage.remove("token");
+      LocalStorage.clear();
     },
   },
   extraReducers: (builder) => {
@@ -70,7 +70,7 @@ export const authSlice = createSlice({
         if (token && token != null) {
           state.token = token;
           state.role = getRole(token);
-          LocalStorage.set("token", token);
+          LocalStorage.set(LOCAL_STORAGE.TOKEN, token);
         }
       })
       .addCase(loginAsync.rejected, (state, action) => {

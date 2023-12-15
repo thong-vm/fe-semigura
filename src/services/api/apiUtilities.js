@@ -1,6 +1,7 @@
 import { REST_API } from "../../constants/api";
 import LocalStorage from "../localStorage/localStorage";
-import { requestApi } from './restApi';
+import { requestApi } from "./restApi";
+import * as LOCAL_STORAGE from "../../constants/localStorage";
 export class ApiUtilities {
   constructor(name) {
     this.url = `${REST_API}/${name}`;
@@ -9,7 +10,7 @@ export class ApiUtilities {
   headers() {
     return {
       "Content-Type": "application/json",
-      Authorization: "Bearer " + LocalStorage.get("token"),
+      Authorization: "Bearer " + LocalStorage.get(LOCAL_STORAGE.TOKEN),
     };
   }
 
