@@ -37,7 +37,6 @@ export const loginAsync = createAsyncThunk(
       }
       return result;
     } catch (error) {
-      console.error("Unexpected error in loginAsync thunk: ", error);
       dispatch(setMsg({ msg: error.message }));
       return rejectWithValue(error.message);
     }

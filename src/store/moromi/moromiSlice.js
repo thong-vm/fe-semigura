@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { moromiMock } from "../../mock/moromi";
+import { setMsg } from "../app/appSlice";
 import { Moromi } from "../../services/api/moromi/moromiApi";
 const BASE_URL = "http://localhost:8000/moromis";
 
@@ -11,9 +12,18 @@ const initialState = {
 
 export const fetchMoromis = createAsyncThunk(
   "moromis/fetchMoromis",
-  async () => {
-    const { result, error } = await Moromi.getAll();
-    return !error ? result : console.log("Moromi.getAll: ", error);
+  async (_, { rejectWithValue, dispatch }) => {
+    try {
+      const { result, error } = await Moromi.getAll();
+      if (error) {
+        dispatch(setMsg({ msg: error.message }));
+        return rejectWithValue(error);
+      }
+      return result;
+    } catch (error) {
+      dispatch(setMsg({ msg: error.message }));
+      return rejectWithValue(error.message);
+    }
   }
 );
 
