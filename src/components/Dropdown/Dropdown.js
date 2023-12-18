@@ -49,7 +49,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function Dropdown({ content, handleOutputItem }) {
+export default function Dropdown({ content, handleOutputItem, test }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {

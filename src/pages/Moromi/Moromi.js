@@ -1,32 +1,42 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Arukoru from "./Arukoru/Arukoru";
 import Bmd from "./Bmd/Bmd";
 import Ekisu from "./Ekisu/Ekisu";
 import MoromiGeneral from "./MoromiGeneral/MoromiGeneral";
 import PrepareMoromi from "./PrepareMoromi/PrepareMoromi";
 import { useEffect } from "react";
+import ComboBox from "../../components/ComboBox/ComboBox";
+import { fetchBatch, selectAllBatchs } from "../../store/batch/batchSlice";
 
 function Moromi() {
+  const batchs = useSelector(selectAllBatchs)?.map((x) => {
+    return {
+      id: x.id,
+      label: x.name,
+    };
+  });
   const dispatch = useDispatch();
   useEffect(() => {
-    // const loader = async () => {
-    //   const { result, error } = await Batch.getAll();
-    //   if (error) {
-    //     setMsg(error);
-    //   } else {
-
-    //     dispatch(setList({ moromis: result.moromis }));
-    //   }
-    // };
-    // if (!data) {
-    //   loader();
-    // }
+    const loader = async () => {
+      dispatch(fetchBatch());
+    };
+    loader();
   }, [dispatch]);
   return (
     <>
-    <select>
-      <option value="" key=""></option>
-    </select>
+      <div
+        class="row"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          margin: "5px",
+        }}
+      >
+        <label>Patch: </label>
+        {batchs && <ComboBox dataSource={batchs} />}
+      </div>
+
       <PrepareMoromi />
       <MoromiGeneral />
       <Bmd />
