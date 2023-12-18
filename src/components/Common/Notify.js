@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import * as NOTIFIES from "../../constants/notify";
+import classes from "./Notify.module.css";
 
-export function Notify({ error, onOk }) {
+export function Notify({ error, onOk, severity }) {
   const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState(error);
   const { t } = useTranslation("common");
@@ -12,24 +14,32 @@ export function Notify({ error, onOk }) {
       setMsg(error);
     }
   }, [error]);
+
   function handleClose() {
     setOpen(false);
     onOk();
   }
   return (
     <Snackbar
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
       open={open}
       autoHideDuration={6000}
       onClose={handleClose}
+      className={severity ? classes.notifySnackbar : ""}
     >
-      <Alert
-        onClose={handleClose}
-        severity={!!msg ? "error" : "success"}
-        sx={{ width: "100%", whiteSpace: "pre-line" }}
-      >
-        {!!msg ? `${t("ERROR")}\n「${t(msg)}」` : t("SUCCESS")}
-      </Alert>
+      {severity && (
+        <Alert
+          onClose={handleClose}
+          severity={severity}
+          className={classes.notifyAlert}
+        >
+          {severity === NOTIFIES.ERROR
+            ? `${t("ERROR")}\n「${t(msg)}」`
+            : severity === "success"
+            ? t("SUCCESS")
+            : ""}
+        </Alert>
+      )}
     </Snackbar>
   );
 }

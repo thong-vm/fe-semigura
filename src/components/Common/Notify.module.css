@@ -1,0 +1,8 @@
+.notifySnackbar {
+  box-shadow: 2px 2px 5px 0.5px;
+  background-color: white;
+}
+.notifyAlert {
+  width: 100%;
+  white-space: pre-line;
+}
