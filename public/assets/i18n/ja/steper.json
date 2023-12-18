@@ -3,5 +3,8 @@
   "NEXT_BTN": "次へ",
   "COMPLETE_STEP_BTN": "ステップを完了",
   "FINISH_BTN": "終了",
-  "RESET_BTN": "リセット"
+  "RESET_BTN": "リセット",
+  "IMPORT_DATA": "データのインポート(エクスポートインポート)",
+  "EDIT_DATA": "データを編集",
+  "CONFIRM_DATA": "データを確認します"
 }
