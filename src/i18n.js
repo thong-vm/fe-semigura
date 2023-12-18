@@ -23,14 +23,14 @@ i18n
       loadPath: "/assets/i18n/{{lng}}/{{ns}}.json",
     },
     fallbackLng: LocalStorage.get('lang') ?? 'en',
-    debug: true,
+    debug: false,
     /* can have multiple namespace, in case you want to divide a huge translation into smaller pieces and load them on demand */
     ns: [
       "translations",
       "login_page",
       "excel_import",
       "steper",
-      "general_table",
+      "common",
       "general_form",
       "avatar",
       "menu",

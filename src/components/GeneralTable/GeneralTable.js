@@ -5,7 +5,7 @@ import * as COLORS from "../../constants/colors";
 import { useTranslation } from "react-i18next";
 
 function GeneralTable({ data, editAble, handleEditData }) {
-  const { t } = useTranslation("general_table");
+  const { t } = useTranslation("common");
   const itemsPerPage = 50;
   const [page, setPage] = useState(1);
   const handleChange = (event, value) => {

@@ -4,6 +4,8 @@ import { FAILED, IDLE, LOADING, SUCCEEDED } from "../../constants/store";
 import LocalStorage from "../../services/localStorage/localStorage";
 import { AuthLogin } from "../../services/api/auth/authApi";
 import * as LOCAL_STORAGE from "../../constants/localStorage";
+import { setMsg } from "../app/appSlice";
+import { useTranslation } from "react-i18next";
 const parseJwt = (token) => {
   try {
     return JSON.parse(Buffer.from(token.split(".")[1], "base64"));
@@ -24,20 +26,19 @@ const initialState = {
 
 export const loginAsync = createAsyncThunk(
   "auth/loginAsync",
-  async (value, { rejectWithValue }) => {
+  async (value, { rejectWithValue, dispatch }) => {
     try {
       const { result, error } = await AuthLogin.post({
         account: value.username,
         password: value.password,
       });
-
       if (error) {
-        console.log("AuthLogin error: ", error);
+        dispatch(setMsg({ msg: "WRONG_ACCOUNT_PASSWORD" }));
         return rejectWithValue(error);
       }
       return result;
     } catch (error) {
-      console.error("Unexpected error in loginAsync thunk: ", error);
+      dispatch(setMsg({ msg: error.message }));
       return rejectWithValue(error.message);
     }
   }

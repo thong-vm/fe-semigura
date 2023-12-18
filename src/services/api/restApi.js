@@ -5,8 +5,8 @@ export async function requestApi(config) {
     if (status === 200 || status === 201) {
       return { result: data };
     }
-    return { error: `${status}: ${statusText}` };
+    return { error: { message: statusText, statusCode: status } };
   } catch (ex) {
-    return { error: ex.message };
+    return { error: { message: ex.message, statusCode: ex.response.status } };
   }
 }
