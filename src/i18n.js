@@ -30,7 +30,7 @@ i18n
       "login_page",
       "excel_import",
       "steper",
-      "general_table",
+      "common",
       "general_form",
       "avatar",
       "menu",

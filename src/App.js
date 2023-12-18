@@ -13,9 +13,12 @@ function App() {
   ));
   const dispatch = useDispatch();
   const msg = useSelector(selectMsg);
+  const handleNotifyClose = () => {
+    dispatch(setMsg(""));
+  };
   return (
     <>
-      <Notify error={msg} onOk={() => dispatch(setMsg)}></Notify>
+      <Notify error={msg} onOk={handleNotifyClose}></Notify>
       <Router>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>{routeComponents}</Routes>
