@@ -4,6 +4,7 @@ import { Lot } from "../../services/api/lot/lotApi";
 
 const initialState = {
   lots: undefined,
+  selectedLot: undefined,
 };
 
 export const fetchLot = createAsyncThunk(
@@ -30,6 +31,10 @@ const lotSlice = createSlice({
       var { lots } = action.payload;
       state.lots = lots;
     },
+    setSelectedLot: (state, action) => {
+      var { selectedLot } = action.payload;
+      state.selectedLot = selectedLot;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchLot.fulfilled, (state, action) => {
@@ -38,6 +43,7 @@ const lotSlice = createSlice({
     });
   },
 });
-export const { setList } = lotSlice.actions;
+export const { setList, setSelectedLot } = lotSlice.actions;
 export const selectAllLots = (state) => state.lot.lots;
+export const selectSelectedLot = (state) => state.lot.selectedLot;
 export default lotSlice.reducer;

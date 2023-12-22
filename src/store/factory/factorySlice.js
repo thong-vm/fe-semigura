@@ -4,6 +4,7 @@ import { Factory } from "../../services/api/factory/factoryApi";
 
 const initialState = {
   factorys: undefined,
+  selectedFactory: undefined,
 };
 
 export const fetchFactory = createAsyncThunk(
@@ -31,14 +32,20 @@ const factorySlice = createSlice({
       var { factorys } = action.payload;
       state.factorys = factorys;
     },
+    setSelectedFactory: (state, action) => {
+      var { selectedFactory } = action.payload;
+      state.selectedFactory = selectedFactory;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchFactory.fulfilled, (state, action) => {
       state.status = "succeeded";
       state.factorys = action.payload;
+      state.selectedFactory = state.factorys[0];
     });
   },
 });
-export const { setList } = factorySlice.actions;
+export const { setList, setSelectedFactory } = factorySlice.actions;
 export const selectAllFactorys = (state) => state.factory.factorys;
+export const selectSelectedFactory = (state) => state.factory.selectedFactory;
 export default factorySlice.reducer;

@@ -12,6 +12,7 @@ export default function ComboBox({ label, dataSource, handleOutput }) {
       <label className={classes.comboBoxLabel}>{label} </label>
       <Autocomplete
         value={value}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
         onChange={(event, newValue) => {
           handleOutput(newValue);
           setValue(newValue);

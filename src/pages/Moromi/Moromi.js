@@ -6,10 +6,16 @@ import MoromiGeneral from "./MoromiGeneral/MoromiGeneral";
 import PrepareMoromi from "./PrepareMoromi/PrepareMoromi";
 import React, { useEffect, useState } from "react";
 import ComboBox from "../../components/ComboBox/ComboBox";
-import { fetchLot, selectAllLots } from "../../store/lot/lotSlice";
+import {
+  fetchLot,
+  selectAllLots,
+  selectSelectedLot,
+  setSelectedLot,
+} from "../../store/lot/lotSlice";
 import {
   fetchFactory,
   selectAllFactorys,
+  selectSelectedFactory,
 } from "../../store/factory/factorySlice";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -21,18 +27,22 @@ import {
 } from "../../store/location/locationSlice";
 
 function Moromi() {
+  const selectedFactory = useSelector(selectSelectedFactory);
   const factorys = useSelector(selectAllFactorys)?.map((factory) => {
     return {
       id: factory.id,
       label: factory.name,
     };
   });
-  const lots = useSelector(selectAllLots)?.map((lot) => {
-    return {
-      id: lot.id,
-      label: lot.code,
-    };
-  });
+  const selectedLot = useSelector(selectSelectedLot);
+  const lots = useSelector(selectAllLots)
+    ?.map((lot) => {
+      return {
+        id: lot.id,
+        label: lot.code,
+      };
+    })
+    .filter((lot) => selectedFactory?.lots?.some((l) => l?.id === lot?.id));
   const tanks = useSelector(selectAllTanks)?.map((tank) => {
     return {
       id: tank.id,
@@ -73,8 +83,13 @@ function Moromi() {
       dispatch(fetchTank());
       dispatch(fetchLocation());
     };
-    loader();
-  }, [patchLotId, dispatch]);
+    if (!selectedFactory || !selectedFactory) {
+      loader();
+    }
+    if (!selectedLot && selectedFactory) {
+      dispatch(setSelectedLot({ selectedLot: selectedFactory.lots[0] }));
+    }
+  }, [patchLotId, selectedFactory, selectedLot, dispatch]);
   if (!factorys || !lots || !tanks || !locations) {
     return (
       <div>
