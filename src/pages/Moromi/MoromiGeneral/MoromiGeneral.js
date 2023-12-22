@@ -9,51 +9,48 @@ import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 import ButtonGroupChart from "../../../components/Button/ButtonChartGroup";
 import { useEffect, useState } from "react";
 import { Notify } from "../../../components/Common/Notify";
-import { Batch } from "../../../services/api/batch/batchApi";
 import { useTranslation } from "react-i18next";
 
-function MoromiGeneral({ patchId }) {
-  console.log("data patchId", patchId);
+function MoromiGeneral({ patchLotId }) {
   const { t } = useTranslation("menu");
   const dispatch = useDispatch();
-  const disable = true;
   const data = useSelector(selectAllMoromis);
-  const [newPatchId, setNewPatchId] = useState("");
+  const [newPatchLotId, setNewPatchLotId] = useState("");
   const updateData = ({ id, changes }) => {
     dispatch(updateMoromi({ id, changes }));
   };
   const [msg, setMsg] = useState();
   useEffect(() => {
     const loader = async () => {
-      const { result, error } = await Batch.getOne(patchId);
-      if (error) {
-        setMsg(error);
-      } else {
-        setNewPatchId(patchId);
-        const moromis = result.moromis
-          .filter((x) => parseInt(x.dailyOrder) >= 2)
-          .map((x) => {
-            return {
-              dailyOrder: x.dailyOrder,
-              time: x.time,
-              roomTemperature: x.roomTemperature,
-              productTemperature: x.productTemperature,
-              baume: x.baume,
-              japanSakeLevel: x.japanSakeLevel,
-            };
-          });
-        dispatch(
-          setList({
-            moromis: moromis,
-          })
-        );
-      }
+      setNewPatchLotId(patchLotId);
+      // const { result, error } = await Batch.getOne(patchId);
+      // if (error) {
+      //   setMsg(error);
+      // } else {
+      //   setNewPatchId(patchId);
+      //   const moromis = result.moromis
+      //     .filter((x) => parseInt(x.dailyOrder) >= 2)
+      //     .map((x) => {
+      //       return {
+      //         dailyOrder: x.dailyOrder,
+      //         time: x.time,
+      //         roomTemperature: x.roomTemperature,
+      //         productTemperature: x.productTemperature,
+      //         baume: x.baume,
+      //         japanSakeLevel: x.japanSakeLevel,
+      //       };
+      //     });
+      //   dispatch(
+      //     setList({
+      //       moromis: moromis,
+      //     })
+      //   );
+      // }
     };
-    if (newPatchId !== patchId) {
-      console.log(`Data=load`);
+    if (newPatchLotId !== patchLotId) {
       loader();
     }
-  }, [data, newPatchId, patchId, dispatch]);
+  }, [data, newPatchLotId, patchLotId, dispatch]);
 
   return (
     <>
@@ -68,7 +65,7 @@ function MoromiGeneral({ patchId }) {
               axis={{ x: "Time", y: "t°" }}
               yAxisName={"dailyOrder"}
             />
-            <ButtonGroupChart disableSave={disable}></ButtonGroupChart>
+            <ButtonGroupChart disableSave={true}></ButtonGroupChart>
           </>
         }
       ></CollapseTab>

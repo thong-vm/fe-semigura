@@ -6,7 +6,7 @@ import prepareMoromiReducer from "./moromi/prepareMoromiSlice";
 import arukoruReducer from "./moromi/arukoruSlice";
 import authReducer from "./auth/authSlice";
 import steperReducer from "./steper/steperSlice";
-import batchReducer from "./batch/batchSlice";
+import lotReducer from "./lot/lotSlice";
 import appReducer from "./app/appSlice";
 
 export const store = configureStore({
@@ -19,7 +19,7 @@ export const store = configureStore({
     prepareMoromi: prepareMoromiReducer,
     arukoru: arukoruReducer,
     steper: steperReducer,
-    batch: batchReducer,
+    lot: lotReducer,
   },
 });
 

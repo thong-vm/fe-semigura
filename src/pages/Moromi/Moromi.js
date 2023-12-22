@@ -6,47 +6,46 @@ import MoromiGeneral from "./MoromiGeneral/MoromiGeneral";
 import PrepareMoromi from "./PrepareMoromi/PrepareMoromi";
 import React, { useEffect, useState } from "react";
 import ComboBox from "../../components/ComboBox/ComboBox";
-import { fetchBatch, selectAllBatchs } from "../../store/batch/batchSlice";
-import classes from "./Moromi.module.css";
+import { fetchLot, selectAllLots } from "../../store/lot/lotSlice";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Moromi() {
-  const batchs = useSelector(selectAllBatchs)?.map((x) => {
+  const lots = useSelector(selectAllLots)?.map((lot) => {
     return {
-      id: x.id,
-      label: x.name,
+      id: lot.id,
+      label: lot.code,
     };
   });
   const dispatch = useDispatch();
-  const [patchId, setPatchId] = useState(null);
+  const [patchLotId, setPatchLotId] = useState(null);
 
   const handleSelect = (data) => {
-    setPatchId(data.id);
+    setPatchLotId(data.id);
   };
 
   useEffect(() => {
     const loader = async () => {
-      dispatch(fetchBatch());
+      dispatch(fetchLot());
     };
     loader();
-  }, [patchId, dispatch]);
-
+  }, [patchLotId, dispatch]);
+  if (!lots) {
+    return (
+      <div>
+        <Skeleton height={50} width={250} />
+        <Skeleton count={5} height={500} />
+      </div>
+    );
+  }
   return (
     <>
-      {batchs && (
-        <>
-          <div className={classes.comboBox}>
-            <label>Patch: </label>
-            <ComboBox dataSource={batchs} handleOutput={handleSelect} />
-          </div>
-          <PrepareMoromi />
-
-          <MoromiGeneral patchId={patchId ? patchId : batchs[0].id} />
-
-          <Bmd />
-          <Arukoru />
-          <Ekisu />
-        </>
-      )}
+      <ComboBox label={"Lot"} dataSource={lots} handleOutput={handleSelect} />
+      <PrepareMoromi />
+      <MoromiGeneral patchLotId={patchLotId ? patchLotId : lots[0].id} />
+      <Bmd />
+      <Arukoru />
+      <Ekisu />
     </>
   );
 }

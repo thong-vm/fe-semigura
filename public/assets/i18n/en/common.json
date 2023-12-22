@@ -3,5 +3,5 @@
   "SUCCESS": "Successfully completed !",
   "ERROR": "An error occurred !",
   "WRONG_ACCOUNT_PASSWORD": "Wrong account and password !",
-  "ERROR_GET_ALL_BATCH": "Can not load batch !"
+  "ERROR_GET_ALL_LOT": "ロットをロードできません!"
 }
