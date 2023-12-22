@@ -2,7 +2,7 @@ import Steper from "../../../components/Steper/Steper";
 import classes from "./MoromiImport.module.css";
 import * as STEPS from "../../../constants/steps";
 function MoromiImport() {
-  const steps = STEPS.moromiSteps;
+  const steps = STEPS.steps;
   const handleData = (data) => {
     console.log("data :", data);
   };

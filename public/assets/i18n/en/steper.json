@@ -3,5 +3,8 @@
   "NEXT_BTN": "Next",
   "COMPLETE_STEP_BTN": "Complete Step",
   "FINISH_BTN": "Finish",
-  "RESET_BTN": "Reset"
+  "RESET_BTN": "Reset",
+  "IMPORT_DATA": "Import data (Export import)",
+  "EDIT_DATA": "Edit data",
+  "CONFIRM_DATA": "Confirm data"
 }

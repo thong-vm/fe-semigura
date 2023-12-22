@@ -1,5 +1,5 @@
-export const moromiSteps = [
-  "Import data (Export import)",
-  "Edit data",
-  "Confirm data",
+export const steps = [
+  "IMPORT_DATA",
+  "EDIT_DATA",
+  "CONFIRM_DATA",
 ];

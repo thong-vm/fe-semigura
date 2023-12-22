@@ -5,7 +5,6 @@ import LocalStorage from "../../services/localStorage/localStorage";
 import { AuthLogin } from "../../services/api/auth/authApi";
 import * as LOCAL_STORAGE from "../../constants/localStorage";
 import { setMsg } from "../app/appSlice";
-import { useTranslation } from "react-i18next";
 const parseJwt = (token) => {
   try {
     return JSON.parse(Buffer.from(token.split(".")[1], "base64"));

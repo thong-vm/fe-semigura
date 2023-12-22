@@ -116,7 +116,7 @@ function Steper({ steps, handleData }) {
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
-            <StepButton onClick={handleStep(index)}>{label}</StepButton>
+            <StepButton onClick={handleStep(index)}>{t(label)}</StepButton>
           </Step>
         ))}
       </Stepper>
