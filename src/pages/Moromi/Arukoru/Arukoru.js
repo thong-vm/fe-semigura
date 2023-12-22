@@ -5,8 +5,10 @@ import {
   updateArukoru,
 } from "../../../store/moromi/arukoruSlice";
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
+import { useTranslation } from "react-i18next";
 
 function Arukoru() {
+  const { t } = useTranslation("menu");
   const dispatch = useDispatch();
   const data = useSelector(selectAllArukoru);
   const updateData = ({ id, changes }) => {
@@ -15,7 +17,7 @@ function Arukoru() {
   return (
     <>
       <CollapseTab
-        title="Arukoru"
+        title={t("ARUKORU")}
         content={
           <PageTable
             data={data}
