@@ -7,15 +7,18 @@ import Bmd from "../pages/Moromi/Bmd/Bmd";
 import Arukoru from "../pages/Moromi/Arukoru/Arukoru";
 import Ekisu from "../pages/Moromi/Ekisu/Ekisu";
 import NotFound from "../pages/notFound/notFound";
-import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MoromiImport from "../pages/Moromi/MoromiImport/MoromiImport";
-
+import MonitorIcon from "@mui/icons-material/Monitor";
+import MoveToInboxIcon from "@mui/icons-material/MoveToInbox";
+import SpeedIcon from "@mui/icons-material/Speed";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import LineAxisIcon from "@mui/icons-material/LineAxis";
 export const layout = {
   id: "dashBoard",
   title: "Dashboard",
   path: "/",
-  icon: <HomeIcon />,
+  icon: <SpeedIcon />,
   element: <Dashboard />,
   translateName: "DASHBOARD",
 };
@@ -24,7 +27,7 @@ export const dashBoard = {
   id: "dashBoard",
   title: "Dashboard",
   path: "/dashboard",
-  icon: <HomeIcon />,
+  icon: <SpeedIcon />,
   element: <Dashboard />,
   translateName: "DASHBOARD",
 };
@@ -33,7 +36,7 @@ export const moromi = {
   id: "moromi",
   title: "Moromi",
   path: "/moromi",
-  icon: <QuestionMark />,
+  icon: <MonitorIcon />,
   element: <Moromi />,
   translateName: "MOROMI",
 };
@@ -51,7 +54,7 @@ export const prepareMoromi = {
   id: "prepareMoromi",
   title: "Prepare Moromi",
   path: "/moromi/prepareMoromi",
-  icon: <QuestionMark />,
+  icon: <MoveToInboxIcon />,
   element: <PrepareMoromi />,
   translateName: "PREPARE_MOROMI",
 };
@@ -60,7 +63,7 @@ export const moromiGeneral = {
   id: "moromiGeneral",
   title: "Moromi General",
   path: "/moromi/general",
-  icon: <QuestionMark />,
+  icon: <SummarizeIcon />,
   element: <MoromiGeneral />,
   translateName: "MOROMI_GENERAL",
 };
@@ -69,7 +72,7 @@ export const bmd = {
   id: "bmd",
   title: "BMD",
   path: "/moromi/bmd",
-  icon: <QuestionMark />,
+  icon: <LineAxisIcon />,
   element: <Bmd />,
   translateName: "BMD",
 };
@@ -78,7 +81,7 @@ export const arukoru = {
   id: "arukoru",
   title: "Arukoru",
   path: "/moromi/arukoru",
-  icon: <QuestionMark />,
+  icon: <LineAxisIcon />,
   element: <Arukoru />,
   translateName: "ARUKORU",
 };
@@ -87,7 +90,7 @@ export const ekisu = {
   id: "ekisu",
   title: "Ekisu",
   path: "/moromi/ekisu",
-  icon: <QuestionMark />,
+  icon: <LineAxisIcon />,
   element: <Ekisu />,
   translateName: "EKISU",
 };
