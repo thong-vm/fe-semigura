@@ -52,12 +52,12 @@ function Moromi() {
         <ComboBox
           label={"Factory"}
           dataSource={factorys}
-          handleOutput={(data) => setPatchLotId(data.id)}
+          handleOutput={(data) => setPatchLotId(data?.id)}
         />
         <ComboBox
           label={"Lot"}
           dataSource={lots}
-          handleOutput={(data) => setPatchLotId(data.id)}
+          handleOutput={(data) => setPatchLotId(data?.id)}
         />
       </div>
       <PrepareMoromi />
