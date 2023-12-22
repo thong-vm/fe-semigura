@@ -15,6 +15,10 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import classes from "./Moromi.module.css";
 import { fetchTank, selectAllTanks } from "../../store/tank/tankSlice";
+import {
+  fetchLocation,
+  selectAllLocations,
+} from "../../store/location/locationSlice";
 
 function Moromi() {
   const factorys = useSelector(selectAllFactorys)?.map((factory) => {
@@ -35,6 +39,12 @@ function Moromi() {
       label: tank.code,
     };
   });
+  const locations = useSelector(selectAllLocations)?.map((location) => {
+    return {
+      id: location.id,
+      label: location.name,
+    };
+  });
   const dispatch = useDispatch();
   const [patchLotId, setPatchLotId] = useState(null);
 
@@ -51,19 +61,25 @@ function Moromi() {
       label: "Tank",
       dataSource: tanks,
     },
+    {
+      label: "Location",
+      dataSource: locations,
+    },
   ];
   useEffect(() => {
     const loader = async () => {
       dispatch(fetchFactory());
       dispatch(fetchLot());
       dispatch(fetchTank());
+      dispatch(fetchLocation());
     };
     loader();
   }, [patchLotId, dispatch]);
-  if (!factorys || !lots || !tanks) {
+  if (!factorys || !lots || !tanks || !locations) {
     return (
       <div>
-        <Skeleton height={50} />
+        <Skeleton height={55} />
+        <Skeleton height={55} />
         <Skeleton count={5} height={500} />
       </div>
     );
@@ -73,6 +89,7 @@ function Moromi() {
       <div className={classes.comboBoxGroup}>
         {moromiFilters.map((moromiFilter, key) => (
           <ComboBox
+            key={key}
             label={moromiFilter.label}
             dataSource={moromiFilter.dataSource}
             handleOutput={(data) => setPatchLotId(data?.id)}

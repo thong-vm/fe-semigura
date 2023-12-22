@@ -10,6 +10,7 @@ import appReducer from "./app/appSlice";
 import lotReducer from "./lot/lotSlice";
 import factoryReducer from "./factory/factorySlice";
 import tankReducer from "./tank/tankSlice";
+import locationReducer from "./location/locationSlice";
 
 export const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
     lot: lotReducer,
     factory: factoryReducer,
     tank: tankReducer,
+    location: locationReducer,
   },
 });
 
