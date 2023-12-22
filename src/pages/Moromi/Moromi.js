@@ -14,6 +14,7 @@ import {
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import classes from "./Moromi.module.css";
+import { fetchTank, selectAllTanks } from "../../store/tank/tankSlice";
 
 function Moromi() {
   const factorys = useSelector(selectAllFactorys)?.map((factory) => {
@@ -28,17 +29,38 @@ function Moromi() {
       label: lot.code,
     };
   });
+  const tanks = useSelector(selectAllTanks)?.map((tank) => {
+    return {
+      id: tank.id,
+      label: tank.code,
+    };
+  });
   const dispatch = useDispatch();
   const [patchLotId, setPatchLotId] = useState(null);
 
+  const moromiFilters = [
+    {
+      label: "Factory",
+      dataSource: factorys,
+    },
+    {
+      label: "Lot",
+      dataSource: lots,
+    },
+    {
+      label: "Tank",
+      dataSource: tanks,
+    },
+  ];
   useEffect(() => {
     const loader = async () => {
       dispatch(fetchFactory());
       dispatch(fetchLot());
+      dispatch(fetchTank());
     };
     loader();
   }, [patchLotId, dispatch]);
-  if (!factorys || !lots) {
+  if (!factorys || !lots || !tanks) {
     return (
       <div>
         <Skeleton height={50} />
@@ -49,16 +71,13 @@ function Moromi() {
   return (
     <>
       <div className={classes.comboBoxGroup}>
-        <ComboBox
-          label={"Factory"}
-          dataSource={factorys}
-          handleOutput={(data) => setPatchLotId(data?.id)}
-        />
-        <ComboBox
-          label={"Lot"}
-          dataSource={lots}
-          handleOutput={(data) => setPatchLotId(data?.id)}
-        />
+        {moromiFilters.map((moromiFilter, key) => (
+          <ComboBox
+            label={moromiFilter.label}
+            dataSource={moromiFilter.dataSource}
+            handleOutput={(data) => setPatchLotId(data?.id)}
+          />
+        ))}
       </div>
       <PrepareMoromi />
       <MoromiGeneral patchLotId={patchLotId ? patchLotId : lots[0].id} />

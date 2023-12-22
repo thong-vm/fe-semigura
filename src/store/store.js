@@ -9,6 +9,7 @@ import steperReducer from "./steper/steperSlice";
 import appReducer from "./app/appSlice";
 import lotReducer from "./lot/lotSlice";
 import factoryReducer from "./factory/factorySlice";
+import tankReducer from "./tank/tankSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     steper: steperReducer,
     lot: lotReducer,
     factory: factoryReducer,
+    tank: tankReducer,
   },
 });
 
