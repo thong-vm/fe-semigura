@@ -4,9 +4,10 @@ import Bmd from "./Bmd/Bmd";
 import Ekisu from "./Ekisu/Ekisu";
 import MoromiGeneral from "./MoromiGeneral/MoromiGeneral";
 import PrepareMoromi from "./PrepareMoromi/PrepareMoromi";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ComboBox from "../../components/ComboBox/ComboBox";
 import { fetchBatch, selectAllBatchs } from "../../store/batch/batchSlice";
+import classes from "./Moromi.module.css";
 
 function Moromi() {
   const batchs = useSelector(selectAllBatchs)?.map((x) => {
@@ -16,32 +17,36 @@ function Moromi() {
     };
   });
   const dispatch = useDispatch();
+  const [patchId, setPatchId] = useState(null);
+
+  const handleSelect = (data) => {
+    setPatchId(data.id);
+  };
+
   useEffect(() => {
     const loader = async () => {
       dispatch(fetchBatch());
     };
     loader();
-  }, [dispatch]);
+  }, [patchId, dispatch]);
+
   return (
     <>
-      <div
-        class="row"
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          margin: "5px",
-        }}
-      >
-        <label>Patch: </label>
-        {batchs && <ComboBox dataSource={batchs} />}
-      </div>
+      {batchs && (
+        <>
+          <div className={classes.comboBox}>
+            <label>Patch: </label>
+            <ComboBox dataSource={batchs} handleOutput={handleSelect} />
+          </div>
+          <PrepareMoromi />
 
-      <PrepareMoromi />
-      <MoromiGeneral />
-      <Bmd />
-      <Arukoru />
-      <Ekisu />
+          <MoromiGeneral patchId={patchId ? patchId : batchs[0].id} />
+
+          <Bmd />
+          <Arukoru />
+          <Ekisu />
+        </>
+      )}
     </>
   );
 }

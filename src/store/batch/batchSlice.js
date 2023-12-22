@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Batch } from "../../services/api/batch/batchApi";
+import { setMsg } from "../app/appSlice";
 
 const initialState = {
   batchs: undefined,
@@ -7,9 +8,18 @@ const initialState = {
 
 export const fetchBatch = createAsyncThunk(
   "batchs",
-  async () => {
-    const { result, error } = await Batch.getAll();
-    return !error ? result : console.log("batchs.getAll: ", error);
+  async (value, { rejectWithValue, dispatch }) => {
+    try {
+      const { result, error } =  await Batch.getAll();
+      if (error) {
+        dispatch(setMsg({ msg: "ERROR_GET_ALL_BATCH" }));
+        return rejectWithValue(error);
+      }
+      return result;
+    } catch (error) {
+      dispatch(setMsg({ msg: error.message }));
+      return rejectWithValue(error.message);
+    }
   }
 );
 

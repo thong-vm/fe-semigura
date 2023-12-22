@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import PageTable from "../../../components/PageTable/PageTable";
 import { selectAllEkisus, updateEkisu } from "../../../store/moromi/ekisuSlice";
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
+import { useTranslation } from "react-i18next";
 
 function Ekisu() {
+  const {t} =useTranslation("menu");
   const dispatch = useDispatch();
   const data = useSelector(selectAllEkisus);
   const updateData = ({ id, changes }) => {
@@ -12,7 +14,7 @@ function Ekisu() {
   return (
     <>
       <CollapseTab
-        title="Ekisu"
+        title={t("EKISU")}
         content={
           <PageTable
             data={data}
