@@ -2,7 +2,6 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import classes from "./ComboBox.module.css";
-import Skeleton from "react-loading-skeleton";
 
 export default function ComboBox({ label, dataSource, handleOutput }) {
   const [value, setValue] = React.useState(dataSource[0]);
