@@ -22,7 +22,6 @@ export const fetchLot = createAsyncThunk(
     }
   }
 );
-
 const lotSlice = createSlice({
   name: "lot",
   initialState,
