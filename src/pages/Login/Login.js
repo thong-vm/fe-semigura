@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import Language from "../../components/Language/Language";
 import LocalStorage from "../../services/localStorage/localStorage";
 import * as LOCAL_STORAGE from "../../constants/localStorage";
+import LoginCarousel from "../../components/Carousle/Carousel";
 function Login() {
   const { t } = useTranslation("login_page");
   const ref = useRef(null);
@@ -70,25 +71,30 @@ function Login() {
         <div style={{ color: COLORS.primaryMain }} className={classes.language}>
           <Language />
         </div>
-        <div className={classes.loginPanel}>
-          <div className={classes.containerTitle}>
-            <span
-              style={{ color: COLORS.primaryMain }}
-              className={classes.title}
-            >
-              {t("LOGIN")}
-            </span>
+        <div className={classes.mainPanel}>
+          <div className={classes.loginCarousel}>
+            <LoginCarousel />
           </div>
-          <GeneralForm
-            fields={fields}
-            handleProcess={handleLogin}
-            submitBtn={t("LOGIN_BTN")}
-          />
-          <div className={classes.forgotSignup}>
-            <Link className={classes.forgotSingupLink}>
-              {t("FORGOT_PASSWORD")}
-            </Link>
-            <Link className={classes.forgotSingupLink}>{t("SIGN_UP")}</Link>
+          <div className={classes.loginPanel}>
+            <div className={classes.containerTitle}>
+              <span
+                style={{ color: COLORS.primaryMain }}
+                className={classes.title}
+              >
+                {t("LOGIN")}
+              </span>
+            </div>
+            <GeneralForm
+              fields={fields}
+              handleProcess={handleLogin}
+              submitBtn={t("LOGIN_BTN")}
+            />
+            <div className={classes.forgotSignup}>
+              <Link className={classes.forgotSingupLink}>
+                {t("FORGOT_PASSWORD")}
+              </Link>
+              <Link className={classes.forgotSingupLink}>{t("SIGN_UP")}</Link>
+            </div>
           </div>
         </div>
       </div>

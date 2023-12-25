@@ -18,7 +18,7 @@
   border-radius: 20px;
 }
 .loginPanel {
-  width: 40%;
+  width: 30%;
   max-width: 700px;
   padding: 50px 0px 50px 0px;
   background-color: white;
@@ -50,3 +50,24 @@
 .forgotSingupLink {
   cursor: pointer;
 }
+.mainPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 5rem;
+}
+.loginCarousel {
+  width: 65%;
+  height: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  .loginCarousel {
+    display: none;
+  }
+  .loginPanel {
+    width: 75%;
+  }
+}
+
