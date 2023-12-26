@@ -41,3 +41,13 @@
   margin-top: 1.4rem;
   width: 100%;
 }
+@media screen and (min-width: 993px) and (max-width: 1366px) {
+  .formContainer {
+    position: relative;
+    margin-top: 0.6rem;
+    margin-bottom: 0.2rem;
+  }
+  .containerCheckbox {
+    margin-top: 0.6rem;
+  }
+}

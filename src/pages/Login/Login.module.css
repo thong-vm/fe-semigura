@@ -5,6 +5,8 @@
   align-items: center;
   height: 100vh;
   width: 100%;
+  min-width: 500px;
+  overflow-x: auto;
   position: relative;
   background-color: #f4f5fa;
 }
@@ -42,13 +44,19 @@
 }
 .forgotSignup {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 0.5rem;
   padding: 0rem 2rem 0rem 2rem;
+  font-size: 0.875rem;
 }
 .forgotSingupLink {
   cursor: pointer;
+  text-align: center;
+}
+.forgotSingupLink:first-child {
+  margin-bottom: 0.5rem !important;
 }
 .mainPanel {
   display: flex;
@@ -61,7 +69,11 @@
   width: 65%;
   height: 100%;
 }
-
+@media screen and (min-width: 993px) and (max-width: 1366px) {
+  .loginPanel {
+    padding: 24px 0px 24px 0px;
+  }
+}
 @media screen and (max-width: 992px) {
   .loginCarousel {
     display: none;
