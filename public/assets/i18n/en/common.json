@@ -2,5 +2,6 @@
   "NO_DATA": "No valid data available",
   "SUCCESS": "Successfully completed !",
   "ERROR": "An error occurred !",
-  "WRONG_ACCOUNT_PASSWORD": "Wrong account and password !"
+  "WRONG_ACCOUNT_PASSWORD": "Wrong account and password !",
+  "ERROR_GET_ALL_LOT": "ロットをロードできません!"
 }

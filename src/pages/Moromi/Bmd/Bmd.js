@@ -6,8 +6,10 @@ import {
   updateBmd,
 } from "../../../store/moromi/bmdSlice";
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
+import { useTranslation } from "react-i18next";
 
 function Bmd() {
+  const {t} = useTranslation("menu");
   const dispatch = useDispatch();
   const data = useSelector(selectAllBmd);
   const standardLines = useSelector(selectAllStandardLines);
@@ -18,7 +20,7 @@ function Bmd() {
   return (
     <>
       <CollapseTab
-        title="BMD"
+        title={t ("BMD")}
         content={
           <PageTable
             data={data}

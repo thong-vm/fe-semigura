@@ -7,17 +7,17 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import { ThemeProvider } from "@mui/material/styles";
 import general from "./themes/general";
-import './i18n';
+import "./i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={general}>
-        <App />
-      </ThemeProvider>
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <ThemeProvider theme={general}>
+      <App />
+    </ThemeProvider>
+  </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

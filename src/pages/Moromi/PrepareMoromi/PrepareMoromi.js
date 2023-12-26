@@ -6,8 +6,10 @@ import {
 } from "../../../store/moromi/prepareMoromiSlice";
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 import ButtonGroupChart from "../../../components/Button/ButtonChartGroup";
+import { useTranslation } from "react-i18next";
 
 function PrepareMoromi() {
+  const { t } = useTranslation("menu");
   const dispatch = useDispatch();
   const data = useSelector(selectAllPrepareMoromi);
   const disable = true;
@@ -17,7 +19,7 @@ function PrepareMoromi() {
   return (
     <>
       <CollapseTab
-        title="Prepare Moromi"
+        title={t("PREPARE_MOROMI")}
         content={
           <>
             <PageTable
