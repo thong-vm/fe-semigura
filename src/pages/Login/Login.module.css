@@ -5,6 +5,7 @@
   align-items: center;
   height: 100vh;
   width: 100%;
+  min-width: 500px;
   position: relative;
   background-color: #f4f5fa;
 }
@@ -18,7 +19,7 @@
   border-radius: 20px;
 }
 .loginPanel {
-  width: 40%;
+  width: 30%;
   max-width: 700px;
   padding: 50px 0px 50px 0px;
   background-color: white;
@@ -42,11 +43,41 @@
 }
 .forgotSignup {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   margin-top: 0.5rem;
   padding: 0rem 2rem 0rem 2rem;
+  font-size: 0.875rem;
 }
 .forgotSingupLink {
   cursor: pointer;
 }
+.forgotSingupLink:first-child {
+  margin-bottom: 0.5rem !important;
+}
+.mainPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 5rem;
+}
+.loginCarousel {
+  width: 65%;
+  height: 100%;
+}
+@media screen and (min-width: 993px) and (max-width: 1366px) {
+  .loginPanel {
+    padding: 24px 0px 24px 0px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .loginCarousel {
+    display: none;
+  }
+  .loginPanel {
+    width: 75%;
+  }
+}
+
