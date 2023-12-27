@@ -6,7 +6,6 @@
   height: 100vh;
   width: 100%;
   min-width: 500px;
-  overflow-x: auto;
   position: relative;
   background-color: #f4f5fa;
 }
@@ -46,14 +45,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   margin-top: 0.5rem;
   padding: 0rem 2rem 0rem 2rem;
   font-size: 0.875rem;
 }
 .forgotSingupLink {
   cursor: pointer;
-  text-align: center;
 }
 .forgotSingupLink:first-child {
   margin-bottom: 0.5rem !important;
