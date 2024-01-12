@@ -8,7 +8,7 @@ import {
 import CollapseTab from "../../../components/CollapseTab/CollapseTab";
 import ButtonGroupChart from "../../../components/Button/ButtonChartGroup";
 import { useEffect, useState } from "react";
-import { Notify } from "../../../components/Common/Notify";
+import { Notify } from "../../../components/Notify/Notify";
 import { useTranslation } from "react-i18next";
 
 function MoromiGeneral({ patchLotId }) {
