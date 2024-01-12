@@ -41,7 +41,6 @@ const factorySlice = createSlice({
     builder.addCase(fetchFactory.fulfilled, (state, action) => {
       state.status = "succeeded";
       state.factorys = action.payload;
-      state.selectedFactory = state.factorys[0];
     });
   },
 });

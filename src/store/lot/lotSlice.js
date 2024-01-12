@@ -16,6 +16,7 @@ export const fetchLot = createAsyncThunk(
         dispatch(setMsg({ msg: "ERROR_GET_ALL_LOT" }));
         return rejectWithValue(error);
       }
+
       return result;
     } catch (error) {
       dispatch(setMsg({ msg: error.message }));

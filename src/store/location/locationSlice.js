@@ -4,6 +4,7 @@ import { Location } from "../../services/api/location/locationApi";
 
 const initialState = {
   locations: undefined,
+  selectedLocation: undefined,
 };
 
 export const fetchLocation = createAsyncThunk(
@@ -31,6 +32,10 @@ const locationSlice = createSlice({
       var { locations } = action.payload;
       state.locations = locations;
     },
+    setSelectedLocation: (state, action) => {
+      var { selectedLocation } = action.payload;
+      state.selectedLocation = selectedLocation;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchLocation.fulfilled, (state, action) => {
@@ -39,6 +44,8 @@ const locationSlice = createSlice({
     });
   },
 });
-export const { setList } = locationSlice.actions;
+export const { setList, setSelectedLocation } = locationSlice.actions;
 export const selectAllLocations = (state) => state.location.locations;
+export const selectSelectedLocation = (state) =>
+  state.location.selectedLocation;
 export default locationSlice.reducer;
