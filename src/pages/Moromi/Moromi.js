@@ -122,6 +122,9 @@ function Moromi() {
     if (!selectedFactory && factorys) {
       dispatch(setSelectedFactory({ selectedFactory: factorys[0] }));
     }
+    if (!selectedLocation && locations) {
+      dispatch(setSelectedLocation({ selectedLocation: locations[0] }));
+    }
     console.log("selectedLocation :", selectedLocation);
   }, [
     factorys,
