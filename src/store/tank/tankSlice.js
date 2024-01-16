@@ -4,6 +4,7 @@ import { Tank } from "../../services/api/tank/tankApi";
 
 const initialState = {
   tanks: undefined,
+  selectedTank: undefined,
 };
 
 export const fetchTank = createAsyncThunk(
@@ -31,6 +32,10 @@ const tankSlice = createSlice({
       var { tanks } = action.payload;
       state.tanks = tanks;
     },
+    setSelectedTank: (state, action) => {
+      var { selectedTank } = action.payload;
+      state.selectedTank = selectedTank;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchTank.fulfilled, (state, action) => {
@@ -39,6 +44,7 @@ const tankSlice = createSlice({
     });
   },
 });
-export const { setList } = tankSlice.actions;
+export const { setList, setSelectedTank } = tankSlice.actions;
 export const selectAllTanks = (state) => state.tank.tanks;
+export const selectSelectedTank = (state) => state.tank.selectedTank;
 export default tankSlice.reducer;

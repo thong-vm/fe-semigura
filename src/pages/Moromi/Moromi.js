@@ -21,13 +21,19 @@ import {
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import classes from "./Moromi.module.css";
-import { fetchTank, selectAllTanks } from "../../store/tank/tankSlice";
+import {
+  fetchTank,
+  selectAllTanks,
+  selectSelectedTank,
+  setSelectedTank,
+} from "../../store/tank/tankSlice";
 import {
   fetchLocation,
   selectAllLocations,
   selectSelectedLocation,
   setSelectedLocation,
 } from "../../store/location/locationSlice";
+import { useState } from "react";
 
 function Moromi() {
   const selectedFactory = useSelector(selectSelectedFactory);
@@ -55,7 +61,7 @@ function Moromi() {
       label: location.name,
     };
   });
-
+  const selectedTank = useSelector(selectSelectedTank);
   const tanks = useSelector(selectAllTanks)
     ?.filter((x) => selectedLocation?.id === x.locationId)
     ?.filter((y) =>
@@ -66,22 +72,24 @@ function Moromi() {
         id: tank.id,
         label: tank.code,
       };
-    })
-    .filter((y) => true);
+    });
 
   const dispatch = useDispatch();
 
+  const dispatchActions = {
+    Factory: setSelectedFactory,
+    Lot: setSelectedLot,
+    Location: setSelectedLocation,
+    Tank: setSelectedTank,
+  };
+
   const handleSelectedId = (object, label) => {
-    if (label === "Factory") {
-      dispatch(setSelectedFactory({ selectedFactory: object }));
-    }
-    if (label === "Lot") {
-      dispatch(setSelectedLot({ selectedLot: object }));
-    }
-    if (label === "Location") {
-      dispatch(setSelectedLocation({ selectedLocation: object }));
+    const action = dispatchActions[label];
+    if (action) {
+      dispatch(action({ [`selected${label}`]: object }));
     }
   };
+
   const moromiFilters = [
     {
       label: "Factory",
@@ -101,55 +109,51 @@ function Moromi() {
     {
       label: "Tank",
       dataSource: tanks,
+      valueSelected: selectedTank,
     },
   ];
   useEffect(() => {
-    const loaderFactory = async () => {
-      dispatch(fetchFactory());
-    };
-    const loaderLot = async () => {
-      dispatch(fetchLot());
-    };
-    const loaderTank = async () => {
-      dispatch(fetchTank());
-    };
-    const loaderLocation = async () => {
-      dispatch(fetchLocation());
-    };
-    if (!factorys) {
-      loaderFactory();
-    }
-    if (!lots) {
-      loaderLot();
-    }
-    if (!tanks) {
-      loaderTank();
-    }
-    if (!locations) {
-      loaderLocation();
-    }
-    if (!selectedFactory && factorys) {
+    if (!factorys) dispatch(fetchFactory());
+    if (!lots) dispatch(fetchLot());
+    if (!tanks) dispatch(fetchTank());
+    if (!locations) dispatch(fetchLocation());
+  }, [factorys, lots, tanks, locations, dispatch]);
+
+  useEffect(() => {
+    if (selectedFactory === undefined && factorys?.length > 0) {
       dispatch(setSelectedFactory({ selectedFactory: factorys[0] }));
     }
-
-    if (!selectedLocation && locations) {
+    if (selectedLocation === undefined && locations?.length > 0) {
       dispatch(setSelectedLocation({ selectedLocation: locations[0] }));
     }
-    if (!selectedLot && lots) {
+    if (selectedLot === undefined && lots?.length > 0) {
       dispatch(setSelectedLot({ selectedLot: lots[0] }));
     }
-    console.log("selectedLot :", selectedLot);
+    if (selectedTank === undefined && tanks?.length > 0) {
+      dispatch(setSelectedTank({ selectedTank: tanks[0] }));
+    }
   }, [
     factorys,
     lots,
-    tanks,
     locations,
-    selectedLot,
+    tanks,
     selectedFactory,
     selectedLocation,
+    selectedLot,
+    selectedTank,
     dispatch,
   ]);
-  if (!factorys || !lots || !tanks || !locations) {
+
+  if (
+    !factorys ||
+    !lots ||
+    !tanks ||
+    !locations ||
+    !selectedLot ||
+    !selectedFactory ||
+    !selectedLocation ||
+    !selectedTank
+  ) {
     return (
       <div>
         <Skeleton height={55} />
@@ -161,15 +165,19 @@ function Moromi() {
   return (
     <>
       <div className={classes.comboBoxGroup}>
-        {moromiFilters.map((moromiFilter, key) => (
-          <ComboBox
-            key={key}
-            label={moromiFilter.label}
-            dataSource={moromiFilter.dataSource}
-            valueSelected={moromiFilter.valueSelected}
-            handleOutput={(data) => handleSelectedId(data, moromiFilter.label)}
-          />
-        ))}
+        {moromiFilters.map((moromiFilter, key) => {
+          return (
+            <ComboBox
+              key={key}
+              label={moromiFilter.label}
+              dataSource={moromiFilter.dataSource}
+              valueSelected={moromiFilter.valueSelected}
+              handleOutput={(data) =>
+                handleSelectedId(data, moromiFilter.label)
+              }
+            />
+          );
+        })}
       </div>
       <PrepareMoromi />
       <MoromiGeneral patchLotId={selectedLot ? selectedLot.id : lots[0]?.id} />

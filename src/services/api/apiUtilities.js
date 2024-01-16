@@ -51,7 +51,6 @@ export class ApiUtilities {
       url: this.url,
       headers: this.headers(),
     };
-    console.log("📨 Sending to server request :", config);
     return await requestApi(config);
   }
 
@@ -62,7 +61,6 @@ export class ApiUtilities {
       url: `${this.url}/${id}`,
       headers: this.headers(),
     };
-    console.log("📨 Sending to server request :", config);
     return await requestApi(config);
   }
 
@@ -81,7 +79,6 @@ export class ApiUtilities {
       headers: this.headers(),
       data: JSON.stringify(obj),
     };
-    console.log("📨 Sending to server request :", config);
     return await requestApi(config);
   }
 
@@ -98,7 +95,6 @@ export class ApiUtilities {
       headers: this.headers(),
       data: JSON.stringify(obj),
     };
-    console.log("📨 Sending to server request :", config);
     return await requestApi(config);
   }
 
@@ -115,7 +111,6 @@ export class ApiUtilities {
       url: this.url + `/${id}`,
       headers: this.headers(),
     };
-    console.log("📨 Sending to server request :", config);
     return await requestApi(config);
   }
 

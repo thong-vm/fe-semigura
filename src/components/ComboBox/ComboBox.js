@@ -10,14 +10,18 @@ export default function ComboBox({
   handleOutput,
   valueSelected,
 }) {
-  const [value, setValue] = useState(valueSelected);
-  const [inputValue, setInputValue] = useState("");
+  const [value, setValue] = useState(valueSelected || dataSource[0]);
+  const [inputValue, setInputValue] = useState(
+    valueSelected?.label || dataSource[0]?.label
+  );
   return (
     <div className={classes.comboBox}>
       <label className={classes.comboBoxLabel}>{label} </label>
       <Autocomplete
         value={value}
-        isOptionEqualToValue={(option, value) => option.id === value.id}
+        isOptionEqualToValue={(option, value) => {
+          return option.id === value.id;
+        }}
         onChange={(event, newValue) => {
           handleOutput(newValue);
           setValue(newValue);
