@@ -33,7 +33,6 @@ import {
   selectSelectedLocation,
   setSelectedLocation,
 } from "../../store/location/locationSlice";
-import { useState } from "react";
 
 function Moromi() {
   const selectedFactory = useSelector(selectSelectedFactory);
@@ -144,16 +143,7 @@ function Moromi() {
     dispatch,
   ]);
 
-  if (
-    !factorys ||
-    !lots ||
-    !tanks ||
-    !locations ||
-    !selectedLot ||
-    !selectedFactory ||
-    !selectedLocation ||
-    !selectedTank
-  ) {
+  if (!factorys || !lots || !tanks || !locations) {
     return (
       <div>
         <Skeleton height={55} />
@@ -169,9 +159,9 @@ function Moromi() {
           return (
             <ComboBox
               key={key}
-              label={moromiFilter.label}
-              dataSource={moromiFilter.dataSource}
-              valueSelected={moromiFilter.valueSelected}
+              label={moromiFilter?.label}
+              dataSource={moromiFilter?.dataSource}
+              valueSelected={moromiFilter?.valueSelected}
               handleOutput={(data) =>
                 handleSelectedId(data, moromiFilter.label)
               }
