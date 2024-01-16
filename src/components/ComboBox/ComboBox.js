@@ -4,8 +4,13 @@ import Autocomplete from "@mui/material/Autocomplete";
 import classes from "./ComboBox.module.css";
 import { useState } from "react";
 
-export default function ComboBox({ label, dataSource, handleOutput }) {
-  const [value, setValue] = useState(dataSource[0]);
+export default function ComboBox({
+  label,
+  dataSource,
+  handleOutput,
+  valueSelected,
+}) {
+  const [value, setValue] = useState(valueSelected);
   const [inputValue, setInputValue] = useState("");
   return (
     <div className={classes.comboBox}>

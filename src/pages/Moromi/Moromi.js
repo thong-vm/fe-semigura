@@ -45,6 +45,7 @@ function Moromi() {
       return {
         id: lot.id,
         label: lot.code,
+        lotContainers: lot.lotContainers,
       };
     });
   const selectedLocation = useSelector(selectSelectedLocation);
@@ -54,14 +55,19 @@ function Moromi() {
       label: location.name,
     };
   });
+
   const tanks = useSelector(selectAllTanks)
     ?.filter((x) => selectedLocation?.id === x.locationId)
+    ?.filter((y) =>
+      selectedLot?.lotContainers?.some((k) => k.containerId === y.id)
+    )
     .map((tank) => {
       return {
         id: tank.id,
         label: tank.code,
       };
-    });
+    })
+    .filter((y) => true);
 
   const dispatch = useDispatch();
 
@@ -80,14 +86,17 @@ function Moromi() {
     {
       label: "Factory",
       dataSource: factorys,
+      valueSelected: selectedFactory,
     },
     {
       label: "Location",
       dataSource: locations,
+      valueSelected: selectedLocation,
     },
     {
       label: "Lot",
       dataSource: lots,
+      valueSelected: selectedLot,
     },
     {
       label: "Tank",
@@ -122,10 +131,14 @@ function Moromi() {
     if (!selectedFactory && factorys) {
       dispatch(setSelectedFactory({ selectedFactory: factorys[0] }));
     }
+
     if (!selectedLocation && locations) {
       dispatch(setSelectedLocation({ selectedLocation: locations[0] }));
     }
-    console.log("selectedLocation :", selectedLocation);
+    if (!selectedLot && lots) {
+      dispatch(setSelectedLot({ selectedLot: lots[0] }));
+    }
+    console.log("selectedLot :", selectedLot);
   }, [
     factorys,
     lots,
@@ -153,6 +166,7 @@ function Moromi() {
             key={key}
             label={moromiFilter.label}
             dataSource={moromiFilter.dataSource}
+            valueSelected={moromiFilter.valueSelected}
             handleOutput={(data) => handleSelectedId(data, moromiFilter.label)}
           />
         ))}
